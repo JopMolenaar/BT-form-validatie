@@ -15,3 +15,4 @@ function displayFollowUpQuestion() {
 }
 
 // TODO scriptje om dingen te showen als progressive enhancement voor als :has() niet werkt
+// TODO scriptje zodat de datum in de toekomst bij datum velden niet gekozen kan worden

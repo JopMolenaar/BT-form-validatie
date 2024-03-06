@@ -25,25 +25,25 @@
             </nav>
             <form action="#" method="post">
                 <!-- TODO integrate: patterns, titles, p's with errors of data-error -->
-                <section id="eersteSection" class="vraag-1"> <!-- TODO kan ook een section zijn -->
+                <section id="eersteSection" class="vraag-1">
                     <h2>Vul hier de gegevens in van de overledene.</h2>
                     <fieldset data-vraag="1a">
                         <legend>1a Vul hier de gegevens in van de overledene.</legend>
                         <label>Voorletter(s)
-                            <input type="text" placeholder="" required />
+                            <input type="text" name="Voorletter-overledene" placeholder="" required />
                         </label>
                         <label>tussen-voegsel(s)
-                            <input type="text" placeholder="" />
+                            <input type="text" name="tussen-voegsel-overledene" placeholder="" />
                         </label>
                         <label>achternaam
-                            <input type="text" placeholder="" required />
+                            <input type="text" name="achternaam-overledene" placeholder="" required />
                         </label>
                         <label data-error-message="Je BSN moet 9 nummers bevatten">Burgerservicenummer overledene
                             <!-- TODO vraagje dat type text op een nummer input ook mag want anders doet pattern het niet -->
-                            <input type="text" pattern="[0-9]{9}" title="Vul hier je BSN nummer in" placeholder="" required />
+                            <input type="text" name="burgerservicenummer-overledene" pattern="[0-9]{9}" title="Vul hier je BSN nummer in" placeholder="" required />
                         </label>
                         <label>Overlijdensdatum
-                            <input type="date" placeholder="" required>
+                            <input type="date" name="overlijdensdatum-overledene" placeholder="" required />
                         </label>
                     </fieldset>
                     <fieldset data-vraag="1b">
@@ -74,11 +74,9 @@
                                     <input type="radio" name="notariële-akte" value="Nee" />
                                     Nee
                                 </label>
-                                <!-- <div class="vervolg-1b-2"> -->
-                                    <label class="vervolg-1b-2">Voeg hier een kopie van de akte toe
-                                        <input type="file">
-                                    </label>
-                                <!-- </div> -->
+                                <label class="vervolg-1b-2">Voeg hier een kopie van de akte toe
+                                    <input type="file">
+                                </label>
                             </fieldset>
                             <fieldset>
                                 <legend>Hadden de overledene en diens partner een finaal
@@ -111,31 +109,27 @@
                             <input type="radio" name="kinderen" value="Nee" /> Nee
                             <span>. Ga verder met vraag 1d.</span>
                         </label>
-                        <!-- <div class="vervolg-1c"> -->
-                            <fieldset class="vervolg-1c">
-                                <legend>Is 1 van deze kinderen eerder overleden dan de
-                                    overledene voor wie u nu aangifte doet?
-                                </legend>
-                                <label data-ga-verder-met="vervolg-1c-2">
-                                    <input type="radio" name="eerder-overleden-dan" value="Ja" /> Ja
-                                </label>
-                                <label>
-                                    <input type="radio" name="eerder-overleden-dan" value="Nee" /> Nee
-                                    <span>. Ga verder met vraag 1d.</span>
-                                </label>
-                            </fieldset>
-                            <!-- <div class="vervolg-1c-2"> -->
-                                <fieldset class="vervolg-1c-2">
-                                    <legend>Had dit overleden kind zelf kinderen?</legend>
-                                    <label>
-                                        <input type="radio" name="kind-zelf-kinderen" value="Ja" /> Ja
-                                    </label>
-                                    <label>
-                                        <input type="radio" name="kind-zelf-kinderen" value="Nee" /> Nee
-                                    </label>
-                                </fieldset>
-                            <!-- </div> -->
-                        <!-- </div> -->
+                        <fieldset class="vervolg-1c">
+                            <legend>Is 1 van deze kinderen eerder overleden dan de
+                                overledene voor wie u nu aangifte doet?
+                            </legend>
+                            <label data-ga-verder-met="vervolg-1c-2">
+                                <input type="radio" name="eerder-overleden-dan" value="Ja" /> Ja
+                            </label>
+                            <label>
+                                <input type="radio" name="eerder-overleden-dan" value="Nee" /> Nee
+                                <span>. Ga verder met vraag 1d.</span>
+                            </label>
+                        </fieldset>
+                        <fieldset class="vervolg-1c-2">
+                            <legend>Had dit overleden kind zelf kinderen?</legend>
+                            <label>
+                                <input type="radio" name="kind-zelf-kinderen" value="Ja" /> Ja
+                            </label>
+                            <label>
+                                <input type="radio" name="kind-zelf-kinderen" value="Nee" /> Nee
+                            </label>
+                        </fieldset>
                     </fieldset>
                     <fieldset data-vraag="1d">
                         <legend>1d Had de overledene een testament?</legend>
@@ -150,26 +144,27 @@
                         </label>
                         <fieldset class="vervolg-1d">
                             <legend>Gegevens van de notaris</legend>
-                            <label>Protocolnummer notaris 
-                                <input type="number">
+                            <label data-error-message="Het protocolnummer moet 9 nummers bevatten">Protocolnummer notaris 
+                                <!-- TODO Weer een nummer field met type text -->
+                                <input type="text" name="protocolnummer-notaris" pattern="[0-9]{9}" placeholder="">
                             </label>
                             <div>
                                 <label>Voorletter(s)
-                                    <input type="text" />
+                                    <input type="text" name="voorletter-notaris" placeholder="" />
                                 </label>
                                 <label>tussen-voegsel(s)
-                                    <input type="text" />
+                                    <input type="text" name="tussen-voegsel-notaris" placeholder=""/>
                                 </label>
                                 <label>achternaam
-                                    <input type="text" />
+                                    <input type="text" name="achternaam-notaris" placeholder=""/>
                                 </label>
                             </div>
                             <label>Vestigingsplaats 
-                                <input type="text">
+                                <input type="text" name="vestigingsplaats-notaris" placeholder=""/>
                             </label>
                             <label>
                                 Datum van het testament of van de laatste wijziging
-                                <input type="date">
+                                <input type="date" name="datum-testament"placeholder=""/>
                             </label>
                         </fieldset>
                     </fieldset>
@@ -206,6 +201,7 @@
                 <!-- Andere vragen toevoegen -->
                 <button type="submit" value="Opslaan">Opslaan</button>
                 <button type="submit" value="Verstuur">Verstuur</button>
+                <button disabled>Verstuur</button>
             </form>
         </main>
         <footer></footer>

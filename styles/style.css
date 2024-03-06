@@ -2,10 +2,16 @@
     --supports-selector-has: 0;
     
     @supports selector(:has(*)) {
-      --supports-selector-has: 1;
+        --supports-selector-has: 1;
+
+        .vervolg-1b, .vervolg-1b-2, .vervolg-1c, .vervolg-1c-2, .vervolg-1d, label > span {
+            display: none;
+        }
     }
 }
-
+button:disabled {
+    display: none;
+}
 label {
     display: block;
     width: max-content;
@@ -55,41 +61,35 @@ html:has(#derdeSection:target){
     }
 }
 
-/* If :has() is supported */
-@supports selector(:has(*)) {
-    .vervolg-1b, .vervolg-1b-2, .vervolg-1c, .vervolg-1c-2, .vervolg-1d, label > span {
-        display: none;
-        /* opacity: 0.4; */
-    }
-    /* 1b */
-    fieldset[data-vraag="1b"]:has(label[data-ga-verder-met="vervolg-1b"] input:checked) .vervolg-1b, 
-    /* 1b-2 */
-    fieldset[data-vraag="1b"]:has(label[data-ga-verder-met="vervolg-1b-2"] input:checked) .vervolg-1b-2,
-    /* 1c */
-    fieldset[data-vraag="1c"]:has(label[data-ga-verder-met="vervolg-1c"] input:checked) .vervolg-1c, 
-    /* 1c-2 */
-    fieldset[data-vraag="1c"]:has(label[data-ga-verder-met="vervolg-1c-2"] input:checked) .vervolg-1c-2,
-    /* 1d */
-    fieldset[data-vraag="1d"]:has(label[data-ga-verder-met="vervolg-1d"] input:checked) .vervolg-1d
-    {
-        display: block;
-        /* opacity: 1; */
-        animation: fade-in 1.5s linear;
-    }
-    @keyframes fade-in {
-        0% {
-            opacity: 0;
-            background-color: #8fcae7a5;
-        }
-        20% {
 
-            opacity: 1;
-        }
-        40% {
-            background-color: #8fcae7a5;
-        }
-        100% {
-            background-color: white;
-        }
+/* 1b */
+fieldset[data-vraag="1b"]:has(label[data-ga-verder-met="vervolg-1b"] input:checked) .vervolg-1b, 
+/* 1b-2 */
+fieldset[data-vraag="1b"]:has(label[data-ga-verder-met="vervolg-1b-2"] input:checked) .vervolg-1b-2,
+/* 1c */
+fieldset[data-vraag="1c"]:has(label[data-ga-verder-met="vervolg-1c"] input:checked) .vervolg-1c, 
+/* 1c-2 */
+fieldset[data-vraag="1c"]:has(label[data-ga-verder-met="vervolg-1c-2"] input:checked) .vervolg-1c-2,
+/* 1d */
+fieldset[data-vraag="1d"]:has(label[data-ga-verder-met="vervolg-1d"] input:checked) .vervolg-1d
+{
+    display: block;
+    /* opacity: 1; */
+    animation: fade-in 1.5s linear;
+}
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+        background-color: #8fcae7a5;
+    }
+    20% {
+
+        opacity: 1;
+    }
+    40% {
+        background-color: #8fcae7a5;
+    }
+    100% {
+        background-color: white;
     }
 }

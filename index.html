@@ -30,19 +30,20 @@
                     <fieldset data-vraag="1a">
                         <legend>1a Vul hier de gegevens in van de overledene.</legend>
                         <label>Voorletter(s)
-                            <input type="text" required />
+                            <input type="text" placeholder="" required />
                         </label>
                         <label>tussen-voegsel(s)
-                            <input type="text" />
+                            <input type="text" placeholder="" />
                         </label>
                         <label>achternaam
-                            <input type="text" required />
+                            <input type="text" placeholder="" required />
                         </label>
-                        <label>Burgerservicenummer overledene
-                            <input type="number" pattern="[0-9]{*}" title="Vul hier je BSN nummer in" data-error="Je BSN moet 9 nummers bevatten" required />
+                        <label data-error-message="Je BSN moet 9 nummers bevatten">Burgerservicenummer overledene
+                            <!-- TODO vraagje dat type text op een nummer input ook mag want anders doet pattern het niet -->
+                            <input type="text" pattern="[0-9]{9}" title="Vul hier je BSN nummer in" placeholder="" required />
                         </label>
                         <label>Overlijdensdatum
-                            <input type="date" required>
+                            <input type="date" placeholder="" required>
                         </label>
                     </fieldset>
                     <fieldset data-vraag="1b">
@@ -203,7 +204,8 @@
                     </div>
                 </section>
                 <!-- Andere vragen toevoegen -->
-                <button type="submit">Verstuur</button>
+                <button type="submit" value="Opslaan">Opslaan</button>
+                <button type="submit" value="Verstuur">Verstuur</button>
             </form>
         </main>
         <footer></footer>

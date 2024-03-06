@@ -1,0 +1,40 @@
+/* :user-invalid, :user-valid, label input:valid:not(:focus):before { content: attr(data-error-message)} "before werkt niet op input op firefox dus moet op de label"*/
+
+/* body main form fieldset:has(input:invalid) {
+    border: green solid 5px;
+} */
+/* 
+:user-valid {
+    background-color: green;
+} */
+
+/* body main form fieldset:valid{
+    background-color: green;
+} */
+
+/* html:has(fieldset[data-vraag="1c"] > label > input[type="radio"]:checked) fieldset[data-vraag="1c"] {
+    background-color: green;
+} */
+
+/* html:has(section:nth-child(1) fieldset:valid):has(fieldset[data-vraag="1c"] > label > input[type="radio"]:checked) section:nth-child(1) {
+    background-color: rgb(20, 163, 92);
+} */
+html:has(main form > section#eersteSection > fieldset:invalid){
+    & main nav a.eersteSection {
+        background-color: rgb(255, 149, 0);
+    }
+}
+html:has(main form > section#tweedeSection > fieldset:invalid){
+    & main nav a.tweedeSection {
+        background-color: rgb(255, 149, 0);
+    }
+}
+html:has(main form > section#derdeSection > fieldset:invalid){
+    & main nav a.derdeSection {
+        background-color: rgb(255, 149, 0);
+    }
+}
+
+/* label input:valid:not(:focus):before {
+    content: attr(data-error-message);
+} */

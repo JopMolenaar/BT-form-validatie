@@ -1,15 +1,14 @@
-/* :user-invalid, :user-valid, label input:valid:not(:focus):before { content: attr(data-error-message)} "before werkt niet op input op firefox dus moet op de label"*/
-
-/* body {
-    margin: 0;
-    padding: 0;
-} */
+:root {
+    --supports-selector-has: 0;
+    
+    @supports selector(:has(*)) {
+      --supports-selector-has: 1;
+    }
+}
 
 label {
     display: block;
-}
-section {
-    border: black solid 1px;
+    width: max-content;
 }
 fieldset {
    border: none;
@@ -18,13 +17,37 @@ fieldset {
    margin-bottom: 0.5em;
 }
 
+/* Going through the pages */
+section:not(:nth-child(1)) {
+    display: none;
+}
+form:has(#tweedeSection:target){
+    & #tweedeSection{
+        display: block;
+    }
+    & #eersteSection{
+        display: none;
+    }
+}
+form:has(#derdeSection:target){
+    & #derdeSection{
+        display: block;
+    }
+    & #eersteSection{
+        display: none;
+    }
+}
+
 /* If :has() is supported */
 @supports selector(:has(*)) {
-    .vervolg-1b, .vervolg-1c, .vervolg-1c-2, .vervolg-1d, label > span {
+    .vervolg-1b, .vervolg-1b-2, .vervolg-1c, .vervolg-1c-2, .vervolg-1d, label > span {
         display: none;
+        /* opacity: 0.4; */
     }
     /* 1b */
     fieldset[data-vraag="1b"]:has(label[data-ga-verder-met="vervolg-1b"] input:checked) .vervolg-1b, 
+    /* 1b-2 */
+    fieldset[data-vraag="1b"]:has(label[data-ga-verder-met="vervolg-1b-2"] input:checked) .vervolg-1b-2,
     /* 1c */
     fieldset[data-vraag="1c"]:has(label[data-ga-verder-met="vervolg-1c"] input:checked) .vervolg-1c, 
     /* 1c-2 */
@@ -33,5 +56,22 @@ fieldset {
     fieldset[data-vraag="1d"]:has(label[data-ga-verder-met="vervolg-1d"] input:checked) .vervolg-1d
     {
         display: block;
+        /* opacity: 1; */
+        animation: fade-in 1.5s linear;
+    }
+    @keyframes fade-in {
+        0% {
+            opacity: 0;
+            background-color: #8fcae7a5;
+        }
+        20% {
+            opacity: 1;
+        }
+        40% {
+            background-color: #8fcae7a5;
+        }
+        100% {
+            background-color: white;
+        }
     }
 }

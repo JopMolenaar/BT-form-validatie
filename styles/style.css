@@ -21,20 +21,37 @@ fieldset {
 section:not(:nth-child(1)) {
     display: none;
 }
-form:has(#tweedeSection:target){
+html:has(#eersteSection:target){
+    & #eersteSection{
+        display: block;
+    }
+    & main nav a:nth-child(1) {
+        background-color: blue;
+        scale: 1.3;
+    }
+}
+html:has(#tweedeSection:target){
     & #tweedeSection{
         display: block;
     }
     & #eersteSection{
         display: none;
     }
+    & main nav a:nth-child(2) {
+        background-color: blue;
+        scale: 1.3;
+    }
 }
-form:has(#derdeSection:target){
+html:has(#derdeSection:target){
     & #derdeSection{
         display: block;
     }
     & #eersteSection{
         display: none;
+    }
+    & main nav a:nth-child(3) {
+        background-color: blue;
+        scale: 1.3;
     }
 }
 
@@ -65,6 +82,7 @@ form:has(#derdeSection:target){
             background-color: #8fcae7a5;
         }
         20% {
+
             opacity: 1;
         }
         40% {

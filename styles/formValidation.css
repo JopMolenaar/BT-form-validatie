@@ -19,22 +19,28 @@
 /* html:has(section:nth-child(1) fieldset:valid):has(fieldset[data-vraag="1c"] > label > input[type="radio"]:checked) section:nth-child(1) {
     background-color: rgb(20, 163, 92);
 } */
-html:has(main form > section#eersteSection > fieldset:invalid){
-    & main nav a.eersteSection {
+html:has(main form > section#eersteSection:not(:target) > fieldset:invalid){
+    & main nav a:nth-child(1) {
         background-color: rgb(255, 149, 0);
+        /* background-color: #8fcae7; */
     }
 }
-html:has(main form > section#tweedeSection > fieldset:invalid){
-    & main nav a.tweedeSection {
+html:has(main form > section#tweedeSection:not(:target) > fieldset:invalid){
+    & main nav a:nth-child(2) {
         background-color: rgb(255, 149, 0);
+        /* background-color: #8fcae7; */
     }
 }
-html:has(main form > section#derdeSection > fieldset:invalid){
-    & main nav a.derdeSection {
+html:has(main form > section#derdeSection:not(:target) > fieldset:invalid){
+    & main nav a:nth-child(3) {
         background-color: rgb(255, 149, 0);
+        /* background-color: #8fcae7; */
     }
 }
 
 /* label input:valid:not(:focus):before {
     content: attr(data-error-message);
 } */
+
+
+/* TODO input validation on user input */

@@ -36,7 +36,8 @@ main nav {
     background: linear-gradient(to top, white, white 40%,  #8fcae7 40%, #8fcae7 60%, white 60%, white 100%);
 }
 main nav a {
-    background-color: #8fcae7;
+    transition: 200ms;
+    background-color: green;
     border-radius: 50%;
     height: 1em;
     aspect-ratio: 1;

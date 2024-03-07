@@ -1,4 +1,6 @@
 :root {
+    --color-dark-blue: rgb(24, 24, 180);
+    --color-fade-blue: #8fcae7a5;
     --supports-selector-has: 0;
     
     @supports selector(:has(*)) {
@@ -47,7 +49,7 @@ html:has(#eersteSection:target){
         display: block;
     }
     & main nav a:nth-child(1) {
-        background-color: blue;
+        background-color: var(--color-dark-blue);
         scale: 1.3;
     }
 }
@@ -59,7 +61,7 @@ html:has(#tweedeSection:target){
         display: none;
     }
     & main nav a:nth-child(2) {
-        background-color: blue;
+        background-color: var(--color-dark-blue);
         scale: 1.3;
     }
 }
@@ -71,7 +73,7 @@ html:has(#derdeSection:target){
         display: none;
     }
     & main nav a:nth-child(3) {
-        background-color: blue;
+        background-color: var(--color-dark-blue);
         scale: 1.3;
     }
 }
@@ -94,17 +96,14 @@ fieldset[data-vraag="1d"]:has(label[data-ga-verder-met="vervolg-1d"] input:check
 @keyframes fade-in {
     0% {
         opacity: 0;
-        background-color: #8fcae7a5;
+        background-color: var(--color-fade-blue);
     }
     20% {
 
         opacity: 1;
     }
     40% {
-        background-color: #8fcae7a5;
-    }
-    100% {
-        background-color: white;
+        background-color: var(--color-fade-blue);
     }
 }
 
@@ -122,7 +121,7 @@ main form > section > div a {
     width: fit-content;
     text-decoration: none;
     padding: 0.3rem;
-    background-color: blue;
+    background-color: var(--color-dark-blue);
     color: white;
     border-radius: 5px;
 }

@@ -2,14 +2,6 @@ const rootStyles = getComputedStyle(document.documentElement);
 const supportsSelectorWhere =
     rootStyles.getPropertyValue("--supports-selector-has").trim() == "1";
 
-const hideTheseElements = [
-    ".vervolg-1b",
-    ".vervolg-1b-2",
-    ".vervolg-1c",
-    ".vervolg-1c-2",
-    ".vervolg-1d",
-    "label > span",
-];
 const inputsWithVervolg = [
     "vervolg-1b",
     "vervolg-1b-2",
@@ -19,7 +11,7 @@ const inputsWithVervolg = [
 ];
 
 console.log(
-    "falback js function when :has() isn's supported runs = ",
+    "falback js function when :has() isn't supported runs = ",
     !supportsSelectorWhere
 ); // boolean -> true if supported
 
@@ -32,7 +24,6 @@ if (!supportsSelectorWhere) {
 
 // scriptje om dingen te showen op bepaalde clicks als progressive enhancement voor als :has() niet werkt
 function displayFollowUpQuestion() {
-    console.log("displayFollowUpQuestion");
     // Dont show the spans
     const allSpans = document.querySelectorAll("label > span");
     allSpans.forEach((span) => {
@@ -66,7 +57,6 @@ function displayFollowUpQuestion() {
 
 // scriptje om error message te showen als progressive enhancement voor als :has() niet werkt
 // scriptje om de links een kleur te geven als een fieldset invalid is of valid is of een error heeft
-
 function colorLinkNav(sectionId) {
     if (sectionId === undefined) {
         sectionId = window.location.hash;
@@ -89,6 +79,7 @@ function colorLinkNav(sectionId) {
     });
 }
 
+// check if section with the fieldsets are valid
 function checkIfSectionsAreValid(link) {
     let currentUrl = link.href;
     let hashIndex = currentUrl.indexOf("#");
@@ -119,6 +110,7 @@ function checkIfSectionsAreValid(link) {
     });
 }
 
+// Display the error message from the label if input is user-invalid
 function displayErrorMessage() {
     const everySection = document.querySelectorAll("main form section");
     everySection.forEach((section) => {
@@ -139,6 +131,7 @@ function displayErrorMessage() {
     });
 }
 
+// Run the functions above when a section is target
 function runFunctionWhenTargeted() {
     const directionButtons = document.querySelectorAll(
         "main form > section > div > a"
@@ -159,20 +152,5 @@ function runFunctionWhenTargeted() {
             let hashAndNext = currentUrl.substring(hashIndex);
             colorLinkNav(hashAndNext);
         });
-    });
-    // scriptje zodat de datum in de toekomst bij datum velden niet gekozen kan worden
-    const inputDisabledFutures = [
-        "input[name=overlijdensdatum-overledene]",
-        "input[name=datum-testament]",
-    ];
-    inputDisabledFutures.forEach((input) => {
-        const dynInput = document.querySelector(input);
-        let today = new Date();
-        const dd = String(today.getDate()).padStart(2, "0");
-        const mm = String(today.getMonth() + 1).padStart(2, "0"); // January is 0!
-        const yyyy = today.getFullYear();
-        today = yyyy + "-" + mm + "-" + dd;
-        // Set the max attribute of the date input to today's date
-        dynInput.max = today;
     });
 }

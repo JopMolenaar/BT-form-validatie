@@ -117,7 +117,9 @@ fieldset[data-vraag="1d"]:has(label[data-ga-verder-met="vervolg-1d"] input:check
     }
 }
 
-
+main form section {
+    position: relative;
+}
 main form > section > div {
     width: 100%;
     display: flex;
@@ -134,4 +136,46 @@ main form > section > div a {
     background-color: var(--color-dark-blue);
     color: white;
     border-radius: 5px;
+}
+main form section legend, main form section p {
+    max-width: 40em;
+}
+
+main form section > .infoLink {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+}
+main form section > .infoButton {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    height: 2rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    font-size: 1.3em;
+    transition: 200ms;
+    display: none;
+}
+main form section > .infoButton:hover {
+    scale: 1.1;
+}
+main form section > .infoButton:focus {
+    scale: 1.1;
+    border-color: blue;
+    animation: bounce 2s linear infinite;
+}
+@keyframes bounce {
+    30% {
+        scale: 1.1;
+    }
+    40% {
+        scale: 1.3;
+    }
+    60% {
+        scale: 1.3;
+    }
+    70% {
+        scale: 1.1;
+    }
 }

@@ -6,7 +6,11 @@
     @supports selector(:has(*)) {
         --supports-selector-has: 1;
 
-        .vervolg-1b, .vervolg-1b-2, .vervolg-1c, .vervolg-1c-2, .vervolg-1d, label > span {
+        .vervolg-1b, .vervolg-1b-2, .vervolg-1c, .vervolg-1c-2, .vervolg-1d{
+            padding-top: 1em;
+            display: none;
+        }
+        label > span {
             display: none;
         }
     }
@@ -33,11 +37,17 @@ input[type="radio"] {
     height: 1.5em;
     aspect-ratio: 1;
 }
+input {
+    width: max-content;
+}
 fieldset {
    border: none;
    padding: 0;
    padding-top: 0.5rem;
    margin-bottom: 0.5em;
+}
+fieldset legend span {
+    font-weight: 700;
 }
 
 /* Going through the pages */

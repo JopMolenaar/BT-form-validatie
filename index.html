@@ -36,11 +36,10 @@
                             <input type="text" name="tussen-voegsel-overledene" placeholder="" />
                         </label>
                         <label>achternaam
-                            <input type="text" name="achternaam-overledene" placeholder="" required />
+                            <input type="text" name="achternaam-overledene" placeholder="" />
                         </label>
                         <label data-error-message="Je BSN moet 9 nummers bevatten">Burgerservicenummer overledene
-                            <!-- TODO vraagje dat type text op een nummer input ook mag want anders doet pattern het niet -->
-                            <input type="text" name="burgerservicenummer-overledene" pattern="[0-9]{9}" title="Vul hier je BSN nummer in" placeholder="" required />
+                            <input type="text" name="burgerservicenummer-overledene" inputmode="numeric" pattern="[0-9]{9}" title="Vul hier je BSN nummer in" placeholder="" required />
                         </label>
                         <label>Overlijdensdatum
                             <input type="date" name="overlijdensdatum-overledene" placeholder="" required />
@@ -146,7 +145,7 @@
                             <legend>Gegevens van de notaris</legend>
                             <label data-error-message="Het protocolnummer moet 9 nummers bevatten">Protocolnummer notaris 
                                 <!-- TODO Weer een nummer field met type text -->
-                                <input type="text" name="protocolnummer-notaris" pattern="[0-9]{9}" placeholder="">
+                                <input type="text" inputmode="numeric" name="protocolnummer-notaris" pattern="[0-9]{9}" placeholder="">
                             </label>
                             <div>
                                 <label>Voorletter(s)
@@ -199,7 +198,7 @@
                     </div>
                 </section>
                 <!-- Andere vragen toevoegen -->
-                <button type="submit" value="Opslaan">Opslaan</button>
+                <button type="button" name="opslaan-button" value="Opslaan">Opslaan</button>
                 <button type="submit" value="Verstuur">Verstuur</button>
                 <button disabled>Verstuur</button>
             </form>

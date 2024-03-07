@@ -13,8 +13,23 @@ button:disabled {
     display: none;
 }
 label {
-    display: block;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
     width: max-content;
+}
+label:has(input:not([type="radio"])){
+    display: grid;
+    gap: 0;
+    margin-bottom: 0.5rem;
+    & input {
+        grid-row: 3/4;
+    }
+}
+
+input[type="radio"] {
+    height: 1.5em;
+    aspect-ratio: 1;
 }
 fieldset {
    border: none;
@@ -61,7 +76,6 @@ html:has(#derdeSection:target){
     }
 }
 
-
 /* 1b */
 fieldset[data-vraag="1b"]:has(label[data-ga-verder-met="vervolg-1b"] input:checked) .vervolg-1b, 
 /* 1b-2 */
@@ -92,4 +106,23 @@ fieldset[data-vraag="1d"]:has(label[data-ga-verder-met="vervolg-1d"] input:check
     100% {
         background-color: white;
     }
+}
+
+
+main form > section > div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 1em;
+}
+main form > section:nth-child(1) div {
+    justify-content: end;
+}
+main form > section > div a {
+    width: fit-content;
+    text-decoration: none;
+    padding: 0.3rem;
+    background-color: blue;
+    color: white;
+    border-radius: 5px;
 }

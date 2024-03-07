@@ -42,20 +42,21 @@ html:has(main form > section#eersteSection:not(:target) fieldset input:user-inva
 label:has(input:user-invalid:not(:focus):not(:placeholder-shown))::after {
     content: attr(data-error-message);
     height: 20px;
-    width: 3em;
+    width: fit-content;
+    grid-row: 2/3;
     color: var(--color-error);
 }
 .showErrorMessage::after {
     content: attr(data-error-message);
     height: 20px;
-    width: 3em;
+    width: fit-content;
+    grid-row: 2/3;
     color: var(--color-error);
 }
 
 /* TODO als placeholder-shown niet is supported doet de rest het dan wel? */
 /* placeholder-shown caniuse: https://caniuse.com/?search=%3Aplaceholder-shown */
 
-/* TODO fix bc it isnt doing anything */
 form:invalid {
     & button[value="Verstuur"] {
         display: none;

@@ -45,6 +45,12 @@ label:has(input:user-invalid:not(:focus):not(:placeholder-shown))::after {
     width: 3em;
     color: var(--color-error);
 }
+.showErrorMessage::after {
+    content: attr(data-error-message);
+    height: 20px;
+    width: 3em;
+    color: var(--color-error);
+}
 
 /* TODO als placeholder-shown niet is supported doet de rest het dan wel? */
 /* placeholder-shown caniuse: https://caniuse.com/?search=%3Aplaceholder-shown */

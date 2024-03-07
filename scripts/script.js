@@ -106,25 +106,31 @@ function colorLinkNav(sectionId) {
 }
 colorLinkNav();
 
-function  checkIfSectionsAreValid(link) {
+function checkIfSectionsAreValid(link) {
     let currentUrl = link.href;
     let hashIndex = currentUrl.indexOf("#");
     let hashAndNext = currentUrl.substring(hashIndex);
     const everySection = document.querySelectorAll("main form section");
     everySection.forEach((section) => {
-        if('#' + section.id === hashAndNext){
-            const inputError = section.querySelector("fieldset label input:user-invalid:not(:focus):not(:placeholder-shown)");
-            const validInputs = section.querySelectorAll("fieldset label input:required:valid:not(:placeholder-shown)");
-            const allInputs = section.querySelectorAll("fieldset input:required");
+        if ("#" + section.id === hashAndNext) {
+            const inputError = section.querySelector(
+                "fieldset label input:user-invalid:not(:focus):not(:placeholder-shown)"
+            );
+            const validInputs = section.querySelectorAll(
+                "fieldset label input:required:valid:not(:placeholder-shown)"
+            );
+            const allInputs = section.querySelectorAll(
+                "fieldset input:required"
+            );
             const linkMatchedSection = document.querySelector(
                 `main nav a[href='#${section.id}']`
             );
-            if(inputError){
-                linkMatchedSection.style.background = "red"
+            if (inputError) {
+                linkMatchedSection.style.background = "red";
             } else if (validInputs.length >= allInputs.length) {
-                linkMatchedSection.style.background = "green"
+                linkMatchedSection.style.background = "green";
             } else {
-                linkMatchedSection.style.background = "#8fcae7"
+                linkMatchedSection.style.background = "#8fcae7";
             }
         }
     });
@@ -158,6 +164,15 @@ const directionButtons = document.querySelectorAll(
 directionButtons.forEach((button) => {
     button.addEventListener("click", () => {
         let currentUrl = button.href;
+        let hashIndex = currentUrl.indexOf("#");
+        let hashAndNext = currentUrl.substring(hashIndex);
+        colorLinkNav(hashAndNext);
+    });
+});
+const directionNavLinks = document.querySelectorAll("main nav a");
+directionNavLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+        let currentUrl = link.href;
         let hashIndex = currentUrl.indexOf("#");
         let hashAndNext = currentUrl.substring(hashIndex);
         colorLinkNav(hashAndNext);

@@ -47,15 +47,30 @@ fieldset legend span {
     font-weight: 700;
 }
 
-/* Going through the pages */
-/* section:not(:nth-child(1)) {
-    display: none;
-} */
 section{
     display: none;
 }
 section:target {
     display: block;
+}
+/* TODO maken in js */
+html:has(section:target) .startFormLink{
+    display: none;
+}
+
+.startFormLink {
+    background-color: var(--color-fade-blue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+}
+ .startFormLink a {
+    text-decoration: none;
+    color: black;
+    background-color: white;
+    padding: 0.3rem;
+    border-radius: 10px;
 }
 
 /* 1b */
@@ -149,3 +164,4 @@ main form section > .infoButton:focus {
         scale: 1.1;
     }
 }
+

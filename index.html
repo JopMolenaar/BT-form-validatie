@@ -28,7 +28,7 @@
                 <a href="#eersteSection">Start</a>
             </div>
             <form action="#" method="post">
-                <!-- TODO integrate: patterns, titles, p's with errors of data-error -->
+                <!-- TODO integrate: patterns, titles, data-error-message -->
                 <!-- TODO popovers met info -->
                 <section id="eersteSection">
                     <h2>Vul hier de gegevens in van de overledene.</h2>
@@ -151,7 +151,7 @@
                         <fieldset class="vervolg vervolg-1d">
                             <legend>Gegevens van de notaris</legend>
                             <label data-error-message="Het protocolnummer moet 9 nummers bevatten">Protocolnummer notaris 
-                                <input type="text" inputmode="numeric" name="protocolnummer-notaris" pattern="[0-9]{9}" placeholder="">
+                                <input class="protocolnummer-notaris" type="text" inputmode="numeric" name="protocolnummer-notaris" pattern="[0-9]{9}" placeholder="">
                             </label>
                             <div>
                                 <label>Voorletter(s)
@@ -202,7 +202,7 @@
                         </div>
                         <div>
                             <label data-error-message="Het protocolnummer nummer moet 9 nummers bevatten">Protocolnummer notaris<span>. Lees ook de toelichting bij vraag 1d</span>
-                                <input type="text" name="nummer-gemachtigde" inputmode="numeric" pattern="[0-9]{9}" title="Vul hier het protocol nummer in van de notaris" placeholder=""  />
+                                <input class="protocolnummer-notaris" type="text" name="nummer-gemachtigde" inputmode="numeric" pattern="[0-9]{9}" title="Vul hier het protocol nummer in van de notaris" placeholder=""  />
                             </label>
                         </div>
                     </fieldset>
@@ -243,5 +243,6 @@
         <script src="scripts/ifHasdoesntWork.js"></script>
         <script src="scripts/requiredAndDisplayPE.js"></script>
         <script src="scripts/openPopover.js"></script>
+        <script src="scripts/autoFill.js"></script>
     </body>
 </html>

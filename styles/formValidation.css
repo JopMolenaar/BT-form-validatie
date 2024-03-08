@@ -22,17 +22,8 @@ html:has(main form > section#derdeSection:not(:target) > fieldset:invalid){
     }
 }
 
-/* if the input is valid or not, and not empty, show a feedback border */
-input:user-valid:not(:placeholder-shown) {
-    border: var(--color-valid) solid 2px;
-}
-input:user-invalid:not(:placeholder-shown) {
-    border: var(--color-error) solid 2px;
-}
-
 /* Als er iets fout is ingevuld en de input niet leeg is in de fieldset, de link naar die fieldset is rood */
 /* TODO dit ook voor de andere sections */
-/* TODO dit goed maken met js */
 html:has(main form > section#eersteSection:not(:target) fieldset input:user-invalid:not(:placeholder-shown)) {
     & main nav a:nth-child(1) {
         background-color: var(--color-error);
@@ -62,6 +53,13 @@ html:has(main form > section#derdeSection:target) main nav a:nth-child(3) {
     scale: 1.3;
 }
 
+/* if the input is valid or not, and not empty, show a feedback border */
+input:user-valid:not(:placeholder-shown) {
+    border: var(--color-valid) solid 2px;
+}
+input:user-invalid:not(:placeholder-shown) {
+    border: var(--color-error) solid 2px;
+}
 
 /* als een label invalid is, geen focus heeft, en niet leeg is: geef dan de error message uit de data attribute*/
 label:has(input:user-invalid:not(:focus):not(:placeholder-shown))::after {

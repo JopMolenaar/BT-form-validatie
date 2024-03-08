@@ -9,9 +9,9 @@ radios.forEach((radio) => {
             if (computedStyle.display === "none") {
                 const allInputs = element.querySelectorAll("input");
                 allInputs.forEach((input) => {
+                    input.removeAttribute("required", "");
                     if (input.type === "radio" || input.type === "checkbox") {
                         input.checked = false;
-                        input.removeAttribute("required", "");
                     } else {
                         input.value = "";
                     }

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="nl">
     <head>
+        <!-- no js script? om class no js toe te voegen ofzo -->
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="styles/belastingDienstStyles.css" />
@@ -54,7 +55,7 @@
                             geregistreerd partner op het moment van overlijden?
                         </legend>
                         <label data-ga-verder-met="vervolg-1b">
-                            <input type="radio" name="geregistreerd-partner" value="Ja" />
+                            <input type="radio" name="geregistreerd-partner" value="Ja" required />
                             Ja
                         </label>
                         <label>
@@ -236,7 +237,7 @@
             </form>
         </main>
         <footer></footer>
-        <script src="scripts/ifHasNotWorks.js"></script>
+        <script src="scripts/ifHasdoesntWork.js"></script>
         <script src="scripts/requiredAndDisplayPE.js"></script>
         <script src="scripts/openPopover.js"></script>
     </body>

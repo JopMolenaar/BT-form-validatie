@@ -191,16 +191,14 @@
                         </legend>
                         <!-- als protocol nummer al is ingevuld, laat dan al het ingevulde veld zien -->
                         <!-- Anders laat je de andere 2 zien -->
-                        <div>
+                        <div class="duplicate-input">
                             <label data-error-message="Het BSN/RSIN nummer moet 9 nummers bevatten">Burgerservicenummer/
                                 RSIN gemachtigde
-                                <input type="text" name="nummer-gemachtigde" inputmode="numeric" pattern="[0-9]{9}" title="Vul hier het BSN nummer of RSIN nummer in van de gemachtigde" placeholder="" required />
+                                <input class="" type="text" name="nummer-gemachtigde" inputmode="numeric" pattern="[0-9]{9}" title="Vul hier het BSN nummer of RSIN nummer in van de gemachtigde" placeholder="" required />
                             </label>
                             <label data-error-message="Het beconnummer nummer moet 6 nummers bevatten">Beconnummer adviseur
-                                <input type="text" name="nummer-gemachtigde" inputmode="numeric" pattern="[0-6]{6}" title="Vul hier het beconnummer in van de adviseur" placeholder=""  />
+                                <input class="" type="text" name="nummer-gemachtigde" inputmode="numeric" pattern="[0-6]{6}" title="Vul hier het beconnummer in van de adviseur" placeholder=""  />
                             </label>
-                        </div>
-                        <div>
                             <label data-error-message="Het protocolnummer nummer moet 9 nummers bevatten">Protocolnummer notaris<span>. Lees ook de toelichting bij vraag 1d</span>
                                 <input class="protocolnummer-notaris" type="text" name="nummer-gemachtigde" inputmode="numeric" pattern="[0-9]{9}" title="Vul hier het protocol nummer in van de notaris" placeholder=""  />
                             </label>

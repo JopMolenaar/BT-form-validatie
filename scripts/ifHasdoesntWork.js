@@ -1,5 +1,5 @@
 const rootStyles = getComputedStyle(document.documentElement);
-const supportsSelectorWhere =
+const supportsSelectorHas =
     rootStyles.getPropertyValue("--supports-selector-has").trim() == "1";
 
 const inputsWithVervolg = [
@@ -12,10 +12,10 @@ const inputsWithVervolg = [
 
 console.log(
     "falback js function when :has() isn't supported runs = ",
-    !supportsSelectorWhere
+    !supportsSelectorHas
 ); // boolean -> true if supported
 
-if (!supportsSelectorWhere) {
+if (!supportsSelectorHas) {
     displayFollowUpQuestion();
     colorLinkNav();
     displayErrorMessage();

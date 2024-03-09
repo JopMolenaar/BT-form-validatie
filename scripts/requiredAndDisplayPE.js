@@ -28,12 +28,12 @@ radios.forEach((radio) => {
 });
 
 // scriptje zodat de datum in de toekomst bij datum velden niet gekozen kan worden
-const inputDisabledFutures = [
+const inputDisabledFuture = [
     "input[name=overlijdensdatum-overledene]",
     "input[name=datum-testament]",
     "input[name=datum-partnerschapsvoorwaarden]",
 ];
-inputDisabledFutures.forEach((input) => {
+inputDisabledFuture.forEach((input) => {
     const dynInput = document.querySelector(input);
     let today = new Date();
     const dd = String(today.getDate()).padStart(2, "0");

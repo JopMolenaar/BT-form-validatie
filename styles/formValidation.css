@@ -61,7 +61,7 @@ input:user-invalid:not(:placeholder-shown) {
     border: var(--color-error) solid 2px;
 }
 
-/* als een label invalid is, geen focus heeft, en niet leeg is: geef dan de error message uit de data attribute*/
+/* als een label invalid is, geen focus heeft, en niet leeg is: geef dan de error message uit de data attribute */
 label:has(input:user-invalid:not(:focus):not(:placeholder-shown))::after {
     content: attr(data-error-message);
     width: fit-content;

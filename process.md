@@ -78,16 +78,15 @@ if (!supportsSelectorHas) {
 }
 ```
 
-Je kan er natuurlijk ook voor kiezen om de Javascript altijd te laten werken over de CSS en als de CSS dan uitvalt werkt de pagina nogsteeds hetzelfde, zonder bepaalde progressive enhancement features natuurlijk. Die donderdag heb ik ook namelijk progressive enhancement features gemaakt in javascript.
-Dat zijn namelijk: 
+Je kunt er natuurlijk ook voor kiezen om de JavaScript altijd te laten werken boven de CSS, zodat de pagina nog steeds op dezelfde manier werkt als de CSS uitvalt, zonder bepaalde progressive enhancement-functies natuurlijk. Die donderdag heb ik namelijk ook progressive enhancement-functies gemaakt in JavaScript. Dat zijn namelijk:
 
-- Een max datum instellen op bepaalde datum velden
+- Een max datum instellen op bepaalde datum velden.
 - Het resetten van geselecteerde radiobuttons die in een sectie zitten die weer wordt ingeklapt.
 - Een required attribuut zetten op de inputs die in een sectie zitten dat wordt uitgeklapt, en eraf halen wanneer die worden ingeklapt. 
-- Automatisch de dubbele inputs invullen van een input die veranderd
+- Automatisch de dubbele inputs invullen van een input die veranderd.
 - Het disabelen van inputs die niet meer nodig zijn als je bijvoorbeeld er 1 van de 3 hebt ingevuld.
 
-Die vrijdag had ik mn eerste performance gesprek en de docent was erg enthousiast. Daarna moest ik drie uur wachten tot mijn volgende gesprek voor een ander vak en ik heb veel mensen geholpen want ik kreeg veel vragen van andere hoe ik mijn features had gebouwd en dingen had aangepakt. 
+Die vrijdag had ik mijn eerste voortgangsgesprek en de docent was erg enthousiast. Daarna moest ik drie uur wachten tot mijn volgende gesprek voor een ander vak, en ik heb veel mensen geholpen omdat ik veel vragen kreeg van anderen over hoe ik mijn functies had gebouwd en hoe ik dingen had aangepakt.
 
 ### Week 3
 

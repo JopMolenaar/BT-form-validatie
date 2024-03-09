@@ -15,22 +15,25 @@ function fillDupliInputs(element) {
     const classNameElement = element.classList;
     const dupliElements = document.querySelectorAll(`.${classNameElement[0]}`);
     dupliElements.forEach((dupliElement) => {
+        // if (element.value !== "") {
         dupliElement.value = element.value;
         dupliElement.innerHTML = element.value;
+        // }
         const parent = dupliElement.parentElement;
         const parentFromParent = parent.parentElement;
         const classInput = element.classList[0];
-        // console.log(parent);
-        if (parentFromParent.classList[0] === "duplicate-input") {
-            console.log(classInput);
-            // isnt working properly
-            const disabledInputs = parent.querySelectorAll(
+        if (
+            parentFromParent.classList[0] === "duplicate-input-disable-the-rest"
+        ) {
+            const disabledInputs = parentFromParent.querySelectorAll(
                 `input:not(.${classInput})`
             );
-
-            console.log(disabledInputs);
             disabledInputs.forEach((input) => {
-                input.disabled = true;
+                if (element.value !== "") {
+                    input.disabled = true;
+                } else {
+                    input.disabled = false;
+                }
             });
         }
     });

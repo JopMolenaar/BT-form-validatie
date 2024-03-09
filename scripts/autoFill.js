@@ -2,11 +2,12 @@ const inputValuesThatCanBeFilled = ["protocolnummer-notaris"];
 
 // function fillRepetitiveInputs(section) {
 inputValuesThatCanBeFilled.forEach((className) => {
-    const elements = document.querySelectorAll(`.${className}`);
+    const elements = document.querySelectorAll(`input`);
     elements.forEach((element) => {
         element.addEventListener("blur", () => {
-            // If its valid
+            // TODO If its valid
             fillDupliInputs(element);
+            disableInputs(element);
         });
     });
 });
@@ -14,27 +15,39 @@ inputValuesThatCanBeFilled.forEach((className) => {
 function fillDupliInputs(element) {
     const classNameElement = element.classList;
     const dupliElements = document.querySelectorAll(`.${classNameElement[0]}`);
-    dupliElements.forEach((dupliElement) => {
-        // if (element.value !== "") {
-        dupliElement.value = element.value;
-        dupliElement.innerHTML = element.value;
-        // }
-        const parent = dupliElement.parentElement;
-        const parentFromParent = parent.parentElement;
-        const classInput = element.classList[0];
-        if (
-            parentFromParent.classList[0] === "duplicate-input-disable-the-rest"
-        ) {
-            const disabledInputs = parentFromParent.querySelectorAll(
-                `input:not(.${classInput})`
-            );
-            disabledInputs.forEach((input) => {
-                if (element.value !== "") {
-                    input.disabled = true;
-                } else {
-                    input.disabled = false;
+    if (dupliElements.length > 1) {
+        dupliElements.forEach((dupliElement) => {
+            if (dupliElement.disabled === false) {
+                if (element.value !== "" && dupliElement.required === false) {
+                    dupliElement.value = element.value;
+                    dupliElement.innerHTML = element.value;
                 }
-            });
-        }
-    });
+                disableInputs(dupliElement);
+            }
+        });
+    }
+}
+
+function disableInputs(element) {
+    const parent = element.parentElement;
+    const parentFromParent = parent.parentElement;
+    const classInput = element.classList[0];
+    console.log(classInput);
+    if (
+        parentFromParent.classList[1] === "disable-the-rest" &&
+        element.disabled === false
+    ) {
+        const disabledInputs = parentFromParent.querySelectorAll(
+            `input:not(.${classInput})`
+        );
+        disabledInputs.forEach((input) => {
+            if (element.value !== "") {
+                input.disabled = true;
+                input.value = "";
+                input.innerHTML = "";
+            } else {
+                input.disabled = false;
+            }
+        });
+    }
 }

@@ -29,6 +29,14 @@ function duplicateFields() {
                             placeToPutIt.childElementCount + 1
                         ).toString();
                         input.name = parts.join("-");
+                        if (
+                            input.type === "radio" ||
+                            input.type === "checkbox"
+                        ) {
+                            input.checked = false;
+                        } else {
+                            input.value = "";
+                        }
                     });
                     placeToPutIt.appendChild(clonedSection);
                 } else {

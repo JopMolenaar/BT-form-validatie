@@ -23,6 +23,7 @@
                 <a href="#eersteSection"></a>
                 <a href="#tweedeSection"></a>
                 <a href="#derdeSection"></a>
+                <a href="#vierdeSection"></a>
             </nav>
             <div class="startFormLink">
                 <a href="#eersteSection">Start</a>
@@ -369,12 +370,64 @@
                             </div>
                             <a href="#">Open lijst met verkrijger velden</a>
                         </div>
-                      
+                    </fieldset>
+                    <fieldset>
+                        <legend><span>3c</span> Naar wie wilt u dat wij de aanslag erfbelasting sturen?</legend>
+                        <label>
+                            <input type="radio" name="erfbelasting-sturen" placeholder="">
+                            Stuur naar iedere verkrijger van (een deel van) de erfenis een eigen belastingaanslag.
+                        </label>
+                        <label>
+                            <input type="radio" name="erfbelasting-sturen" placeholder="">
+                            Stuur de belastingaanslag(en) naar de executeur of naar de erfgenaam die ook namens andere personen en/of instellingen
+                            die iets krijgen uit de nalatenschap (verkrijgers) aangifte heeft gedaan; dit mag ook de gemachtigde zijn.
+                            Wij sturen de aanslag(en) naar het adres dat u bij vraag 2 hebt ingevuld.
+                        </label>
+                    </fieldset>
+                    <p>Onderteken deze aangifte als volgt:
+                        – Bent u executeur? Dan moet u aangifte doen voor alle personen en/of instellingen die iets krijgen uit de nalatenschap (verkrijgers).
+                        U ondertekent als enige dit aangifteformulier.
+                        – Bent u gemachtigde? Dan ondertekent u dit aangifteformulier voor de personen door wie u gemachtigd bent.
+                        Zij hoeven het aangifteformulier niet zelf te ondertekenen.
+                        – Bent u erfgenaam en doet u samen met andere erfgenamen aangifte? Dan moeten de erfgenamen het aangifteformulier zelf
+                        ondertekenen bij vraag 4g.
+                        – Bent u erfgenaam en doet u alleen voor uzelf aangifte? Dan ondertekent u het aangifteformulier zelf bij vraag 4g.</p>
+                    <fieldset>
+                        <legend><span>3d</span> Bent u executeur of gemachtigde?</legend>
+                        <label>
+                            <input type="radio" name="executeur-gemachtigde" placeholder="">
+                            Nee <span>Ga verder naar vraag 4.</span>
+                            <!-- TODO ge verder naar -->
+                        </label>
+                        <label>
+                            <input type="radio" name="executeur-gemachtigde" placeholder="">
+                            Ja
+                        </label>
+                    </fieldset>
+                    <fieldset>
+                        <legend><span>3e</span> Gegevens van de executeur of gemachtigde</legend>
                     </fieldset>
                     <div class="terugEnVolgende">
                         <a href="#tweedeSection">Terug</a>
                         <a href="#vierdeSection">Volgende</a>
                     </div>
+                </section>
+                <section id="vierdeSection">
+                    <h2>Voor wie doet u aangifte?</h2>
+                    <button class="infoButton" type="button">i</button>
+                    <a class="infoLink" href="#" target=”_blank”>open toelichting</a>
+                    <p>Vul de gegevens van de gemachtigde in. De gemachtigde is degene die namens 1 of meerdere personen en/of instellingen aangifte doet.
+                        Het invullen van een telefoonnummer of e-mailadres is niet verplicht, maar wel handig. Dan kunnen wij u makkelijker vragen stellen of uitleg geven.
+                    </p>
+                    <fieldset>
+                        <legend><span>4a </span>Vul 1 van de 3 in: het burgerservicenummer of RSIN van de gemachtigde, het beconnummer van de adviseur of
+                            het protocolnummer van de notaris.
+                        </legend>
+                        <label>
+                            ...
+                            <input type="text" required placeholder="" name="snckjsdnjck">
+                        </label>
+                    </fieldset>
                 </section>
                 <!-- Andere vragen toevoegen -->
                 <button type="button" name="opslaan-button" value="Opslaan">Opslaan</button>

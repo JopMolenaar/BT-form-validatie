@@ -8,8 +8,13 @@ const inputsWithVervolg = [
     "vervolg-1c",
     "vervolg-1c-2",
     "vervolg-1d",
+    // "vervolg-3a",
     "vervolg-3b",
+    "vervolg-3b-2",
+    "vervolg-3d",
 ];
+
+// const vragenOverslaan = ["vraag-3b"];
 
 console.log(
     "falback js function when :has() isn't supported runs = ",
@@ -21,6 +26,7 @@ if (!supportsSelectorHas) {
     colorLinkNav();
     displayErrorMessage();
     runFunctionWhenTargeted();
+    vragenOverslaanFunction(); 
 }
 
 // scriptje om dingen te showen op bepaalde clicks als progressive enhancement voor als :has() niet werkt
@@ -55,6 +61,28 @@ function displayFollowUpQuestion() {
         });
     });
 }
+
+// Scriptje om en vraag over te slaan 
+// function vragenOverslaanFunction() {
+//     vragenOverslaan.forEach((vraagString) => {
+//         const element = document.querySelector(`.${vraagString}`);
+//         const label = document.querySelector(
+//             `label[data-sla-over=${vraagString}]`
+//         );
+//         const parent = label.parentElement;
+//         const inputs = parent.querySelectorAll("input");
+//         const inputToDisable = label.querySelector("input");
+//         inputs.forEach((input) => {
+//             input.addEventListener("click", () => {
+//                 if (input.checked && inputToDisable === input) {
+//                     element.classList.add("disableQuestion");
+//                 } else {
+//                     element.classList.remove("disableQuestion");
+//                 }
+//             });
+//         });
+//     });
+// }
 
 // scriptje om error message te showen als progressive enhancement voor als :has() niet werkt
 // scriptje om de links een kleur te geven als een fieldset invalid is of valid is of een error heeft

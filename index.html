@@ -276,51 +276,51 @@
                             Dan moet de executeur aangifte doen voor alle personen en/of instellingen die iets krijgen uit de nalatenschap (verkrijgers).
                             Lees de toelichting bij vraag 3a.
                         </p>
-                        <label>
+                        <label data-sla-over="vraag-3b">
+                            <!-- TODO sla over atribute -->
                             <input type="radio" name="executeur-aangewezen" required>
                             Ik ben executeur en doe aangifte voor alle personen en/of instellingen die
-                            iets krijgen uit de nalatenschap (verkrijgers).
+                            iets krijgen uit de nalatenschap (verkrijgers). <span>Vul de hoeveelheid verkrijgers in en ga naar vraag 3c.</span>
                         </label>
                         <p>Is er geen executeur aangewezen? Kruis dan aan welke situatie voor u geldt.</p>
-                        <label>
+                        <label data-ga-verder-met="vervolg-3b">
                             <input type="radio" name="executeur-aangewezen">
                             Ik ben erfgenaam en ben gemachtigd om aangifte te doen voor meerdere
                             personen en/of instellingen die iets krijgen uit de nalatenschap (verkrijgers).
                         </label>
-                        <label>
+                        <label data-ga-verder-met="vervolg-3b">
                             <input type="radio" name="executeur-aangewezen">
                             Ik ben erfgenaam en doe samen met andere erfgenamen aangifte.
                         </label>
-                        <label>
+                        <label data-ga-verder-met="vervolg-3b">
                             <input type="radio" name="executeur-aangewezen">
                             Ik ben erfgenaam en doe alleen aangifte voor mijzelf. <span>U hoeft niet aan te geven voor hoeveel verkrijgers u aangifte doet.</span>
                         </label>
-                        <label>
+                        <label data-ga-verder-met="vervolg-3b">
                             <input type="radio" name="executeur-aangewezen">
                             Ik ben geen erfgenaam, maar ben gemachtigd om aangifte te doen.
                         </label>
-                        
                         <label>Geef aan voor hoeveel verkrijgers u
                             aangifte doet. Bent u zelf ook verkrijger? Tel uzelf dan ook mee.
                             <!-- TODO  -->
                             <input type="number" inputmode="numeric" placeholder="">
                         </label>
                     </fieldset>
-                    <fieldset>
+                    <fieldset class="vraag-3b vervolg vervolg-3b">
                         <legend><span>3b</span> Zijn er verkrijgers voor wie
                             u geen aangifte doet?</legend>
                         <label>
                             <input type="radio" name="geen-aangifte">
                             Nee<span>. Ga naar vraag 3c.</span>
                         </label>
-                        <label data-ga-verder-met="vervolg-3b">
+                        <label data-ga-verder-met="vervolg-3b-2">
                             <input type="radio" name="geen-aangifte">
                             Ja. Vul hieronder de gegevens in van de verkrijgers waarvoor u geen aangifte doet.
                                 Gaat het om een instelling? Vul dan de naam van de instelling in bij ‘achternaam’.
                                 Het invullen van een bsn is niet verplicht, maar wel handig voor ons.
                         </label>
                         <!-- TODO deze div is een vervolg van de nee hierboven -->
-                        <div class="vervolg-3b vervolg">
+                        <div class="vervolg-3b-2 vervolg">
                             <div>
                                 <div class="verkijger-velden-geen-aangifte">
                                     <p>Verkrijger 1</p>
@@ -384,28 +384,76 @@
                             Wij sturen de aanslag(en) naar het adres dat u bij vraag 2 hebt ingevuld.
                         </label>
                     </fieldset>
-                    <p>Onderteken deze aangifte als volgt:
-                        – Bent u executeur? Dan moet u aangifte doen voor alle personen en/of instellingen die iets krijgen uit de nalatenschap (verkrijgers).
-                        U ondertekent als enige dit aangifteformulier.
-                        – Bent u gemachtigde? Dan ondertekent u dit aangifteformulier voor de personen door wie u gemachtigd bent.
-                        Zij hoeven het aangifteformulier niet zelf te ondertekenen.
-                        – Bent u erfgenaam en doet u samen met andere erfgenamen aangifte? Dan moeten de erfgenamen het aangifteformulier zelf
-                        ondertekenen bij vraag 4g.
-                        – Bent u erfgenaam en doet u alleen voor uzelf aangifte? Dan ondertekent u het aangifteformulier zelf bij vraag 4g.</p>
                     <fieldset>
-                        <legend><span>3d</span> Bent u executeur of gemachtigde?</legend>
+                        <legend><span>3d</span> Bent u executeur of gemachtigde?</legend>   
                         <label>
                             <input type="radio" name="executeur-gemachtigde" placeholder="">
                             Nee <span>Ga verder naar vraag 4.</span>
-                            <!-- TODO ge verder naar -->
                         </label>
-                        <label>
+                        <label data-ga-verder-met="vervolg-3d">
                             <input type="radio" name="executeur-gemachtigde" placeholder="">
                             Ja
                         </label>
                     </fieldset>
-                    <fieldset>
+                    <fieldset class="vervolg-3d vervolg">
+                        <!-- TODO gegevens gemachtigde is dubbel? -->
                         <legend><span>3e</span> Gegevens van de executeur of gemachtigde</legend>
+                        <p>Onderteken deze aangifte als volgt:
+                            – Bent u executeur? Dan moet u aangifte doen voor alle personen en/of instellingen die iets krijgen uit de nalatenschap (verkrijgers).
+                            U ondertekent als enige dit aangifteformulier.
+                            – Bent u gemachtigde? Dan ondertekent u dit aangifteformulier voor de personen door wie u gemachtigd bent.
+                            Zij hoeven het aangifteformulier niet zelf te ondertekenen.
+                            – Bent u erfgenaam en doet u samen met andere erfgenamen aangifte? Dan moeten de erfgenamen het aangifteformulier zelf
+                            ondertekenen bij vraag 4g.
+                            – Bent u erfgenaam en doet u alleen voor uzelf aangifte? Dan ondertekent u het aangifteformulier zelf bij vraag 4g.</p> 
+                        <!-- autocomplete? -->
+                        <label data-error-message="Het BSN nummer moet 8 of 9 nummers bevatten">Burgerservicenummer/RSIN
+                            <input type="text" name="burgerservicenummer-gemachtigde" inputmode="numeric" pattern="[0-9]{8,9}" title="Het BSN nummer moet 8 of 9 nummers bevatten" placeholder="" />
+                        </label>
+                        <label data-error-message="Het protocolnummer nummer moet 9 nummers bevatten">Protocolnummer (als de executeur ook notaris is)
+                            <input type="text" name="nummer-gemachtigde" inputmode="numeric" pattern="[0-9]{9}" title="Vul hier het protocol nummer in van de notaris" placeholder=""  />
+                        </label>
+                        <label data-error-message="Het beconnummer nummer moet 6 nummers bevatten">Beconnummer adviseur
+                            <input type="text" name="beconnummer-adviseur" inputmode="numeric" pattern="[0-6]{6}" title="Vul hier het beconnummer in van de adviseur" placeholder=""  />
+                        </label>
+                        <div class="name">
+                            <label>Voorletter(s)
+                                <input type="text" name="voorletter-executeur-gemachtigde" placeholder="" required />
+                            </label>
+                            <label>tussen-voegsel(s)
+                                <input type="text" name="tussen-voegsel-executeur-gemachtigde" placeholder="" />
+                            </label>
+                            <label>achternaam
+                                <input type="text" name="achternaam-executeur-gemachtigde" placeholder="" />
+                            </label>
+                        </div>
+                        <label>Naam instelling (bijvoorbeeld
+                            een notariskantoor)
+                            <input type="text" name=""/>
+                        </label>
+                        <div class="adress">
+                            <label>Straat
+                                <input type="text" placeholder="" required>
+                            </label>
+                            <label>Huisnummer
+                                <input type="text" placeholder="" required>
+                            </label>
+                            <label>Toevoeging huisnummer
+                                <input type="text" placeholder="">
+                            </label>
+                            <label>Postcode
+                                <input type="text" placeholder="" required>
+                            </label>
+                            <label>Plaats
+                                <input type="text" placeholder="" required>
+                            </label>
+                        </div>
+                        <label>Datum
+                            <input type="date">
+                        </label>
+                        <label>Uw handtekening
+                            <input type="file">
+                        </label>
                     </fieldset>
                     <div class="terugEnVolgende">
                         <a href="#tweedeSection">Terug</a>

@@ -78,18 +78,21 @@ html:has(section:target) .startFormLink{
     border-radius: 10px;
 }
 
-/* 1b */
-fieldset:has(label[data-ga-verder-met="vervolg-1b"] input:checked) .vervolg-1b, 
-/* 1b-2 */
-fieldset:has(label[data-ga-verder-met="vervolg-1b-2"] input:checked) .vervolg-1b-2,
-/* 1c */
-fieldset:has(label[data-ga-verder-met="vervolg-1c"] input:checked) .vervolg-1c, 
-/* 1c-2 */
-fieldset:has(label[data-ga-verder-met="vervolg-1c-2"] input:checked) .vervolg-1c-2,
-/* 1d */
-fieldset:has(label[data-ga-verder-met="vervolg-1d"] input:checked) .vervolg-1d,
-/* 1d */
-fieldset:has(label[data-ga-verder-met="vervolg-3b"] input:checked) .vervolg-3b
+.disableQuestion {
+    border: solid black 1px;
+}
+.disableQuestion label {
+    display: none;
+}
+
+html:has(label[data-ga-verder-met="vervolg-1b"] input:checked) .vervolg-1b, 
+html:has(label[data-ga-verder-met="vervolg-1b-2"] input:checked) .vervolg-1b-2,
+html:has(label[data-ga-verder-met="vervolg-1c"] input:checked) .vervolg-1c, 
+html:has(label[data-ga-verder-met="vervolg-1c-2"] input:checked) .vervolg-1c-2,
+html:has(label[data-ga-verder-met="vervolg-1d"] input:checked) .vervolg-1d,
+html:has(label[data-ga-verder-met="vervolg-3b"] input:checked) .vervolg-3b,
+html:has(label[data-ga-verder-met="vervolg-3b-2"] input:checked) .vervolg-3b-2,
+html:has(label[data-ga-verder-met="vervolg-3d"] input:checked) .vervolg-3d
 {
     display: block;
     /* opacity: 1; */

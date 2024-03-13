@@ -4,7 +4,6 @@ const radios = document.querySelectorAll("input[type=radio]");
 radios.forEach((radio) => {
     radio.addEventListener("click", () => {
         inputsWithVervolg.forEach((inputString) => {
-            console.log(inputString);
             const element = document.querySelector(`.${inputString}`);
             const computedStyle = window.getComputedStyle(element);
             if (computedStyle.display === "none") {

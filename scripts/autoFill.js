@@ -1,16 +1,19 @@
-const inputValuesThatCanBeFilled = ["protocolnummer-notaris"];
+// const inputValuesThatCanBeFilled = ["protocolnummer-notaris"];
+// const inputValuesThatCanBeFilled = [""];
 
 // function fillRepetitiveInputs(section) {
-inputValuesThatCanBeFilled.forEach((className) => {
-    const elements = document.querySelectorAll(`input`);
-    elements.forEach((element) => {
-        element.addEventListener("blur", () => {
-            // TODO If its valid
-            fillDupliInputs(element);
-            disableInputs(element);
-        });
+// inputValuesThatCanBeFilled.forEach((className) => {
+const elements = document.querySelectorAll(`input`);
+elements.forEach((element) => {
+    element.addEventListener("blur", () => {
+        // TODO If its valid
+        fillDupliInputs(element);
+        disableInputs(element);
     });
 });
+// });
+
+// TODO misschien de nummers uit deze velden opslaan en als autocomplete meegeven ipv al invullen?
 
 function fillDupliInputs(element) {
     const classNameElement = element.classList;

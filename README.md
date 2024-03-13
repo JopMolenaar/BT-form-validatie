@@ -18,6 +18,7 @@
 - [ ] styling form
 <!-- - [ ] handtekening oplossing -->
 - [ ] inputs met geld en IBAN nummers maken
+- [ ] alles functies in js naar engels translaten 
 - [ ] ...
 
 <!-- font fix -->

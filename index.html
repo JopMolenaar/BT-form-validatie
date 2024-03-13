@@ -320,47 +320,54 @@
                         </label>
                         <!-- TODO deze div is een vervolg van de nee hierboven -->
                         <div class="vervolg-3b vervolg">
-                            <p>Verkrijger 1</p>
-                            <label data-error-message="Het BSN nummer moet 8 of 9 nummers bevatten">Burgerservicenummer verkrijger
-                                <input type="text" name="burgerservicenummer-verkrijger-1" inputmode="numeric" pattern="[0-9]{8,9}" title="Het BSN nummer moet 8 of 9 nummers bevatten" placeholder="" />
-                            </label>
-                            <div class="name">
-                                <label>Voorletter(s)
-                                    <input type="text" name="voorletter-verkrijger-1" placeholder="" required />
-                                </label>
-                                <label>tussen-voegsel(s)
-                                    <input type="text" name="tussen-voegsel-verkrijger-1" placeholder="" />
-                                </label>
-                                <label>achternaam
-                                    <input type="text" name="achternaam-verkrijger-1" placeholder="" />
-                                </label>
+                            <div>
+                                <div class="verkijger-velden-geen-aangifte">
+                                    <p>Verkrijger 1</p>
+                                    <label data-error-message="Het BSN nummer moet 8 of 9 nummers bevatten">Burgerservicenummer verkrijger
+                                        <input type="text" name="burgerservicenummer-verkrijger-1" inputmode="numeric" pattern="[0-9]{8,9}" title="Het BSN nummer moet 8 of 9 nummers bevatten" placeholder="" />
+                                    </label>
+                                    <div class="name">
+                                        <label>Voorletter(s)
+                                            <input type="text" name="voorletter-verkrijger-1" placeholder="" required />
+                                        </label>
+                                        <label>tussen-voegsel(s)
+                                            <input type="text" name="tussen-voegsel-verkrijger-1" placeholder="" />
+                                        </label>
+                                        <label>achternaam
+                                            <input type="text" name="achternaam-verkrijger-1" placeholder="" />
+                                        </label>
+                                    </div>
+                                    <fieldset>
+                                        <legend>Krijgt deze verkrijger waarvoor u geen aangifte doet het hele
+                                            vermogen?</legend>
+                                            <label>
+                                                <input type="radio" name="hele-vermogen-verkrijger-1">
+                                                Ja
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="hele-vermogen-verkrijger-1">
+                                                Nee
+                                            </label>
+                                    </fieldset>
+                                    <fieldset>
+                                        <legend>Doet deze verkrijger een beroep op diens legitieme portie
+                                            (wettelijke erfdeel)?</legend>
+                                            <label>
+                                                <input type="radio" name="beroep-op-legitieme-protie-verkrijger-1">
+                                                Ja
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="beroep-op-legitieme-protie-verkrijger-1">
+                                                Nee
+                                            </label>
+                                    </fieldset>
+                                </div>
                             </div>
-                            <fieldset>
-                                <legend>Krijgt deze verkrijger waarvoor u geen aangifte doet het hele
-                                    vermogen?</legend>
-                                    <label>
-                                        <input type="radio" name="hele-vermogen-verkrijger-1">
-                                        Ja
-                                    </label>
-                                    <label>
-                                        <input type="radio" name="hele-vermogen-verkrijger-1">
-                                        Nee
-                                    </label>
-                            </fieldset>
-                            <fieldset>
-                                <legend>Doet deze verkrijger een beroep op diens legitieme portie
-                                    (wettelijke erfdeel)?</legend>
-                                    <label>
-                                        <input type="radio" name="beroep-op-legitieme-protie-verkrijger-1">
-                                        Ja
-                                    </label>
-                                    <label>
-                                        <input type="radio" name="beroep-op-legitieme-protie-verkrijger-1">
-                                        Nee
-                                    </label>
-                            </fieldset>
-                            <button type="button">Voeg een verkrijger toe <span>werkt op het moment niet.</span></button>
-                            <a href="#">Open lijst met </a>
+                            <div data-duplicate="verkijger-velden-geen-aangifte">
+                                <button class="add" type="button">+<span>Voeg een verkrijger toe werkt op het moment niet.</span></button>
+                                <button class="delete" type="button">-<span>Voeg een verkrijger toe werkt op het moment niet.</span></button>
+                            </div>
+                            <a href="#">Open lijst met verkrijger velden</a>
                         </div>
                       
                     </fieldset>
@@ -381,5 +388,7 @@
         <script src="scripts/openPopover.js"></script>
         <script src="scripts/autoFill.js"></script>
         <script src="scripts/bsnValidation.js"></script>
+        <script src="scripts/localStorage.js"></script>
+        <script src="scripts/duplicateFields.js"></script>
     </body>
 </html>

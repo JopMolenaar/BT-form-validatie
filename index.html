@@ -276,19 +276,19 @@
                             Dan moet de executeur aangifte doen voor alle personen en/of instellingen die iets krijgen uit de nalatenschap (verkrijgers).
                             Lees de toelichting bij vraag 3a.
                         </p>
-                        <label data-sla-over="vraag-3b">
+                        <label data-sla-over="vraag-3b" data-ga-verder-met="vervolg-3a">
                             <!-- TODO sla over atribute -->
                             <input type="radio" name="executeur-aangewezen" required>
                             Ik ben executeur en doe aangifte voor alle personen en/of instellingen die
                             iets krijgen uit de nalatenschap (verkrijgers). <span>Vul de hoeveelheid verkrijgers in en ga naar vraag 3c.</span>
                         </label>
                         <p>Is er geen executeur aangewezen? Kruis dan aan welke situatie voor u geldt.</p>
-                        <label data-ga-verder-met="vervolg-3b">
+                        <label data-ga-verder-met="vervolg-3b" data-ga-ook-verder-met="vervolg-3a">
                             <input type="radio" name="executeur-aangewezen">
                             Ik ben erfgenaam en ben gemachtigd om aangifte te doen voor meerdere
                             personen en/of instellingen die iets krijgen uit de nalatenschap (verkrijgers).
                         </label>
-                        <label data-ga-verder-met="vervolg-3b">
+                        <label data-ga-verder-met="vervolg-3b" data-ga-ook-verder-met="vervolg-3a">
                             <input type="radio" name="executeur-aangewezen">
                             Ik ben erfgenaam en doe samen met andere erfgenamen aangifte.
                         </label>
@@ -296,15 +296,17 @@
                             <input type="radio" name="executeur-aangewezen">
                             Ik ben erfgenaam en doe alleen aangifte voor mijzelf. <span>U hoeft niet aan te geven voor hoeveel verkrijgers u aangifte doet.</span>
                         </label>
-                        <label data-ga-verder-met="vervolg-3b">
+                        <label data-ga-verder-met="vervolg-3b" data-ga-ook-verder-met="vervolg-3a">
                             <input type="radio" name="executeur-aangewezen">
                             Ik ben geen erfgenaam, maar ben gemachtigd om aangifte te doen.
                         </label>
-                        <label>Geef aan voor hoeveel verkrijgers u
-                            aangifte doet. Bent u zelf ook verkrijger? Tel uzelf dan ook mee.
-                            <!-- TODO  -->
-                            <input type="number" inputmode="numeric" placeholder="">
-                        </label>
+                        <div class="vervolg-3a vervolg">
+                            <label>Geef aan voor hoeveel verkrijgers u
+                                aangifte doet. Bent u zelf ook verkrijger? Tel uzelf dan ook mee.
+                                <!-- TODO  -->
+                                <input type="number" inputmode="numeric" placeholder="">
+                            </label>
+                        </div>
                     </fieldset>
                     <fieldset class="vraag-3b vervolg vervolg-3b">
                         <legend><span>3b</span> Zijn er verkrijgers voor wie

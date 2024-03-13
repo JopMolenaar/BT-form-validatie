@@ -26,7 +26,7 @@ if (!supportsSelectorHas) {
     colorLinkNav();
     displayErrorMessage();
     runFunctionWhenTargeted();
-    vragenOverslaanFunction(); 
+    // vragenOverslaanFunction();
 }
 
 // scriptje om dingen te showen op bepaalde clicks als progressive enhancement voor als :has() niet werkt
@@ -41,9 +41,14 @@ function displayFollowUpQuestion() {
         const element = document.querySelector(`.${inputString}`);
         element.style.display = "none";
         // get the elements
-        const label = document.querySelector(
+        let label = document.querySelector(
             `label[data-ga-verder-met=${inputString}]`
         );
+        if (!label) {
+            label = document.querySelector(
+                `label[data-ga-ook-verder-met=${inputString}]`
+            );
+        }
         const input = label.querySelector("input");
         const fieldset = label.parentElement;
         const inputToHideVervolg = fieldset.querySelector(

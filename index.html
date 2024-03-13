@@ -463,21 +463,84 @@
                     </div>
                 </section>
                 <section id="vierdeSection">
-                    <h2>Voor wie doet u aangifte?</h2>
+                    <h2>Gegevens verkrijgers</h2>
                     <button class="infoButton" type="button">i</button>
                     <a class="infoLink" href="#" target=”_blank”>open toelichting</a>
                     <p>Vul de gegevens van de gemachtigde in. De gemachtigde is degene die namens 1 of meerdere personen en/of instellingen aangifte doet.
                         Het invullen van een telefoonnummer of e-mailadres is niet verplicht, maar wel handig. Dan kunnen wij u makkelijker vragen stellen of uitleg geven.
                     </p>
+                    <!-- tab per verkrijger target? -->
                     <fieldset>
-                        <legend><span>4a </span>Vul 1 van de 3 in: het burgerservicenummer of RSIN van de gemachtigde, het beconnummer van de adviseur of
-                            het protocolnummer van de notaris.
-                        </legend>
-                        <label>
-                            ...
-                            <input type="text" required placeholder="" name="snckjsdnjck">
-                        </label>
+                        <legend><span>4a </span>Vul de gegevens in van de persoon of instelling.</legend>
+                        <details>
+                            <summary>Gegevens persoon</summary>
+                            <div>
+                                <label data-error-message="Het BSN nummer moet 8 of 9 nummers bevatten">Burgerservicenummer persoon
+                                    <input type="text" name="burgerservicenummer-peroon-1" inputmode="numeric" pattern="[0-9]{8,9}" title="Het BSN nummer moet 8 of 9 nummers bevatten" placeholder="" />
+                                </label>
+                                <div class="name">
+                                    <label>Voorletter(s)
+                                        <input type="text" name="voorletter-peroon-1" placeholder="" />
+                                    </label>
+                                    <label>tussen-voegsel(s)
+                                        <input type="text" name="tussen-voegsel-persoon-1" placeholder="" />
+                                    </label>
+                                    <label>achternaam
+                                        <input type="text" name="achternaam-persoon-1" placeholder="" />
+                                    </label>
+                                </div>
+                                <label>
+                                    Geboortedatum
+                                    <input type="date" name="geboortedatum-persoon-1">
+                                </label>
+                            </div>
+                        </details>
+                        <details>
+                            <summary>Gegevens instelling</summary>
+                            <div>
+                                <label data-error-message="Het RSIN nummer moet 9 nummers bevatten">RSIN instelling
+                                    <input class="rsin-instelling-1" type="text" name="rsin-instelling-1" inputmode="numeric" pattern="[0-9]{9}" title="Vul hier het RSIN nummer in van de instelling" placeholder="" />
+                                </label>
+                                <label>
+                                    Naam instelling
+                                    <input type="text" name="naam-instelling-1">
+                                </label>
+                            </div>
+                        </details>
                     </fieldset>
+                    <fieldset>
+                        <legend><span>4b</span> Adresgegevens</legend>
+                        <div class="adress">
+                            <label>Straat
+                                <input type="text" placeholder="" required name="adresgegevens-persoon-1">
+                            </label>
+                            <label>Huisnummer
+                                <input type="text" placeholder="" required name="huisnummer-persoon-1">
+                            </label>
+                            <label>Toevoeging huisnummer
+                                <input type="text" placeholder="">
+                            </label>
+                            <label>Postcode
+                                <input type="text" placeholder="" required name="postcode-persoon-1">
+                            </label>
+                            <label>Plaats
+                                <input type="text" placeholder="" required name="plaats-persoon-1">
+                            </label>
+                        </div>
+                        <div class="autoFillInLandcodeNL">
+                            <label>
+                                Dit adres bevind zich in Nederland
+                                <input type="checkbox" name="adres-in-nl-persoon-1">
+                            </label>
+                            <label data-error-message="Een landcode moet 3 of 4 cijfers bevatten">Landcode<span>. NL: ..., In onderdeel C van de <a href="#" target="_blank">toelichting</a> vindt u een lijst met landcodes.</span>
+                                <input type="text" name="Landcode-persoon-1" inputmode="tel" pattern="[0-9]{3,4}" title="Een landcode moet 3 of 4 cijfers bevatten" placeholder="" required>
+                            </label>
+                        </div>
+                    </fieldset>
+                    <div class="terugEnVolgende">
+                        <a href="#derdeSection">Terug</a>
+                        <!-- <a href="#vijfdeSection">Volgende</a> -->
+                    </div>
                 </section>
                 <!-- Andere vragen toevoegen -->
                 <button type="button" name="opslaan-button" value="Opslaan">Opslaan</button>

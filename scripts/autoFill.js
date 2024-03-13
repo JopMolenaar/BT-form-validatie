@@ -55,17 +55,20 @@ function disableInputs(element) {
 }
 
 function fillInLandcode() {
-    const landcodeCheckBox = document.querySelector(
-        ".autoFillInLandcodeNL label:nth-of-type(1)"
-    );
-    landcodeCheckBox.style.display = "inline";
-    if (landcodeCheckBox.checked) {
-        const landcodeInput = document.querySelector(
-            ".autoFillInLandcodeNL label:nth-of-type(2)"
+    const landcodeSections = document.querySelectorAll(".autoFillInLandcodeNL");
+    landcodeSections.forEach((landcodeSection) => {
+        const landcodeCheckBox = landcodeSection.querySelector(
+            "label:nth-of-type(1)"
         );
-        landcodeInput.required = false;
-        landcodeInput.value = ""; // need to be in generic function
-        landcodeInput.style.display = "none";
-    }
+        const landcodeInput = landcodeSection.querySelector(
+            "label:nth-of-type(2)"
+        );
+        landcodeCheckBox.style.display = "inline";
+        if (landcodeCheckBox.checked) {
+            landcodeInput.required = false;
+            landcodeInput.value = ""; // need to be in generic function
+            landcodeInput.style.display = "none";
+        }
+    });
 }
 fillInLandcode();

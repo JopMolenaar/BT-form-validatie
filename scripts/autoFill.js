@@ -32,7 +32,6 @@ function disableInputs(element) {
     const parent = element.parentElement;
     const parentFromParent = parent.parentElement;
     const classInput = element.classList[0];
-    console.log(classInput);
     if (
         parentFromParent.classList[1] === "disable-the-rest" &&
         element.disabled === false
@@ -51,3 +50,19 @@ function disableInputs(element) {
         });
     }
 }
+
+function fillInLandcode() {
+    const landcodeCheckBox = document.querySelector(
+        ".autoFillInLandcodeNL label:nth-of-type(1)"
+    );
+    landcodeCheckBox.style.display = "inline";
+    if (landcodeCheckBox.checked) {
+        const landcodeInput = document.querySelector(
+            ".autoFillInLandcodeNL label:nth-of-type(2)"
+        );
+        landcodeInput.required = false;
+        landcodeInput.value = ""; // need to be in generic function
+        landcodeInput.style.display = "none";
+    }
+}
+fillInLandcode();

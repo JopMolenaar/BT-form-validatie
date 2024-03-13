@@ -8,6 +8,7 @@ const inputsWithVervolg = [
     "vervolg-1c",
     "vervolg-1c-2",
     "vervolg-1d",
+    "vervolg-3b",
 ];
 
 console.log(

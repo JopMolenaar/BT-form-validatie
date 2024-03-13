@@ -27,7 +27,7 @@
             <div class="startFormLink">
                 <a href="#eersteSection">Start</a>
             </div>
-            <form action="#" method="post">
+            <form action="https://adactio.com/post" method="post">
                 <!-- TODO integrate: patterns, titles, data-error-message -->
                 <!-- TODO popovers met info -->
                 <section id="eersteSection">
@@ -36,17 +36,19 @@
                     <a class="infoLink" href="#" target=”_blank”>open toelichting</a>
                     <fieldset data-vraag="1a">
                         <legend><span>1a </span>Vul hier de gegevens in van de overledene.</legend>
-                        <label>Voorletter(s)
-                            <input type="text" name="Voorletter-overledene" placeholder="" required />
-                        </label>
-                        <label>tussen-voegsel(s)
-                            <input type="text" name="tussen-voegsel-overledene" placeholder="" />
-                        </label>
-                        <label>achternaam
-                            <input type="text" name="achternaam-overledene" placeholder="" />
-                        </label>
-                        <label data-error-message="Het BSN nummer moet 9 nummers bevatten">Burgerservicenummer overledene
-                            <input type="text" name="burgerservicenummer-overledene" inputmode="numeric" pattern="[0-9]{9}" title="Vul hier het BSN nummer van de overledene in" placeholder="" required />
+                        <div class="name">
+                            <label>Voorletter(s)
+                                <input type="text" name="voorletter-overledene" placeholder="" required />
+                            </label>
+                            <label>tussen-voegsel(s)
+                                <input type="text" name="tussen-voegsel-overledene" placeholder="" />
+                            </label>
+                            <label>achternaam
+                                <input type="text" name="achternaam-overledene" placeholder="" />
+                            </label>
+                        </div>
+                        <label data-error-message="Het BSN nummer moet 8 of 9 nummers bevatten">Burgerservicenummer overledene
+                            <input type="text" name="burgerservicenummer-overledene" inputmode="numeric" pattern="[0-9]{8,9}" title="Het BSN nummer moet 8 of 9 nummers bevatten" placeholder="" required />
                         </label>
                         <label>Overlijdensdatum
                             <input type="date" name="overlijdensdatum-overledene" placeholder="" required />
@@ -192,9 +194,9 @@
                         <!-- als protocol nummer al is ingevuld, laat dan al het ingevulde veld zien -->
                         <!-- Anders laat je de andere 2 zien -->
                         <div class="duplicate-input disable-the-rest">
-                            <label data-error-message="Het BSN/RSIN nummer moet 9 nummers bevatten">Burgerservicenummer/
+                            <label data-error-message="Het BSN/RSIN nummer moet 8 of 9 nummers bevatten">Burgerservicenummer/
                                 RSIN gemachtigde
-                                <input class="bsn-rsin-gemachtigde" type="text" name="nummer-gemachtigde" inputmode="numeric" pattern="[0-9]{9}" title="Vul hier het BSN nummer of RSIN nummer in van de gemachtigde" placeholder="" required />
+                                <input class="bsn-rsin-gemachtigde" type="text" name="nummer-gemachtigde" inputmode="numeric" pattern="[0-9]{8,9}" title="Vul hier het BSN nummer of RSIN nummer in van de gemachtigde" placeholder="" required />
                             </label>
                             <label data-error-message="Het beconnummer nummer moet 6 nummers bevatten">Beconnummer adviseur
                                 <input class="beconnummer-gemachtigde" type="text" name="nummer-gemachtigde" inputmode="numeric" pattern="[0-6]{6}" title="Vul hier het beconnummer in van de adviseur" placeholder=""  />
@@ -206,6 +208,57 @@
                     </fieldset>
                     <fieldset>
                         <legend><span>2b </span>Naam en adres gegevens gemachtigde</legend>
+                        <div class="name">
+                            <label>Voorletter(s)
+                                <input type="text" name="voorletter-gemachtigde" placeholder="" required />
+                            </label>
+                            <label>tussen-voegsel(s)
+                                <input type="text" name="tussen-voegsel-gemachtigde" placeholder="" />
+                            </label>
+                            <label>achternaam
+                                <input type="text" name="achternaam-gemachtigde" placeholder="" />
+                            </label>
+                        </div>
+                        <label>Naam instelling (bijvoorbeeld een notariskantoor)
+                            <input type="text" name="naam-instelling-gemachtigde" placeholder="" required />
+                        </label>
+                        <fieldset>
+                            <legend>Adres</legend>
+                            <div class="adress">
+                                <label>Straat
+                                    <input type="text" placeholder="" required>
+                                </label>
+                                <label>Huisnummer
+                                    <input type="text" placeholder="" required>
+                                </label>
+                                <label>Toevoeging huisnummer
+                                    <input type="text" placeholder="">
+                                </label>
+                                <label>Postcode
+                                    <input type="text" placeholder="" required>
+                                </label>
+                                <label>Plaats
+                                    <input type="text" placeholder="" required>
+                                </label>
+                            </div>
+                            <div class="autoFillInLandcodeNL">
+                                <label>
+                                    Dit adres bevind zich in Nederland
+                                    <input type="checkbox">
+                                </label>
+                                <label data-error-message="Een landcode moet 3 of 4 cijfers bevatten">Landcode<span>. NL: ..., In onderdeel C van de <a href="#" target="_blank">toelichting</a> vindt u een lijst met landcodes.</span>
+                                    <input type="text" inputmode="tel" pattern="[0-9]{3,4}" title="Een landcode moet 3 of 4 cijfers bevatten" placeholder="" required>
+                                </label>
+                            </div>
+                            <label>Telefoonnummer
+                                <!-- TODO pattern, title, errormessage -->
+                                <input type="tel" placeholder="">
+                            </label>
+                            <label>E-mailadres
+                                <!-- TODO pattern, title, errormessage -->
+                                <input type="email" placeholder="">
+                            </label>
+                        </fieldset>
                     </fieldset>
                     <div class="terugEnVolgende">
                         <a href="#eersteSection">Terug</a>
@@ -213,19 +266,104 @@
                     </div>
                 </section>
                 <section id="derdeSection">
-                    <h2>vraag 3</h2>
+                    <h2>Voor wie doet u aangifte?</h2>
                     <button class="infoButton" type="button">i</button>
                     <a class="infoLink" href="#" target=”_blank”>open toelichting</a>
-                    <!-- <p>Heeft de overledene in het testament een executeur aangewezen om de erfenis af te handelen?
-                        Dan moet de executeur aangifte doen voor alle personen en/of instellingen die iets krijgen uit de nalatenschap (verkrijgers).
-                        Lees de toelichting bij vraag 3a.
-                    </p> -->
                     <fieldset>
-                        <label>datum
-                            <input type="date" name="dkjck" required>
+                        <legend><span>3a</span> Voor wie doet u aangifte?</legend>
+                        <p>Heeft de overledene in het testament een executeur aangewezen om de erfenis af te handelen?
+                            Dan moet de executeur aangifte doen voor alle personen en/of instellingen die iets krijgen uit de nalatenschap (verkrijgers).
+                            Lees de toelichting bij vraag 3a.
+                        </p>
+                        <label>
+                            <input type="radio" name="executeur-aangewezen" required>
+                            Ik ben executeur en doe aangifte voor alle personen en/of instellingen die
+                            iets krijgen uit de nalatenschap (verkrijgers).
+                        </label>
+                        <p>Is er geen executeur aangewezen? Kruis dan aan welke situatie voor u geldt.</p>
+                        <label>
+                            <input type="radio" name="executeur-aangewezen">
+                            Ik ben erfgenaam en ben gemachtigd om aangifte te doen voor meerdere
+                            personen en/of instellingen die iets krijgen uit de nalatenschap (verkrijgers).
+                        </label>
+                        <label>
+                            <input type="radio" name="executeur-aangewezen">
+                            Ik ben erfgenaam en doe samen met andere erfgenamen aangifte.
+                        </label>
+                        <label>
+                            <input type="radio" name="executeur-aangewezen">
+                            Ik ben erfgenaam en doe alleen aangifte voor mijzelf. <span>U hoeft niet aan te geven voor hoeveel verkrijgers u aangifte doet.</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="executeur-aangewezen">
+                            Ik ben geen erfgenaam, maar ben gemachtigd om aangifte te doen.
+                        </label>
+                        
+                        <label>Geef aan voor hoeveel verkrijgers u
+                            aangifte doet. Bent u zelf ook verkrijger? Tel uzelf dan ook mee.
+                            <!-- TODO  -->
+                            <input type="number" inputmode="numeric" placeholder="">
                         </label>
                     </fieldset>
-                    
+                    <fieldset>
+                        <legend><span>3b</span> Zijn er verkrijgers voor wie
+                            u geen aangifte doet?</legend>
+                        <label>
+                            <input type="radio" name="geen-aangifte">
+                            Nee<span>. Ga naar vraag 3c.</span>
+                        </label>
+                        <label data-ga-verder-met="vervolg-3b">
+                            <input type="radio" name="geen-aangifte">
+                            Ja. Vul hieronder de gegevens in van de verkrijgers waarvoor u geen aangifte doet.
+                                Gaat het om een instelling? Vul dan de naam van de instelling in bij ‘achternaam’.
+                                Het invullen van een bsn is niet verplicht, maar wel handig voor ons.
+                        </label>
+                        <!-- TODO deze div is een vervolg van de nee hierboven -->
+                        <div class="vervolg-3b vervolg">
+                            <p>Verkrijger 1</p>
+                            <label data-error-message="Het BSN nummer moet 8 of 9 nummers bevatten">Burgerservicenummer verkrijger
+                                <input type="text" name="burgerservicenummer-verkrijger-1" inputmode="numeric" pattern="[0-9]{8,9}" title="Het BSN nummer moet 8 of 9 nummers bevatten" placeholder="" />
+                            </label>
+                            <div class="name">
+                                <label>Voorletter(s)
+                                    <input type="text" name="voorletter-verkrijger-1" placeholder="" required />
+                                </label>
+                                <label>tussen-voegsel(s)
+                                    <input type="text" name="tussen-voegsel-verkrijger-1" placeholder="" />
+                                </label>
+                                <label>achternaam
+                                    <input type="text" name="achternaam-verkrijger-1" placeholder="" />
+                                </label>
+                            </div>
+                            <fieldset>
+                                <legend>Krijgt deze verkrijger waarvoor u geen aangifte doet het hele
+                                    vermogen?</legend>
+                                    <label>
+                                        <input type="radio" name="hele-vermogen-verkrijger-1">
+                                        Ja
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="hele-vermogen-verkrijger-1">
+                                        Nee
+                                    </label>
+                            </fieldset>
+                            <fieldset>
+                                <legend>Doet deze verkrijger een beroep op diens legitieme portie
+                                    (wettelijke erfdeel)?</legend>
+                                    <label>
+                                        <input type="radio" name="beroep-op-legitieme-protie-verkrijger-1">
+                                        Ja
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="beroep-op-legitieme-protie-verkrijger-1">
+                                        Nee
+                                    </label>
+                            </fieldset>
+                            <button type="button">Voeg een verkrijger toe <span>werkt op het moment niet.</span></button>
+                            <a href="#">Open lijst met </a>
+                        </div>
+                      
+                    </fieldset>
                     <div class="terugEnVolgende">
                         <a href="#tweedeSection">Terug</a>
                         <a href="#vierdeSection">Volgende</a>
@@ -242,5 +380,6 @@
         <script src="scripts/requiredAndDisplayPE.js"></script>
         <script src="scripts/openPopover.js"></script>
         <script src="scripts/autoFill.js"></script>
+        <script src="scripts/bsnValidation.js"></script>
     </body>
 </html>

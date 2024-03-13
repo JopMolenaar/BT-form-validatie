@@ -86,3 +86,11 @@ form:invalid {
         display: inline;
     }
 }
+
+/* Landcode */
+.autoFillInLandcodeNL label:nth-of-type(1) {
+    display: none;
+}
+html:has(.autoFillInLandcodeNL input[type=checkbox]:checked) .autoFillInLandcodeNL label:nth-of-type(2) {
+    display: none;
+}

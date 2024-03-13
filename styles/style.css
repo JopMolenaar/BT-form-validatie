@@ -22,7 +22,8 @@ label {
     display: flex;
     align-items: center;
     gap: 0.5em;
-    width: max-content;
+    max-width: 40em;
+    margin-top: 0.5rem;
 }
 label:has(input:not([type="radio"])){
     display: grid;
@@ -43,6 +44,10 @@ fieldset {
    padding-top: 0.5rem;
    margin-bottom: 0.5em;
 }
+fieldset p {
+    font-weight: 700;
+}
+
 fieldset legend span {
     font-weight: 700;
 }
@@ -74,15 +79,17 @@ html:has(section:target) .startFormLink{
 }
 
 /* 1b */
-fieldset[data-vraag="1b"]:has(label[data-ga-verder-met="vervolg-1b"] input:checked) .vervolg-1b, 
+fieldset:has(label[data-ga-verder-met="vervolg-1b"] input:checked) .vervolg-1b, 
 /* 1b-2 */
-fieldset[data-vraag="1b"]:has(label[data-ga-verder-met="vervolg-1b-2"] input:checked) .vervolg-1b-2,
+fieldset:has(label[data-ga-verder-met="vervolg-1b-2"] input:checked) .vervolg-1b-2,
 /* 1c */
-fieldset[data-vraag="1c"]:has(label[data-ga-verder-met="vervolg-1c"] input:checked) .vervolg-1c, 
+fieldset:has(label[data-ga-verder-met="vervolg-1c"] input:checked) .vervolg-1c, 
 /* 1c-2 */
-fieldset[data-vraag="1c"]:has(label[data-ga-verder-met="vervolg-1c-2"] input:checked) .vervolg-1c-2,
+fieldset:has(label[data-ga-verder-met="vervolg-1c-2"] input:checked) .vervolg-1c-2,
 /* 1d */
-fieldset[data-vraag="1d"]:has(label[data-ga-verder-met="vervolg-1d"] input:checked) .vervolg-1d
+fieldset:has(label[data-ga-verder-met="vervolg-1d"] input:checked) .vervolg-1d,
+/* 1d */
+fieldset:has(label[data-ga-verder-met="vervolg-3b"] input:checked) .vervolg-3b
 {
     display: block;
     /* opacity: 1; */
@@ -111,7 +118,7 @@ main form > section > div {
     justify-content: space-between;
     gap: 1em;
 }
-main form > section:nth-child(1) div {
+main form > section:nth-child(1) > div {
     justify-content: end;
 }
 main form > section > div a {
@@ -165,3 +172,10 @@ main form section > .infoButton:focus {
     }
 }
 
+main form section .name, main form section .adress {
+    display: flex;
+    flex-wrap: wrap;
+}
+main form section .name label, main form section .adress label{
+    margin-right: 1rem;
+}

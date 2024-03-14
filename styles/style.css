@@ -24,12 +24,20 @@ label {
     gap: 0.5em;
     max-width: 40em;
     margin-top: 0.5rem;
+    width: fit-content;
 }
 label:has(input:not([type="radio"])){
     display: grid;
     gap: 0;
     margin-bottom: 0.5rem;
 }
+/* label:has(input[required])::before{
+    content: "*";
+    grid-row: 1/1;
+    position: absolute;
+    right: 0;
+    top: 0;
+} */
 
 input[type="radio"] {
     height: 1.5em;
@@ -183,4 +191,8 @@ main form section .name, main form section .adress {
 }
 main form section .name label, main form section .adress label{
     margin-right: 1rem;
+}
+
+details > div, details > p{
+    padding-left: 1em;
 }

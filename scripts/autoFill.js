@@ -54,33 +54,33 @@ function disableInputs(element) {
     }
 }
 
-function fillInLandcode() {
-    const landcodeSections = document.querySelectorAll(".autoFillInLandcodeNL");
-    landcodeSections.forEach((landcodeSection) => {
-        const landcodeCheckBox = landcodeSection.querySelector(
-            "label:nth-of-type(1)"
-        );
-        const landcodeCheckBoxInput = landcodeSection.querySelector(
-            "label:nth-of-type(1) input"
-        );
-        const landcodeLabel = landcodeSection.querySelector(
-            "label:nth-of-type(2)"
-        );
-        const landcodeInput = landcodeSection.querySelector(
-            "label:nth-of-type(2) input"
-        );
-        landcodeCheckBox.style.display = "inline";
-        landcodeCheckBoxInput.addEventListener("click", () => {
-            if (landcodeCheckBoxInput.checked) {
-                landcodeInput.required = false;
-                landcodeInput.value = ""; // need to be in generic function
-                landcodeLabel.style.display = "none";
-            } else {
-                landcodeInput.required = true;
-                landcodeInput.value = ""; // need to be in generic function
-                landcodeLabel.style.display = "grid";
-            }
-        });
+const landcodeSections = document.querySelectorAll(".autoFillInLandcodeNL");
+landcodeSections.forEach((landcodeSection) => {
+    const landcodeCheckBox = landcodeSection.querySelector(
+        "label:nth-of-type(1)"
+    );
+    const landcodeCheckBoxInput = landcodeSection.querySelector(
+        "label:nth-of-type(1) input"
+    );
+    const landcodeLabel = landcodeSection.querySelector("label:nth-of-type(2)");
+    const landcodeInput = landcodeSection.querySelector(
+        "label:nth-of-type(2) input"
+    );
+    fillInLandcode(landcodeCheckBoxInput, landcodeInput, landcodeLabel);
+    landcodeCheckBox.style.display = "inline";
+    landcodeCheckBoxInput.addEventListener("click", () => {
+        fillInLandcode(landcodeCheckBoxInput, landcodeInput, landcodeLabel);
     });
-}
-fillInLandcode();
+});
+
+function fillInLandcode(landcodeCheckBoxInput, landcodeInput, landcodeLabel) {
+    if (landcodeCheckBoxInput.checked) {
+        landcodeInput.required = false;
+        landcodeInput.value = ""; // need to be in generic function
+        landcodeLabel.style.display = "none";
+    } else {
+        landcodeInput.required = true;
+        landcodeInput.value = ""; // need to be in generic function
+        landcodeLabel.style.display = "grid";
+    }
+};

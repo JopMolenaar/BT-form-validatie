@@ -122,10 +122,10 @@ function checkIfSectionsAreValid(link) {
     everySection.forEach((section) => {
         if ("#" + section.id === hashAndNext) {
             const inputError = section.querySelector(
-                "fieldset label input:user-invalid:not(:focus):not(:placeholder-shown)"
+                "fieldset label input:user-invalid:not(:focus)"
             );
             const validInputs = section.querySelectorAll(
-                "fieldset label input:required:valid:not(:placeholder-shown)"
+                "fieldset label input:required:valid"
             );
             const allInputs = section.querySelectorAll(
                 "fieldset input:required"
@@ -133,9 +133,12 @@ function checkIfSectionsAreValid(link) {
             const linkMatchedSection = document.querySelector(
                 `main nav a[href='#${section.id}']`
             );
-            if (inputError) {
+            if (inputError && inputError.value !== "") {
                 linkMatchedSection.style.background = "red";
-            } else if (validInputs.length >= allInputs.length) {
+            } else if (
+                validInputs.length >= allInputs.length &&
+                validInputs.value !== ""
+            ) {
                 linkMatchedSection.style.background = "green";
             } else {
                 linkMatchedSection.style.background = "#8fcae7";
@@ -153,9 +156,9 @@ function displayErrorMessage() {
             input.addEventListener("blur", () => {
                 const label = input.parentElement;
                 const invalidInput = label.querySelector(
-                    "input:user-invalid:not(:focus):not(:placeholder-shown)"
+                    "input:user-invalid:not(:focus)"
                 );
-                if (invalidInput) {
+                if (invalidInput && invalidInput.value !== "") {
                     label.classList.add("showErrorMessage");
                 } else {
                     label.classList.remove("showErrorMessage");

@@ -35,7 +35,7 @@
                 <section id="eersteSection">
                     <h2>Vul hier de gegevens in van de overledene.</h2>
                     <button class="infoButton" type="button">i</button>
-                    <a class="infoLink" href="#" target=”_blank”>open toelichting</a>
+                    <!-- <a class="infoLink" href="#" target=”_blank”>open toelichting</a> -->
                     <fieldset data-vraag="1a">
                         <legend><span>1a </span>Vul hier de gegevens in van de overledene.</legend>
                         <div class="name">
@@ -56,60 +56,96 @@
                             <input type="date" name="overlijdensdatum-overledene" placeholder="" required />
                         </label>
                     </fieldset>
-                    <fieldset data-vraag="1b">
-                        <legend><span>1b </span>
-                            Was de overledene getrouwd of had de overledene een
-                            geregistreerd partner op het moment van overlijden?
-                        </legend>
-                        <label data-ga-verder-met="vervolg-1b">
-                            <input type="radio" name="geregistreerd-partner" value="Ja" required />
-                            Ja
-                        </label>
-                        <label>
-                            <input type="radio" name="geregistreerd-partner" value="Nee" />
-                            Nee<span>. Ga verder met vraag 1c</span>
-                        </label>
-                        <div class="vervolg vervolg-1b">
-                            <fieldset>
-                                <legend>
-                                    Hadden de overledene en diens echtgenoot of
-                                    geregistreerd partner huwelijkse of partner schaps-
-                                    voorwaarden laten vastleggen in een notariële akte?
-                                </legend>
-                                <label data-ga-verder-met="vervolg-1b-2">
-                                    <input type="radio" name="notariële-akte" value="Ja" />
-                                    Ja<span>. Stuur een kopie van de akte mee met de aangifte.</span>
-                                </label>
-                                <label>
-                                    <input type="radio" name="notariële-akte" value="Nee" />
-                                    Nee
-                                </label>
-                                <label class="vervolg vervolg-1b-2">Voeg hier een kopie van de akte toe
-                                    <input type="file" name="kopie-akte">
-                                </label>
-                            </fieldset>
-                            <fieldset>
-                                <legend>Hadden de overledene en diens partner een finaal
-                                    verrekenbeding?
-                                </legend>
-                                <label>
-                                    <input type="radio" name="finaal-verrekenbeding" value="Ja" />
-                                    Ja
-                                </label>
-                                <label>
-                                    <input type="radio" name="finaal-verrekenbeding" value="Nee"/>
-                                    Nee
-                                </label>
-                            </fieldset>
-                            <fieldset>
-                                <!-- <legend>Datum huwelijkse of partnerschapsvoorwaarden</legend> -->
-                                <label>
-                                    Datum huwelijkse of partnerschapsvoorwaarden
-                                    <input type="date" name="datum-partnerschapsvoorwaarden">
-                                </label>
-                            </fieldset>
-                        </div>
-                    </fieldset>
+                    <div class="wrapper-toelichting-met-vraag">
+                        <details class="toelichting">
+                            <summary>Toelichting vraag 1b</summary>
+                            <div>
+                                <h3>Gegevens van de overledene</h3>
+                                <p>Vul deze vraag in als de overledene op de datum van
+                                    overlijden getrouwd was of een geregistreerd partner had.
+                                    U hoeft vraag 1b niet in te vullen als:
+                                    <ul>
+                                        <li>de overledene een notarieel samenlevingscontract had
+                                            met diens partner</li>
+                                        <li>de overledene samen met een partner of huisgenoot op
+                                            hetzelfde adres stond ingeschreven in de Basisregistratie
+                                            Personen (BRP) van de gemeente</li>
+                                    </ul>
+                                </p>
+                                <h4>Finaal verrekenbeding</h4>
+                                <p>
+                                    Was de overledene getrouwd op huwelijkse voorwaarden?
+                                    Of hadden de overledene en de partner een geregistreerd
+                                    partnerschap en hadden zij partnerschapsvoorwaarden?
+                                    Dan kan het zijn dat overledene en partner samen een finaal
+                                    verrekenbeding hebben. Dit betekent dat bij overlijden het
+                                    gezamenlijke vermogen verdeeld wordt op dezelfde manier
+                                    als wanneer ze in gemeenschap van goederen waren
+                                    getrouwd. Of op dezelfde manier als wanneer zij geen
+                                    partnerschaps voorwaarden hadden. Sommige zaken kunnen
+                                    buiten deze verdeling gehouden worden, zoals het vermogen
+                                    dat 1 van de partners al had voordat zij gingen trouwen.
+                                    U vindt de informatie over een finaal verrekenbeding in de
+                                    huwelijkse of partnerschapsvoorwaarden.
+                                </p>
+                            </div>
+                        </details>
+                        <fieldset data-vraag="1b">
+                            <legend><span>1b </span>
+                                Was de overledene getrouwd of had de overledene een
+                                geregistreerd partner op het moment van overlijden?
+                            </legend>
+                            <label data-ga-verder-met="vervolg-1b">
+                                <input type="radio" name="geregistreerd-partner" value="Ja" required />
+                                Ja
+                            </label>
+                            <label>
+                                <input type="radio" name="geregistreerd-partner" value="Nee" />
+                                Nee<span>. Ga verder met vraag 1c</span>
+                            </label>
+                            <div class="vervolg vervolg-1b">
+                                <fieldset>
+                                    <legend>
+                                        Hadden de overledene en diens echtgenoot of
+                                        geregistreerd partner huwelijkse of partner schaps-
+                                        voorwaarden laten vastleggen in een notariële akte?
+                                    </legend>
+                                    <label data-ga-verder-met="vervolg-1b-2">
+                                        <input type="radio" name="notariële-akte" value="Ja" />
+                                        Ja<span>. Stuur een kopie van de akte mee met de aangifte.</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="notariële-akte" value="Nee" />
+                                        Nee
+                                    </label>
+                                    <label class="vervolg vervolg-1b-2">Voeg hier een kopie van de akte toe
+                                        <input type="file" name="kopie-akte">
+                                    </label>
+                                </fieldset>
+                                <fieldset>
+                                    <legend>Hadden de overledene en diens partner een finaal
+                                        verrekenbeding?
+                                    </legend>
+                                    <label>
+                                        <input type="radio" name="finaal-verrekenbeding" value="Ja" />
+                                        Ja
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="finaal-verrekenbeding" value="Nee"/>
+                                        Nee
+                                    </label>
+                                </fieldset>
+                                <fieldset>
+                                    <!-- <legend>Datum huwelijkse of partnerschapsvoorwaarden</legend> -->
+                                    <label>
+                                        Datum huwelijkse of partnerschapsvoorwaarden
+                                        <input type="date" name="datum-partnerschapsvoorwaarden">
+                                    </label>
+                                </fieldset>
+                            </div>
+                        </fieldset>
+                    </div>
+                 
                     <fieldset data-vraag="1c">
                         <legend><span>1c </span>Had de overledene kinderen?</legend>
                         <label data-ga-verder-met="vervolg-1c">

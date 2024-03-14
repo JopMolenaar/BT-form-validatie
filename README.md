@@ -14,11 +14,14 @@
 - [ ] localstorage function
 - [ ] date's min
 - [ ] postcode en huisnummer validation
-- [ ] tabs gegevens verkrijgers maken
+- [ ] alles functies in js naar engels translaten 
 - [ ] styling form
 <!-- - [ ] handtekening oplossing -->
+
+### Belangrijk
+- [ ] tabs gegevens verkrijgers maken
 - [ ] inputs met geld en IBAN nummers maken
-- [ ] alles functies in js naar engels translaten 
+- [ ] toelichting details + styling
 - [ ] ...
 
 <!-- font fix -->

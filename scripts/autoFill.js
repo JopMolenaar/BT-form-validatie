@@ -60,15 +60,27 @@ function fillInLandcode() {
         const landcodeCheckBox = landcodeSection.querySelector(
             "label:nth-of-type(1)"
         );
-        const landcodeInput = landcodeSection.querySelector(
+        const landcodeCheckBoxInput = landcodeSection.querySelector(
+            "label:nth-of-type(1) input"
+        );
+        const landcodeLabel = landcodeSection.querySelector(
             "label:nth-of-type(2)"
         );
+        const landcodeInput = landcodeSection.querySelector(
+            "label:nth-of-type(2) input"
+        );
         landcodeCheckBox.style.display = "inline";
-        if (landcodeCheckBox.checked) {
-            landcodeInput.required = false;
-            landcodeInput.value = ""; // need to be in generic function
-            landcodeInput.style.display = "none";
-        }
+        landcodeCheckBoxInput.addEventListener("click", () => {
+            if (landcodeCheckBoxInput.checked) {
+                landcodeInput.required = false;
+                landcodeInput.value = ""; // need to be in generic function
+                landcodeLabel.style.display = "none";
+            } else {
+                landcodeInput.required = true;
+                landcodeInput.value = ""; // need to be in generic function
+                landcodeLabel.style.display = "grid";
+            }
+        });
     });
 }
 fillInLandcode();

@@ -84,7 +84,7 @@
                                     Nee
                                 </label>
                                 <label class="vervolg vervolg-1b-2">Voeg hier een kopie van de akte toe
-                                    <input type="file">
+                                    <input type="file" name="kopie-akte">
                                 </label>
                             </fieldset>
                             <fieldset>
@@ -194,6 +194,7 @@
                         </legend>
                         <!-- als protocol nummer al is ingevuld, laat dan al het ingevulde veld zien -->
                         <!-- Anders laat je de andere 2 zien -->
+                        <!-- TODO kan dit dezelfde naam hebben? -->
                         <div class="duplicate-input disable-the-rest">
                             <label data-error-message="Het BSN/RSIN nummer moet 8 of 9 nummers bevatten">Burgerservicenummer/
                                 RSIN gemachtigde
@@ -227,37 +228,38 @@
                             <legend>Adres</legend>
                             <div class="adress">
                                 <label>Straat
-                                    <input type="text" placeholder="" required>
+                                    <input type="text" name="straat-gemachtigde" placeholder="" required>
                                 </label>
                                 <label>Huisnummer
-                                    <input type="text" placeholder="" required>
+                                    <input type="text" name="huisnummer-gemachtigde" placeholder="" required>
                                 </label>
                                 <label>Toevoeging huisnummer
-                                    <input type="text" placeholder="">
+                                    <input type="text" name="toevoeging-huisnummer-gemachtigde" placeholder="">
                                 </label>
                                 <label>Postcode
-                                    <input type="text" placeholder="" required>
+                                    <!-- TODO pattern -->
+                                    <input type="text" name="postode-gemachtigde" placeholder="" required>
                                 </label>
                                 <label>Plaats
-                                    <input type="text" placeholder="" required>
+                                    <input type="text" name="plaats-gemachtigde" placeholder="" required>
                                 </label>
                             </div>
                             <div class="autoFillInLandcodeNL">
                                 <label>
                                     Dit adres bevind zich in Nederland
-                                    <input type="checkbox">
+                                    <input type="checkbox" name="adres-in-nl-gemachtigde">
                                 </label>
                                 <label data-error-message="Een landcode moet 3 of 4 cijfers bevatten">Landcode<span>. NL: ..., In onderdeel C van de <a href="#" target="_blank">toelichting</a> vindt u een lijst met landcodes.</span>
-                                    <input type="text" inputmode="tel" pattern="[0-9]{3,4}" title="Een landcode moet 3 of 4 cijfers bevatten" placeholder="" required>
+                                    <input type="text" name="landcode-gemachtigde" inputmode="tel" pattern="[0-9]{3,4}" title="Een landcode moet 3 of 4 cijfers bevatten" placeholder="" required>
                                 </label>
                             </div>
                             <label>Telefoonnummer
                                 <!-- TODO pattern, title, errormessage -->
-                                <input type="tel" placeholder="">
+                                <input type="tel" name="tel-nummer-gemachtigde" placeholder="">
                             </label>
                             <label>E-mailadres
                                 <!-- TODO pattern, title, errormessage -->
-                                <input type="email" placeholder="">
+                                <input type="email" name="email-gemachtigde" placeholder="">
                             </label>
                         </fieldset>
                     </fieldset>
@@ -278,33 +280,33 @@
                         </p>
                         <label data-sla-over="vraag-3b" data-ga-verder-met="vervolg-3a">
                             <!-- TODO sla over atribute -->
-                            <input type="radio" name="executeur-aangewezen" required>
+                            <input type="radio" name="executeur-aangewezen" required value="executeur">
                             Ik ben executeur en doe aangifte voor alle personen en/of instellingen die
                             iets krijgen uit de nalatenschap (verkrijgers). <span>Vul de hoeveelheid verkrijgers in en ga naar vraag 3c.</span>
                         </label>
                         <p>Is er geen executeur aangewezen? Kruis dan aan welke situatie voor u geldt.</p>
                         <label data-ga-verder-met="vervolg-3b" data-ga-ook-verder-met="vervolg-3a">
-                            <input type="radio" name="executeur-aangewezen">
+                            <input type="radio" name="executeur-aangewezen" value="erfgenaam">
                             Ik ben erfgenaam en ben gemachtigd om aangifte te doen voor meerdere
                             personen en/of instellingen die iets krijgen uit de nalatenschap (verkrijgers).
                         </label>
                         <label data-ga-verder-met="vervolg-3b" data-ga-ook-verder-met="vervolg-3a">
-                            <input type="radio" name="executeur-aangewezen">
+                            <input type="radio" name="executeur-aangewezen" value="erfgenaam-samen-met-anderen">
                             Ik ben erfgenaam en doe samen met andere erfgenamen aangifte.
                         </label>
                         <label data-ga-verder-met="vervolg-3b">
-                            <input type="radio" name="executeur-aangewezen">
+                            <input type="radio" name="executeur-aangewezen" value="erfgenaam-alleen">
                             Ik ben erfgenaam en doe alleen aangifte voor mijzelf. <span>U hoeft niet aan te geven voor hoeveel verkrijgers u aangifte doet.</span>
                         </label>
                         <label data-ga-verder-met="vervolg-3b" data-ga-ook-verder-met="vervolg-3a">
-                            <input type="radio" name="executeur-aangewezen">
+                            <input type="radio" name="executeur-aangewezen" value="geen-erfgenaam-maar-gemachtigd">
                             Ik ben geen erfgenaam, maar ben gemachtigd om aangifte te doen.
                         </label>
                         <div class="vervolg-3a vervolg">
                             <label>Geef aan voor hoeveel verkrijgers u
                                 aangifte doet. Bent u zelf ook verkrijger? Tel uzelf dan ook mee.
                                 <!-- TODO  -->
-                                <input type="number" inputmode="numeric" placeholder="">
+                                <input type="number" name="hoeveel-verkrijgers" inputmode="numeric" placeholder="">
                             </label>
                         </div>
                     </fieldset>
@@ -312,11 +314,11 @@
                         <legend><span>3b</span> Zijn er verkrijgers voor wie
                             u geen aangifte doet?</legend>
                         <label>
-                            <input type="radio" name="geen-aangifte">
+                            <input type="radio" name="geen-aangifte" value="Nee">
                             Nee<span>. Ga naar vraag 3c.</span>
                         </label>
                         <label data-ga-verder-met="vervolg-3b-2">
-                            <input type="radio" name="geen-aangifte">
+                            <input type="radio" name="geen-aangifte" value="Ja">
                             Ja. Vul hieronder de gegevens in van de verkrijgers waarvoor u geen aangifte doet.
                                 Gaat het om een instelling? Vul dan de naam van de instelling in bij ‘achternaam’.
                                 Het invullen van een bsn is niet verplicht, maar wel handig voor ons.
@@ -344,11 +346,11 @@
                                         <legend>Krijgt deze verkrijger waarvoor u geen aangifte doet het hele
                                             vermogen?</legend>
                                             <label>
-                                                <input type="radio" name="hele-vermogen-verkrijger-1">
+                                                <input type="radio" name="hele-vermogen-verkrijger-1" value="Ja">
                                                 Ja
                                             </label>
                                             <label>
-                                                <input type="radio" name="hele-vermogen-verkrijger-1">
+                                                <input type="radio" name="hele-vermogen-verkrijger-1" value="Nee">
                                                 Nee
                                             </label>
                                     </fieldset>
@@ -356,11 +358,11 @@
                                         <legend>Doet deze verkrijger een beroep op diens legitieme portie
                                             (wettelijke erfdeel)?</legend>
                                             <label>
-                                                <input type="radio" name="beroep-op-legitieme-protie-verkrijger-1">
+                                                <input type="radio" name="beroep-op-legitieme-protie-verkrijger-1" value="Ja">
                                                 Ja
                                             </label>
                                             <label>
-                                                <input type="radio" name="beroep-op-legitieme-protie-verkrijger-1">
+                                                <input type="radio" name="beroep-op-legitieme-protie-verkrijger-1" value="Nee">
                                                 Nee
                                             </label>
                                     </fieldset>
@@ -376,11 +378,11 @@
                     <fieldset>
                         <legend><span>3c</span> Naar wie wilt u dat wij de aanslag erfbelasting sturen?</legend>
                         <label>
-                            <input type="radio" name="erfbelasting-sturen" placeholder="">
+                            <input type="radio" name="erfbelasting-sturen" placeholder="" value="deel-naar-iedere-verkrijger">
                             Stuur naar iedere verkrijger van (een deel van) de erfenis een eigen belastingaanslag.
                         </label>
                         <label>
-                            <input type="radio" name="erfbelasting-sturen" placeholder="">
+                            <input type="radio" name="erfbelasting-sturen" placeholder="" value="naar-de-executeur-of-erfgenaam">
                             Stuur de belastingaanslag(en) naar de executeur of naar de erfgenaam die ook namens andere personen en/of instellingen
                             die iets krijgen uit de nalatenschap (verkrijgers) aangifte heeft gedaan; dit mag ook de gemachtigde zijn.
                             Wij sturen de aanslag(en) naar het adres dat u bij vraag 2 hebt ingevuld.
@@ -389,11 +391,11 @@
                     <fieldset>
                         <legend><span>3d</span> Bent u executeur of gemachtigde?</legend>   
                         <label>
-                            <input type="radio" name="executeur-gemachtigde" placeholder="">
+                            <input type="radio" name="executeur-gemachtigde" placeholder="" value="Nee">
                             Nee <span>Ga verder naar vraag 4.</span>
                         </label>
                         <label data-ga-verder-met="vervolg-3d">
-                            <input type="radio" name="executeur-gemachtigde" placeholder="">
+                            <input type="radio" name="executeur-gemachtigde" placeholder="" value="Ja">
                             Ja
                         </label>
                     </fieldset>
@@ -431,30 +433,30 @@
                         </div>
                         <label>Naam instelling (bijvoorbeeld
                             een notariskantoor)
-                            <input type="text" name=""/>
+                            <input type="text" name="naam-instelling-executeur-gemachtigde"/>
                         </label>
                         <div class="adress">
                             <label>Straat
-                                <input type="text" placeholder="" required>
+                                <input type="text" placeholder="" name="straat-executeur-gemachtigde" required>
                             </label>
                             <label>Huisnummer
-                                <input type="text" placeholder="" required>
+                                <input type="text" placeholder="" name="huisnummer-executeur-gemachtigde" required>
                             </label>
                             <label>Toevoeging huisnummer
-                                <input type="text" placeholder="">
+                                <input type="text" placeholder="" name="toevoeging-huisnummer-executeur-gemachtigde">
                             </label>
                             <label>Postcode
-                                <input type="text" placeholder="" required>
+                                <input type="text" placeholder="" name="postcode-executeur-gemachtigde" required>
                             </label>
                             <label>Plaats
-                                <input type="text" placeholder="" required>
+                                <input type="text" placeholder="" name="plaats-executeur-gemachtigde" required>
                             </label>
                         </div>
                         <label>Datum
-                            <input type="date">
+                            <input type="date" name="datum-executeur-gemachtigde">
                         </label>
                         <label>Uw handtekening
-                            <input type="file">
+                            <input type="file" name="handtekening-executeur-gemachtigde">
                         </label>
                     </fieldset>
                     <div class="terugEnVolgende">
@@ -518,7 +520,7 @@
                                 <input type="text" placeholder="" required name="huisnummer-persoon-1">
                             </label>
                             <label>Toevoeging huisnummer
-                                <input type="text" placeholder="">
+                                <input type="text" placeholder="" name="toevoeging-huisnummer-persoon-1">
                             </label>
                             <label>Postcode
                                 <input type="text" placeholder="" required name="postcode-persoon-1">
@@ -533,7 +535,7 @@
                                 <input type="checkbox" name="adres-in-nl-persoon-1">
                             </label>
                             <label data-error-message="Een landcode moet 3 of 4 cijfers bevatten">Landcode<span>. NL: ..., In onderdeel C van de <a href="#" target="_blank">toelichting</a> vindt u een lijst met landcodes.</span>
-                                <input type="text" name="Landcode-persoon-1" inputmode="tel" pattern="[0-9]{3,4}" title="Een landcode moet 3 of 4 cijfers bevatten" placeholder="" required>
+                                <input type="text" name="landcode-persoon-1" inputmode="tel" pattern="[0-9]{3,4}" title="Een landcode moet 3 of 4 cijfers bevatten" placeholder="" required>
                             </label>
                         </div>
                     </fieldset>

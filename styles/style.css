@@ -113,7 +113,11 @@ html:has(label[data-ga-verder-met="vervolg-3a"] input:checked) .vervolg-3a,
 html:has(label[data-ga-ook-verder-met="vervolg-3a"] input:checked) .vervolg-3a,
 html:has(label[data-ga-verder-met="vervolg-3b"] input:checked) .vervolg-3b,
 html:has(label[data-ga-verder-met="vervolg-3b-2"] input:checked) .vervolg-3b-2,
-html:has(label[data-ga-verder-met="vervolg-3d"] input:checked) .vervolg-3d
+html:has(label[data-ga-verder-met="vervolg-3d"] input:checked) .vervolg-3d,
+html:has(label[data-ga-verder-met="vervolg-4c"] input:checked) .vervolg-4c,
+html:has(label[data-ga-verder-met="vervolg-4c-2"] input:checked) .vervolg-4c-2
+
+
 {
     display: block;
     /* opacity: 1; */

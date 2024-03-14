@@ -12,6 +12,8 @@ const inputsWithVervolg = [
     "vervolg-3b",
     "vervolg-3b-2",
     "vervolg-3d",
+    "vervolg-4c",
+    "vervolg-4c-2",
 ];
 
 // const vragenOverslaan = ["vraag-3b"];

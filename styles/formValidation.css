@@ -29,22 +29,22 @@ html:has(main form > section#vierdeSection:not(:target) > fieldset:invalid){
 
 /* Als er iets fout is ingevuld en de input niet leeg is in de fieldset, de link naar die fieldset is rood */
 /* TODO dit ook voor de andere sections */
-html:has(main form > section#eersteSection:not(:target) fieldset input:user-invalid:not(:placeholder-shown)) {
+html:has(main form > section#eersteSection:not(:target) fieldset input:user-invalid) {
     & main nav a:nth-child(1) {
         background-color: var(--color-error);
     }
 }
-html:has(main form > section#tweedeSection:not(:target) fieldset input:user-invalid:not(:placeholder-shown)) {
+html:has(main form > section#tweedeSection:not(:target) fieldset input:user-invalid) {
     & main nav a:nth-child(2) {
         background-color: var(--color-error);
     }
 }
-html:has(main form > section#derdeSection:not(:target) fieldset input:user-invalid:not(:placeholder-shown)) {
+html:has(main form > section#derdeSection:not(:target) fieldset input:user-invalid) {
     & main nav a:nth-child(3) {
         background-color: var(--color-error);
     }
 }
-html:has(main form > section#vierdeSection:not(:target) fieldset input:user-invalid:not(:placeholder-shown)) {
+html:has(main form > section#vierdeSection:not(:target) fieldset input:user-invalid) {
     & main nav a:nth-child(4) {
         background-color: var(--color-error);
     }
@@ -68,15 +68,15 @@ html:has(main form > section#vierdeSection:target) main nav a:nth-child(4) {
 }
 
 /* if the input is valid or not, and not empty, show a feedback border */
-input:user-valid:not(:placeholder-shown) {
+input:user-valid {
     border: var(--color-valid) solid 2px;
 }
-input:user-invalid:not(:placeholder-shown) {
+input:user-invalid {
     border: var(--color-error) solid 2px;
 }
 
 /* als een label invalid is, geen focus heeft, en niet leeg is: geef dan de error message uit de data attribute */
-label:has(input:user-invalid:not(:focus):not(:placeholder-shown))::after {
+label:has(input:user-invalid:not(:focus))::after {
     content: attr(data-error-message);
     width: fit-content;
     grid-row: 2/3;
@@ -107,4 +107,46 @@ form:invalid {
 }
 html:has(.autoFillInLandcodeNL input[type=checkbox]:checked) .autoFillInLandcodeNL label:nth-of-type(2) {
     display: none;
+}
+
+
+
+/* als :placeholder-shown wordt supported */
+@supports selector(:placeholder-shown) {
+    html:has(main form > section#eersteSection:not(:target) fieldset input:user-invalid:not(:placeholder-shown)) {
+        & main nav a:nth-child(1) {
+            background-color: var(--color-error);
+        }
+    }
+    html:has(main form > section#tweedeSection:not(:target) fieldset input:user-invalid:not(:placeholder-shown)) {
+        & main nav a:nth-child(2) {
+            background-color: var(--color-error);
+        }
+    }
+    html:has(main form > section#derdeSection:not(:target) fieldset input:user-invalid:not(:placeholder-shown)) {
+        & main nav a:nth-child(3) {
+            background-color: var(--color-error);
+        }
+    }
+    html:has(main form > section#vierdeSection:not(:target) fieldset input:user-invalid:not(:placeholder-shown)) {
+        & main nav a:nth-child(4) {
+            background-color: var(--color-error);
+        }
+    }
+
+    /* if the input is valid or not, and not empty, show a feedback border */
+    input:user-valid:not(:placeholder-shown) {
+        border: var(--color-valid) solid 2px;
+    }
+    input:user-invalid:not(:placeholder-shown) {
+        border: var(--color-error) solid 2px;
+    }
+
+    /* als een label invalid is, geen focus heeft, en niet leeg is: geef dan de error message uit de data attribute */
+    label:has(input:user-invalid:not(:focus):not(:placeholder-shown))::after {
+        content: attr(data-error-message);
+        width: fit-content;
+        grid-row: 2/3;
+        color: var(--color-error);
+    }
 }

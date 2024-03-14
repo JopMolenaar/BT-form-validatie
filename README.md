@@ -25,3 +25,7 @@
 - [ ] ...
 
 <!-- font fix -->
+
+
+<!-- star in span in label en weghalen met css en js -->
+<!-- accept on type="file" -->

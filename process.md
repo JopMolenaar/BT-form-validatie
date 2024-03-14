@@ -91,3 +91,11 @@ Die vrijdag had ik mijn eerste voortgangsgesprek en de docent was erg enthousias
 ### Week 3
 
 
+
+
+
+<!-- /* feedback van jeremy: probeer het gene wat alles kapot kan maken op het zelfde niveau kwa 
+moeilijkheid of lastiger the definieren, zo kan het minder snel kapot.
+
+Ook zei hij dat je telkens moet nadenken als frontend dev over alles wat je doet. 
+Niet zomaar dingen doen omdat je dat altijd doet. */ -->

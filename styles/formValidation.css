@@ -121,7 +121,7 @@ html:has(.autoFillInLandcodeNL input[type=checkbox]:checked) .autoFillInLandcode
 
 
 /* als :placeholder-shown wordt supported */
-@supports selector(:placeholder-shown) {
+/* @supports selector(:placeholder-shown) { */
     html:has(main form > section#eersteSection:not(:target) fieldset input:user-invalid:not(:placeholder-shown)) {
         & main nav a:nth-child(1) {
             background-color: var(--color-error);
@@ -163,4 +163,4 @@ html:has(.autoFillInLandcodeNL input[type=checkbox]:checked) .autoFillInLandcode
         grid-row: 2/3;
         color: var(--color-error);
     }
-}
+/* } */

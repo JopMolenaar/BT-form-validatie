@@ -24,6 +24,7 @@
                 <a href="#tweedeSection"></a>
                 <a href="#derdeSection"></a>
                 <a href="#vierdeSection"></a>
+                <a href="#vijfdeSection"></a>
             </nav>
             <div class="startFormLink">
                 <a href="#eersteSection">Start</a>
@@ -247,7 +248,7 @@
                             <div class="autoFillInLandcodeNL">
                                 <label>
                                     Dit adres bevind zich in Nederland
-                                    <input type="checkbox" name="adres-in-nl-gemachtigde">
+                                    <input checked type="checkbox" name="adres-in-nl-gemachtigde">
                                 </label>
                                 <label data-error-message="Een landcode moet 3 of 4 cijfers bevatten">Landcode<span>. NL: ..., In onderdeel C van de <a href="#" target="_blank">toelichting</a> vindt u een lijst met landcodes.</span>
                                     <input type="text" name="landcode-gemachtigde" inputmode="tel" pattern="[0-9]{3,4}" title="Een landcode moet 3 of 4 cijfers bevatten" placeholder="" required>
@@ -453,10 +454,10 @@
                             </label>
                         </div>
                         <label>Datum
-                            <input type="date" name="datum-executeur-gemachtigde">
+                            <input type="date" name="datum-executeur-gemachtigde" placeholder="">
                         </label>
                         <label>Uw handtekening
-                            <input type="file" name="handtekening-executeur-gemachtigde">
+                            <input type="file" name="handtekening-executeur-gemachtigde" placeholder="">
                         </label>
                     </fieldset>
                     <div class="terugEnVolgende">
@@ -493,7 +494,7 @@
                                 </div>
                                 <label>
                                     Geboortedatum
-                                    <input type="date" name="geboortedatum-persoon-1">
+                                    <input type="date" name="geboortedatum-persoon-1" placeholder="">
                                 </label>
                             </div>
                         </details>
@@ -505,7 +506,7 @@
                                 </label>
                                 <label>
                                     Naam instelling
-                                    <input type="text" name="naam-instelling-1">
+                                    <input type="text" name="naam-instelling-1" placeholder="">
                                 </label>
                             </div>
                         </details>
@@ -532,7 +533,7 @@
                         <div class="autoFillInLandcodeNL">
                             <label>
                                 Dit adres bevind zich in Nederland
-                                <input type="checkbox" name="adres-in-nl-persoon-1">
+                                <input  type="checkbox" name="adres-in-nl-persoon-1">
                             </label>
                             <label data-error-message="Een landcode moet 3 of 4 cijfers bevatten">Landcode<span>. NL: ..., In onderdeel C van de <a href="#" target="_blank">toelichting</a> vindt u een lijst met landcodes.</span>
                                 <input type="text" name="landcode-persoon-1" inputmode="tel" pattern="[0-9]{3,4}" title="Een landcode moet 3 of 4 cijfers bevatten" placeholder="" required>
@@ -541,7 +542,53 @@
                     </fieldset>
                     <div class="terugEnVolgende">
                         <a href="#derdeSection">Terug</a>
-                        <!-- <a href="#vijfdeSection">Volgende</a> -->
+                        <a href="#vijfdeSection">Volgende</a>
+                    </div>
+                </section>
+                <section id="vijfdeSection">
+                    <h2>Samenstelling van de erfenis</h2>
+                    <button class="infoButton" type="button">i</button>
+                    <a class="infoLink" href="#" target=”_blank”>open toelichting</a>
+                    <p>Bij deze vragen geeft u de waarde aan van alle bezittingen en
+                        schulden die de overledene had op de overlijdensdatum, zoals een
+                        woning, een bankrekening, een aandelenpakket of een hypotheek.
+                        Dit noemen wij ook wel ‘vermogensbestandelen’.
+                        Hoe vult u deze vraag in?
+                        Vul bij de vragen die van toepassing zijn, een bedrag in. Bij vragen
+                        die niet van toepassing zijn, hoeft u niets in te vullen. Weet u niet
+                        zeker of een vraag van toepassing is? Lees dan de toelichting voor
+                        meer informatie.
+                        Let op!
+                        Was de overledene wel eigenaar van een vermogens-
+                        bestanddeel, maar had iemand anders het recht van vrucht-
+                        gebruik van dit vermogensbestanddeel? Bereken dan de waarde
+                        van de blote eigendom van dit vermogensbestanddeel met
+                        tabel C in de toelichting.
+                        Is er te weinig ruimte om alle gegevens in te vullen? Maak dan
+                        1 of meer kopieën van die bladzijde en vul de gegevens die
+                        u niet kwijt kunt in op de kopie(ën). Schrijf op elke kopie het
+                        burgerservicenummer van de overledene en stuur ze als bijlage
+                        mee met uw aangifte. </p>
+                    <fieldset>
+                        <legend><span>5a</span> Woning of onroerende zaak</legend>
+                        <p>Vul hier alle onroerende zaken in die de overledene had in Nederland en in het buitenland, inclusief NSW-landgoederen en ter beschikking gestelde panden.
+                            Let op! Vul bij vraag 5c de totale waarde in van de onroerende zaak, na aftrek van waardeverminderende factoren zoals een verhuurde of verpachte woning
+                            of erfpacht.</p>
+                        <fieldset>
+                            <legend><span>5a.1</span> Adres in Nederland</legend>
+                        </fieldset>
+                        <label><span>5a.6</span> WOZ-waarde of waarde in het economisch verkeer
+                            Voor woningen vult u de WOZ-waarde in. Voor bijvoorbeeld bedrijfspanden,
+                            een onbebouwd stuk grond of een onroerende zaak in het buitenland, vult u de
+                            waarde in het economisch verkeer in. Let op! Vul ook vraag 5c in.
+                            <div>
+                                € <input type="number" name="WOZ-waarde-of-economisch-verkeer" required placeholder="">
+                            </div>
+                        </label>
+                    </fieldset>   
+                    <div class="terugEnVolgende">
+                        <a href="#vierdeSection">Terug</a>
+                        <!-- <a href="#zesdeSection">Volgende</a> -->
                     </div>
                 </section>
                 <!-- Andere vragen toevoegen -->

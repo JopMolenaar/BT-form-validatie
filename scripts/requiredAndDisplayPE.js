@@ -17,6 +17,7 @@ radios.forEach((radio) => {
                         input.value = "";
                     }
                     fillDupliInputs(input);
+                    removeLocalStorage(input);
                 });
             } else {
                 const allInputs = element.querySelectorAll("input");

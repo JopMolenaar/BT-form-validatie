@@ -15,6 +15,55 @@
         }
     }
 }
+
+/* All the :has() gathered for testing purposes */
+
+/* TODO js functie? */
+label:has(input:not([type="radio"])){
+    display: grid;
+    gap: 0;
+    margin-bottom: 0.5rem;
+}
+
+/* TODO maken in js */
+html:has(section:target) .startFormLink{
+    display: none;
+}
+
+html:has(label[data-ga-verder-met="vervolg-1b"] input:checked) .vervolg-1b, 
+html:has(label[data-ga-verder-met="vervolg-1b-2"] input:checked) .vervolg-1b-2,
+html:has(label[data-ga-verder-met="vervolg-1c"] input:checked) .vervolg-1c, 
+html:has(label[data-ga-verder-met="vervolg-1c-2"] input:checked) .vervolg-1c-2,
+html:has(label[data-ga-verder-met="vervolg-1d"] input:checked) .vervolg-1d,
+html:has(label[data-ga-verder-met="vervolg-3a"] input:checked) .vervolg-3a,
+html:has(label[data-ga-verder-met="vervolg-3a,vervolg-3b"] input:checked) .vervolg-3a,
+html:has(label[data-ga-verder-met="vervolg-3a,vervolg-3b"] input:checked) .vervolg-3b,
+html:has(label[data-ga-verder-met="vervolg-3b"] input:checked) .vervolg-3b,
+html:has(label[data-ga-verder-met="vervolg-3b-2"] input:checked) .vervolg-3b-2,
+html:has(label[data-ga-verder-met="vervolg-3d"] input:checked) .vervolg-3d,
+html:has(label[data-ga-verder-met="vervolg-4c"] input:checked) .vervolg-4c,
+html:has(label[data-ga-verder-met="vervolg-4c-2"] input:checked) .vervolg-4c-2
+{
+    display: block;
+    animation: fade-in 1.5s linear;
+}
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+        background-color: var(--color-fade-blue);
+    }
+    20% {
+
+        opacity: 1;
+    }
+    40% {
+        background-color: var(--color-fade-blue);
+    }
+}
+/* End of using has */
+
+
+
 p, li {
     max-width: 40em;
 }
@@ -30,7 +79,8 @@ label {
     /* margin-block-start: 0.5rem; */
     width: fit-content;
 }
-label:has(input:not([type="radio"])){
+/* :has() fallback */
+.labelWithInput{
     display: grid;
     gap: 0;
     margin-bottom: 0.5rem;
@@ -47,10 +97,6 @@ input[type="radio"] {
     height: 1.5em;
     aspect-ratio: 1;
     margin: 0;
-}
-input {
-    /* width: 100%; */
-    /* width: max-content; */
 }
 fieldset {
    border: none;
@@ -77,10 +123,7 @@ section:not(:target){
 section:target {
     display: grid;
 }
-/* TODO maken in js */
-html:has(section:target) .startFormLink{
-    display: none;
-}
+
 
 .startFormLink {
     background-color: var(--color-fade-blue);
@@ -104,37 +147,7 @@ html:has(section:target) .startFormLink{
     display: none;
 }
 
-html:has(label[data-ga-verder-met="vervolg-1b"] input:checked) .vervolg-1b, 
-html:has(label[data-ga-verder-met="vervolg-1b-2"] input:checked) .vervolg-1b-2,
-html:has(label[data-ga-verder-met="vervolg-1c"] input:checked) .vervolg-1c, 
-html:has(label[data-ga-verder-met="vervolg-1c-2"] input:checked) .vervolg-1c-2,
-html:has(label[data-ga-verder-met="vervolg-1d"] input:checked) .vervolg-1d,
-html:has(label[data-ga-verder-met="vervolg-3a"] input:checked) .vervolg-3a,
-/* comma in de data- en dat splitten in js  */
-html:has(label[data-ga-ook-verder-met="vervolg-3a"] input:checked) .vervolg-3a,
-html:has(label[data-ga-verder-met="vervolg-3b"] input:checked) .vervolg-3b,
-html:has(label[data-ga-verder-met="vervolg-3b-2"] input:checked) .vervolg-3b-2,
-html:has(label[data-ga-verder-met="vervolg-3d"] input:checked) .vervolg-3d,
-html:has(label[data-ga-verder-met="vervolg-4c"] input:checked) .vervolg-4c,
-html:has(label[data-ga-verder-met="vervolg-4c-2"] input:checked) .vervolg-4c-2
-{
-    display: block;
-    /* opacity: 1; */
-    animation: fade-in 1.5s linear;
-}
-@keyframes fade-in {
-    0% {
-        opacity: 0;
-        background-color: var(--color-fade-blue);
-    }
-    20% {
 
-        opacity: 1;
-    }
-    40% {
-        background-color: var(--color-fade-blue);
-    }
-}
 
 main form, main nav {
     /* position: relative; */

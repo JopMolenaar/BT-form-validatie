@@ -17,7 +17,7 @@ console.log(
     // vragenOverslaanFunction();
 // }
 
-// TODO explanations
+// TODO explanations en kan misschien korter?
 function displayFollowUpQuestion() {
     // Dont show the spans
     const allSpans = document.querySelectorAll("label > span");
@@ -29,89 +29,174 @@ function displayFollowUpQuestion() {
     const inputs = document.querySelectorAll("input");
     inputs.forEach((input) => {
         const labelofInput = input.parentElement;
-        // if label has a vervolg
-        if (labelofInput.dataset.gaVerderMet) {
-            const parentOfLabel = labelofInput.parentElement;
-            const dataset = labelofInput.dataset.gaVerderMet;
-            const theShowInput = labelofInput.querySelector(`input`);
-            const otherInputs = parentOfLabel.querySelectorAll(
-                `label:not([data-ga-verder-met="${dataset}"]) input`
-            );
-            let getTheVervolgToHide;
-            // Geen click op, wel opslaan data-ga-verder-met en als er 1 voorkomt die niet voorkomt in de main input, niet laten zien.
-            // The other input to close the vervolg
-            otherInputs.forEach((otherInput) => {
-                // otherInput.addEventListener("click", () => {
-                let inputString = [];
-                if (labelofInput.dataset.gaVerderMet.includes(",")) {
-                    inputString = labelofInput.dataset.gaVerderMet
-                        .split(",")
-                        .map((inputString) => inputString.trim());
-                } else {
-                    inputString.push(labelofInput.dataset.gaVerderMet.trim());
-                }
-                // inputString.forEach((string) => {
-                //     console.log(string, "other input");
-                //     // const element = document.querySelector(`.${string}`);
-                //     // element.style.display = "none";
+        const fieldset = labelofInput.parentElement;
+        if (fieldset.classList.contains("displayVervolgsAdvanced")) {
+            if (labelofInput.dataset.gaVerderMet) {
+                const parentOfLabel = labelofInput.parentElement;
+                const dataset = labelofInput.dataset.gaVerderMet;
+                const theShowInput = labelofInput.querySelector(`input`);
+                // Geen click op, wel opslaan data-ga-verder-met en als er 1 voorkomt die niet voorkomt in de main input, niet laten zien.
 
-                //     const otherVervolgElements =
-                //         element.querySelectorAll(".vervolg");
-                //     otherVervolgElements.forEach((otherElement) => {
-                //         otherElement.style.display = "none";
-                //     });
-                //     // function
-                //     const allInputsInElement =
-                //         element.querySelectorAll("input");
+                // The other input to open the vervolg
+                theShowInput.addEventListener("click", () => {
+                    console.log("click");
+                    let getTheVervolgToHide = [];
+                    const otherInputs = parentOfLabel.querySelectorAll(
+                        `label:not([data-ga-verder-met="${dataset}"]) input`
+                    );
 
-                //     allInputsInElement.forEach((input) => {
-                //         input.removeAttribute("required", "");
-                //         if (
-                //             input.type === "radio" ||
-                //             input.type === "checkbox"
-                //         ) {
-                //             input.checked = false;
-                //         } else {
-                //             input.value = "";
-                //         }
-                //         // fillDupliInputs(input);
-                //         // removeLocalStorage(input);
-                //     });
-                //     // end of function
-                //     // });
-                // });
-            });
-            // The other input to open the vervolg
-            theShowInput.addEventListener("click", () => {
-                let inputString = [];
-                if (labelofInput.dataset.gaVerderMet.includes(",")) {
-                    inputString = labelofInput.dataset.gaVerderMet
-                        .split(",")
-                        .map((inputString) => inputString.trim());
-                } else {
-                    inputString.push(labelofInput.dataset.gaVerderMet.trim());
-                }
-                inputString.forEach((string) => {
-                    console.log(string, "main input");
-                    const element = document.querySelector(`.${string}`);
-                    element.style.display = "block";
-                    const allInputsInElement =
-                        element.querySelectorAll("input");
-                    allInputsInElement.forEach((input) => {
-                        input.setAttribute("required", "");
-                        addLocalStorageRequired(input);
+                    otherInputs.forEach((otherInput) => {
+                        const labelofOtherInput = otherInput.parentElement;
+                        let inputString = [];
+                        if (labelofOtherInput.dataset.gaVerderMet) {
+                            if (
+                                labelofOtherInput.dataset.gaVerderMet.includes(
+                                    ","
+                                )
+                            ) {
+                                inputString =
+                                    labelofOtherInput.dataset.gaVerderMet
+                                        .split(",")
+                                        .map((inputString) =>
+                                            inputString.trim()
+                                        );
+                            } else {
+                                inputString.push(
+                                    labelofOtherInput.dataset.gaVerderMet.trim()
+                                );
+                            }
+                            inputString.forEach((string) => {
+                                getTheVervolgToHide.push(string);
+                            });
+                        }
+                    });
+
+                    let inputString = [];
+                    if (labelofInput.dataset.gaVerderMet.includes(",")) {
+                        inputString = labelofInput.dataset.gaVerderMet
+                            .split(",")
+                            .map((inputString) => inputString.trim());
+                    } else {
+                        inputString.push(
+                            labelofInput.dataset.gaVerderMet.trim()
+                        );
+                    }
+                    console.log(getTheVervolgToHide);
+                    getTheVervolgToHide.forEach((vervolgToHide) => {
+                        if (inputString.includes(vervolgToHide)) {
+                            const element = document.querySelector(
+                                `.${vervolgToHide}`
+                            );
+                            element.style.display = "block";
+                            const allInputsInElement =
+                                element.querySelectorAll("input");
+                            allInputsInElement.forEach((input) => {
+                                input.setAttribute("required", "");
+                                addLocalStorageRequired(input);
+                            });
+                        } else {
+                            const element = document.querySelector(
+                                `.${vervolgToHide}`
+                            );
+                            element.style.display = "none";
+                            const allInputsInElement =
+                                element.querySelectorAll("input");
+
+                            allInputsInElement.forEach((input) => {
+                                input.removeAttribute("required", "");
+                                if (
+                                    input.type === "radio" ||
+                                    input.type === "checkbox"
+                                ) {
+                                    input.checked = false;
+                                } else {
+                                    input.value = "";
+                                }
+                                fillDupliInputs(input);
+                                removeLocalStorage(input);
+                            });
+                        }
                     });
                 });
-            });
+            }
+        }
+        // if normal input label has a vervolg
+        else {
+            // if label has a vervolg
+            if (labelofInput.dataset.gaVerderMet) {
+                const parentOfLabel = labelofInput.parentElement;
+                const dataset = labelofInput.dataset.gaVerderMet;
+                const theShowInput = labelofInput.querySelector(`input`);
+                const otherInput = parentOfLabel.querySelector(
+                    `label:not([data-ga-verder-met="${dataset}"]) input`
+                );
+                // The other input to open the vervolg
+                theShowInput.addEventListener("click", () => {
+                    let inputString = [];
+                    if (labelofInput.dataset.gaVerderMet.includes(",")) {
+                        inputString = labelofInput.dataset.gaVerderMet
+                            .split(",")
+                            .map((inputString) => inputString.trim());
+                    } else {
+                        inputString.push(
+                            labelofInput.dataset.gaVerderMet.trim()
+                        );
+                    }
+                    inputString.forEach((string) => {
+                        const element = document.querySelector(`.${string}`);
+                        element.style.display = "block";
+                        const allInputsInElement =
+                            element.querySelectorAll("input");
+                        allInputsInElement.forEach((input) => {
+                            input.setAttribute("required", "");
+                        });
+                    });
+                });
+                // The other input to close the vervolg
+                otherInput.addEventListener("click", () => {
+                    let inputString = [];
+                    if (labelofInput.dataset.gaVerderMet.includes(",")) {
+                        inputString = labelofInput.dataset.gaVerderMet
+                            .split(",")
+                            .map((inputString) => inputString.trim());
+                    } else {
+                        inputString.push(
+                            labelofInput.dataset.gaVerderMet.trim()
+                        );
+                    }
+                    inputString.forEach((string) => {
+                        const element = document.querySelector(`.${string}`);
+                        element.style.display = "none";
+
+                        const otherVervolgElements =
+                            element.querySelectorAll(".vervolg");
+                        otherVervolgElements.forEach((otherElement) => {
+                            otherElement.style.display = "none";
+                        });
+                        // function
+                        const allInputsInElement =
+                            element.querySelectorAll("input");
+
+                        allInputsInElement.forEach((input) => {
+                            input.removeAttribute("required", "");
+                            if (
+                                input.type === "radio" ||
+                                input.type === "checkbox"
+                            ) {
+                                input.checked = false;
+                            } else {
+                                input.value = "";
+                            }
+                            fillDupliInputs(input);
+                            removeLocalStorage(input);
+                        });
+                        // end of function
+                    });
+                });
+            }
         }
     });
 }
-
-
-
-
-
-
 
 // Scriptje om en vraag over te slaan 
 // function vragenOverslaanFunction() {
@@ -238,112 +323,3 @@ function runFunctionWhenTargeted() {
         });
     });
 }
-
-
-
-
-
-
-      //  remove all required from inputs
-                    // } else {
-                    // element.style.display = "none";
-                    // console.log(element, "none");
-                    // }
-
-                    // element.style.display = "none";
-                    // get the elements
-                    // let label = document.querySelector(
-                    //     `label[data-ga-verder-met=${string}]`
-                    // );
-                    // const input = label.querySelector("input");
-                    // const fieldset = label.parentElement;
-                    // const inputToHideVervolg = fieldset.querySelector(
-                    //     `label:not([data-ga-verder-met=${string}])`
-                    // );
-                    // hide
-                    // inputToHideVervolg.addEventListener("click", () => {
-                    //     const vervolg = document.querySelector(`.${string}`);
-                    //     vervolg.style.display = "none";
-                    //     // TODO remove all required from inputs
-                    // });
-                    // show
-                    // input.addEventListener("click", () => {
-                    //     const vervolg = document.querySelector(`.${string}`);
-                    //     vervolg.style.display = "block";
-                    //     // Add remove all required from inputs
-                    // });
-                    
-
-
-
-
-                    // eventlistener op de input
-            // als die geklikt wordt split het
-
-            // let inputString = [];
-
-            // // Split the vervolg if possible and plce it in the array
-            // if (labelofInput.dataset.gaVerderMet.includes(",")) {
-            //     inputString = labelofInput.dataset.gaVerderMet
-            //         .split(",")
-            //         .map((inputString) => inputString.trim());
-            // } else {
-            //     inputString.push(labelofInput.dataset.gaVerderMet.trim());
-            // }
-            // console.log(inputString);
-            // // For every vervolg
-            // inputString.forEach((string) => {
-            //     const element = document.querySelector(`.${string}`);
-            //     element.style.display = "none";
-            //     // get the elements
-            //     let label = document.querySelector(
-            //         `label[data-ga-verder-met=${string}]`
-            //     );
-            //     const input = label.querySelector("input");
-            //     const fieldset = label.parentElement;
-            //     const inputToHideVervolg = fieldset.querySelector(
-            //         `label:not([data-ga-verder-met=${string}])`
-            //     );
-            //     // hide
-            //     inputToHideVervolg.addEventListener("click", () => {
-            //         const vervolg = document.querySelector(`.${string}`);
-            //         vervolg.style.display = "none";
-            //         // TODO remove all required from inputs
-            //     });
-            //     // show
-            //     input.addEventListener("click", () => {
-            //         const vervolg = document.querySelector(`.${string}`);
-            //         vervolg.style.display = "block";
-            //         // Add remove all required from inputs
-            //     });
-            // });
-
-
-            // inputsWithVervolg.forEach((inputString) => {
-    //     const element = document.querySelector(`.${inputString}`);
-    //     element.style.display = "none";
-    //     // get the elements
-    //     let label = document.querySelector(
-    //         `label[data-ga-verder-met=${inputString}]`
-    //     );
-    //     if (!label) {
-    //         label = document.querySelector(
-    //             `label[data-ga-ook-verder-met=${inputString}]`
-    //         );
-    //     }
-    //     const input = label.querySelector("input");
-    //     const fieldset = label.parentElement;
-    //     const inputToHideVervolg = fieldset.querySelector(
-    //         `label:not([data-ga-verder-met=${inputString}])`
-    //     );
-    //     // hide
-    //     inputToHideVervolg.addEventListener("click", () => {
-    //         const vervolg = document.querySelector(`.${inputString}`);
-    //         vervolg.style.display = "none";
-    //     });
-    //     // show
-    //     input.addEventListener("click", () => {
-    //         const vervolg = document.querySelector(`.${inputString}`);
-    //         vervolg.style.display = "block";
-    //     });
-    // });

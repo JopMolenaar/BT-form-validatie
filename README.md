@@ -11,7 +11,8 @@
 <!-- - [ ] capitalize eerste letters naam -->
 - [ ] bsn valideren
 <!-- - [ ] div met zelfde class naam in div in fieldset, om generieke css has te maken -->
-- [ ] localstorage function
+- [x] localstorage function
+- [ ] localstorage validation
 - [ ] date's min
 - [ ] postcode en huisnummer validation
 - [ ] alles functies in js naar engels translaten 
@@ -22,6 +23,7 @@
 - [ ] tabs gegevens verkrijgers maken
 - [ ] inputs met geld en IBAN nummers maken
 - [ ] toelichting details + styling
+- [ ] js opschonen
 - [ ] ...
 
 <!-- font fix -->

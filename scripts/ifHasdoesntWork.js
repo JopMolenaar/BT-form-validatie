@@ -2,20 +2,6 @@ const rootStyles = getComputedStyle(document.documentElement);
 const supportsSelectorHas =
     rootStyles.getPropertyValue("--supports-selector-has").trim() == "1";
 
-const inputsWithVervolg = [
-    "vervolg-1b",
-    "vervolg-1b-2",
-    "vervolg-1c",
-    "vervolg-1c-2",
-    "vervolg-1d",
-    // "vervolg-3a",
-    "vervolg-3b",
-    "vervolg-3b-2",
-    "vervolg-3d",
-    "vervolg-4c",
-    "vervolg-4c-2",
-];
-
 // const vragenOverslaan = ["vraag-3b"];
 
 console.log(
@@ -23,51 +9,94 @@ console.log(
     !supportsSelectorHas
 ); // boolean -> true if supported
 
-if (!supportsSelectorHas) {
+// if (!supportsSelectorHas) {
     displayFollowUpQuestion();
     colorLinkNav();
     displayErrorMessage();
     runFunctionWhenTargeted();
     // vragenOverslaanFunction();
-}
+// }
 
-// TODO door de lijst met alle inputs, als de dataset er is doe dan wat, en on change
-// bouwstenen  op en top maken, 
-// scriptje om dingen te showen op bepaalde clicks als progressive enhancement voor als :has() niet werkt
+// TODO explanations
 function displayFollowUpQuestion() {
     // Dont show the spans
     const allSpans = document.querySelectorAll("label > span");
     allSpans.forEach((span) => {
         span.style.display = "none";
     });
+
     // For every inputString with a vervolg
-    inputsWithVervolg.forEach((inputString) => {
-        const element = document.querySelector(`.${inputString}`);
-        element.style.display = "none";
-        // get the elements
-        let label = document.querySelector(
-            `label[data-ga-verder-met=${inputString}]`
-        );
-        if (!label) {
-            label = document.querySelector(
-                `label[data-ga-ook-verder-met=${inputString}]`
+    const inputs = document.querySelectorAll("input");
+    inputs.forEach((input) => {
+        const labelofInput = input.parentElement;
+        // if label has a vervolg
+        if (labelofInput.dataset.gaVerderMet) {
+            const parentOfLabel = labelofInput.parentElement;
+            const dataset = labelofInput.dataset.gaVerderMet;
+            const theShowInput = labelofInput.querySelector(`input`);
+            const otherInput = parentOfLabel.querySelector(
+                `label:not([data-ga-verder-met="${dataset}"]) input`
             );
+            // The other input to open the vervolg
+            theShowInput.addEventListener("click", () => {
+                let inputString = [];
+                if (labelofInput.dataset.gaVerderMet.includes(",")) {
+                    inputString = labelofInput.dataset.gaVerderMet
+                        .split(",")
+                        .map((inputString) => inputString.trim());
+                } else {
+                    inputString.push(labelofInput.dataset.gaVerderMet.trim());
+                }
+                inputString.forEach((string) => {
+                    const element = document.querySelector(`.${string}`);
+                    element.style.display = "block";
+                    const allInputsInElement =
+                        element.querySelectorAll("input");
+                    allInputsInElement.forEach((input) => {
+                        input.setAttribute("required", "");
+                    });
+                });
+            });
+            // The other input to close the vervolg
+            otherInput.addEventListener("click", () => {
+                let inputString = [];
+                if (labelofInput.dataset.gaVerderMet.includes(",")) {
+                    inputString = labelofInput.dataset.gaVerderMet
+                        .split(",")
+                        .map((inputString) => inputString.trim());
+                } else {
+                    inputString.push(labelofInput.dataset.gaVerderMet.trim());
+                }
+                inputString.forEach((string) => {
+                    const element = document.querySelector(`.${string}`);
+                    element.style.display = "none";
+
+                    const otherVervolgElements =
+                        element.querySelectorAll(".vervolg");
+                    otherVervolgElements.forEach((otherElement) => {
+                        otherElement.style.display = "none";
+                    });
+                    // function
+                    const allInputsInElement =
+                        element.querySelectorAll("input");
+
+                    allInputsInElement.forEach((input) => {
+                        input.removeAttribute("required", "");
+                        if (
+                            input.type === "radio" ||
+                            input.type === "checkbox"
+                        ) {
+                            input.checked = false;
+                        } else {
+                            input.value = "";
+                        }
+                        fillDupliInputs(input);
+                        // removeLocalStorage(input);
+                    });
+                    // end of function
+                });
+            });
         }
-        const input = label.querySelector("input");
-        const fieldset = label.parentElement;
-        const inputToHideVervolg = fieldset.querySelector(
-            `label:not([data-ga-verder-met=${inputString}])`
-        );
-        // hide
-        inputToHideVervolg.addEventListener("click", () => {
-            const vervolg = document.querySelector(`.${inputString}`);
-            vervolg.style.display = "none";
-        });
-        // show
-        input.addEventListener("click", () => {
-            const vervolg = document.querySelector(`.${inputString}`);
-            vervolg.style.display = "block";
-        });
     });
 }
 
@@ -138,7 +167,8 @@ function checkIfSectionsAreValid(link) {
                 `main nav a[href='#${section.id}']`
             );
             if (inputError && inputError.value !== "") {
-                linkMatchedSection.style.background = "red";
+                linkMatchedSection.style.background = "rgb(255, 123, 0)";
+                // TODO Classes?
             } else if (
                 validInputs.length >= allInputs.length &&
                 validInputs.value !== ""
@@ -195,3 +225,112 @@ function runFunctionWhenTargeted() {
         });
     });
 }
+
+
+
+
+
+
+      //  remove all required from inputs
+                    // } else {
+                    // element.style.display = "none";
+                    // console.log(element, "none");
+                    // }
+
+                    // element.style.display = "none";
+                    // get the elements
+                    // let label = document.querySelector(
+                    //     `label[data-ga-verder-met=${string}]`
+                    // );
+                    // const input = label.querySelector("input");
+                    // const fieldset = label.parentElement;
+                    // const inputToHideVervolg = fieldset.querySelector(
+                    //     `label:not([data-ga-verder-met=${string}])`
+                    // );
+                    // hide
+                    // inputToHideVervolg.addEventListener("click", () => {
+                    //     const vervolg = document.querySelector(`.${string}`);
+                    //     vervolg.style.display = "none";
+                    //     // TODO remove all required from inputs
+                    // });
+                    // show
+                    // input.addEventListener("click", () => {
+                    //     const vervolg = document.querySelector(`.${string}`);
+                    //     vervolg.style.display = "block";
+                    //     // Add remove all required from inputs
+                    // });
+                    
+
+
+
+
+                    // eventlistener op de input
+            // als die geklikt wordt split het
+
+            // let inputString = [];
+
+            // // Split the vervolg if possible and plce it in the array
+            // if (labelofInput.dataset.gaVerderMet.includes(",")) {
+            //     inputString = labelofInput.dataset.gaVerderMet
+            //         .split(",")
+            //         .map((inputString) => inputString.trim());
+            // } else {
+            //     inputString.push(labelofInput.dataset.gaVerderMet.trim());
+            // }
+            // console.log(inputString);
+            // // For every vervolg
+            // inputString.forEach((string) => {
+            //     const element = document.querySelector(`.${string}`);
+            //     element.style.display = "none";
+            //     // get the elements
+            //     let label = document.querySelector(
+            //         `label[data-ga-verder-met=${string}]`
+            //     );
+            //     const input = label.querySelector("input");
+            //     const fieldset = label.parentElement;
+            //     const inputToHideVervolg = fieldset.querySelector(
+            //         `label:not([data-ga-verder-met=${string}])`
+            //     );
+            //     // hide
+            //     inputToHideVervolg.addEventListener("click", () => {
+            //         const vervolg = document.querySelector(`.${string}`);
+            //         vervolg.style.display = "none";
+            //         // TODO remove all required from inputs
+            //     });
+            //     // show
+            //     input.addEventListener("click", () => {
+            //         const vervolg = document.querySelector(`.${string}`);
+            //         vervolg.style.display = "block";
+            //         // Add remove all required from inputs
+            //     });
+            // });
+
+
+            // inputsWithVervolg.forEach((inputString) => {
+    //     const element = document.querySelector(`.${inputString}`);
+    //     element.style.display = "none";
+    //     // get the elements
+    //     let label = document.querySelector(
+    //         `label[data-ga-verder-met=${inputString}]`
+    //     );
+    //     if (!label) {
+    //         label = document.querySelector(
+    //             `label[data-ga-ook-verder-met=${inputString}]`
+    //         );
+    //     }
+    //     const input = label.querySelector("input");
+    //     const fieldset = label.parentElement;
+    //     const inputToHideVervolg = fieldset.querySelector(
+    //         `label:not([data-ga-verder-met=${inputString}])`
+    //     );
+    //     // hide
+    //     inputToHideVervolg.addEventListener("click", () => {
+    //         const vervolg = document.querySelector(`.${inputString}`);
+    //         vervolg.style.display = "none";
+    //     });
+    //     // show
+    //     input.addEventListener("click", () => {
+    //         const vervolg = document.querySelector(`.${inputString}`);
+    //         vervolg.style.display = "block";
+    //     });
+    // });

@@ -29,3 +29,6 @@
 
 <!-- star in span in label en weghalen met css en js -->
 <!-- accept on type="file" -->
+
+<!-- // bouwstenen  op en top maken, 
+// scriptje om dingen te showen op bepaalde clicks als progressive enhancement voor als :has() niet werkt -->

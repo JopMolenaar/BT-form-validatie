@@ -320,12 +320,12 @@
                             iets krijgen uit de nalatenschap (verkrijgers). <span>Vul de hoeveelheid verkrijgers in en ga naar vraag 3c.</span>
                         </label>
                         <p>Is er geen executeur aangewezen? Kruis dan aan welke situatie voor u geldt.</p>
-                        <label data-ga-verder-met="vervolg-3b" data-ga-ook-verder-met="vervolg-3a">
+                        <label data-ga-verder-met="vervolg-3a,vervolg-3b" data-ga-ook-verder-met="vervolg-3a">
                             <input type="radio" name="executeur-aangewezen" value="erfgenaam">
                             Ik ben erfgenaam en ben gemachtigd om aangifte te doen voor meerdere
                             personen en/of instellingen die iets krijgen uit de nalatenschap (verkrijgers).
                         </label>
-                        <label data-ga-verder-met="vervolg-3b" data-ga-ook-verder-met="vervolg-3a">
+                        <label data-ga-verder-met="vervolg-3a,vervolg-3b" data-ga-ook-verder-met="vervolg-3a">
                             <input type="radio" name="executeur-aangewezen" value="erfgenaam-samen-met-anderen">
                             Ik ben erfgenaam en doe samen met andere erfgenamen aangifte.
                         </label>
@@ -333,7 +333,7 @@
                             <input type="radio" name="executeur-aangewezen" value="erfgenaam-alleen">
                             Ik ben erfgenaam en doe alleen aangifte voor mijzelf. <span>U hoeft niet aan te geven voor hoeveel verkrijgers u aangifte doet.</span>
                         </label>
-                        <label data-ga-verder-met="vervolg-3b" data-ga-ook-verder-met="vervolg-3a">
+                        <label data-ga-verder-met="vervolg-3a,vervolg-3b" data-ga-ook-verder-met="vervolg-3a">
                             <input type="radio" name="executeur-aangewezen" value="geen-erfgenaam-maar-gemachtigd">
                             Ik ben geen erfgenaam, maar ben gemachtigd om aangifte te doen.
                         </label>
@@ -491,6 +491,7 @@
                             <input type="date" name="datum-executeur-gemachtigde" placeholder=" ">
                         </label>
                         <label>Uw handtekening
+                            <!-- TODO input type capture? -->
                             <input type="file" name="handtekening-executeur-gemachtigde" placeholder=" ">
                         </label>
                     </fieldset>
@@ -672,11 +673,10 @@
         </main>
         <footer></footer>
         <script src="scripts/ifHasdoesntWork.js"></script>
-        <script src="scripts/requiredAndDisplayPE.js"></script>
-        <script src="scripts/openPopover.js"></script>
+        <script src="scripts/maxMinDate.js"></script>
         <script src="scripts/autoFill.js"></script>
         <script src="scripts/bsnValidation.js"></script>
-        <script src="scripts/localStorage.js"></script>
+        <!-- <script src="scripts/localStorage.js"></script> -->
         <script src="scripts/duplicateFields.js"></script>
     </body>
 </html>

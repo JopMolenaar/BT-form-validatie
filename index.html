@@ -40,13 +40,13 @@
                         <legend><span>1a </span>Vul hier de gegevens in van de overledene.</legend>
                         <div class="name">
                             <label>Voorletter(s)
-                                <input type="text" name="voorletter-overledene" placeholder="" required />
+                                <input type="text" name="voorletter-overledene" placeholder=" " required />
                             </label>
                             <label>tussen-voegsel(s)
-                                <input type="text" name="tussen-voegsel-overledene" placeholder="" />
+                                <input type="text" name="tussen-voegsel-overledene" placeholder=" " />
                             </label>
                             <label>achternaam
-                                <input type="text" name="achternaam-overledene" placeholder="" />
+                                <input type="text" name="achternaam-overledene" placeholder=" " />
                             </label>
                         </div>
                         <!-- TODO placeholder spaties voor safari -->
@@ -54,7 +54,7 @@
                             <input type="text" name="burgerservicenummer-overledene" inputmode="numeric" pattern="[0-9]{8,9}" title="Het BSN nummer moet 8 of 9 nummers bevatten" placeholder=" " required />
                         </label>
                         <label>Overlijdensdatum
-                            <input type="date" name="overlijdensdatum-overledene" placeholder="" required />
+                            <input type="date" name="overlijdensdatum-overledene" placeholder=" " required />
                         </label>
                     </fieldset>
                     <fieldset data-vraag="1b">
@@ -189,25 +189,25 @@
                         <fieldset class="vervolg vervolg-1d">
                             <legend>Gegevens van de notaris</legend>
                             <label data-error-message="Het protocolnummer moet 9 nummers bevatten">Protocolnummer notaris 
-                                <input class="protocolnummer-notaris" type="text" inputmode="numeric" name="protocolnummer-notaris" pattern="[0-9]{9}" placeholder="">
+                                <input class="protocolnummer-notaris" type="text" inputmode="numeric" name="protocolnummer-notaris" pattern="[0-9]{9}" placeholder=" ">
                             </label>
                             <div>
                                 <label>Voorletter(s)
-                                    <input type="text" name="voorletter-notaris" placeholder="" />
+                                    <input type="text" name="voorletter-notaris" placeholder=" " />
                                 </label>
                                 <label>tussen-voegsel(s)
-                                    <input type="text" name="tussen-voegsel-notaris" placeholder=""/>
+                                    <input type="text" name="tussen-voegsel-notaris" placeholder=" "/>
                                 </label>
                                 <label>achternaam
-                                    <input type="text" name="achternaam-notaris" placeholder=""/>
+                                    <input type="text" name="achternaam-notaris" placeholder=" "/>
                                 </label>
                             </div>
                             <label>Vestigingsplaats 
-                                <input type="text" name="vestigingsplaats-notaris" placeholder=""/>
+                                <input type="text" name="vestigingsplaats-notaris" placeholder=" "/>
                             </label>
                             <label>
                                 Datum van het testament of van de laatste wijziging
-                                <input type="date" name="datum-testament"placeholder=""/>
+                                <input type="date" name="datum-testament"placeholder=" "/>
                             </label>
                         </fieldset>
                     </fieldset>
@@ -233,13 +233,13 @@
                         <div class="duplicate-input disable-the-rest">
                             <label data-error-message="Het BSN/RSIN nummer moet 8 of 9 nummers bevatten">Burgerservicenummer/
                                 RSIN gemachtigde
-                                <input class="bsn-rsin-gemachtigde" type="text" name="nummer-gemachtigde" inputmode="numeric" pattern="[0-9]{8,9}" title="Vul hier het BSN nummer of RSIN nummer in van de gemachtigde" placeholder="" required />
+                                <input class="bsn-rsin-gemachtigde" type="text" name="nummer-gemachtigde" inputmode="numeric" pattern="[0-9]{8,9}" title="Vul hier het BSN nummer of RSIN nummer in van de gemachtigde" placeholder=" " required />
                             </label>
                             <label data-error-message="Het beconnummer nummer moet 6 nummers bevatten">Beconnummer adviseur
-                                <input class="beconnummer-gemachtigde" type="text" name="nummer-gemachtigde" inputmode="numeric" pattern="[0-6]{6}" title="Vul hier het beconnummer in van de adviseur" placeholder=""  />
+                                <input class="beconnummer-gemachtigde" type="text" name="nummer-gemachtigde" inputmode="numeric" pattern="[0-6]{6}" title="Vul hier het beconnummer in van de adviseur" placeholder=" "  />
                             </label>
                             <label data-error-message="Het protocolnummer nummer moet 9 nummers bevatten">Protocolnummer notaris<span>. Lees ook de toelichting bij vraag 1d</span>
-                                <input class="protocolnummer-notaris" type="text" name="nummer-gemachtigde" inputmode="numeric" pattern="[0-9]{9}" title="Vul hier het protocol nummer in van de notaris" placeholder=""  />
+                                <input class="protocolnummer-notaris" type="text" name="nummer-gemachtigde" inputmode="numeric" pattern="[0-9]{9}" title="Vul hier het protocol nummer in van de notaris" placeholder=" "  />
                             </label>
                         </div>
                     </fieldset>
@@ -247,36 +247,36 @@
                         <legend><span>2b </span>Naam en adres gegevens gemachtigde</legend>
                         <div class="name">
                             <label>Voorletter(s)
-                                <input type="text" name="voorletter-gemachtigde" placeholder="" required />
+                                <input type="text" name="voorletter-gemachtigde" placeholder=" " required />
                             </label>
                             <label>tussen-voegsel(s)
-                                <input type="text" name="tussen-voegsel-gemachtigde" placeholder="" />
+                                <input type="text" name="tussen-voegsel-gemachtigde" placeholder=" " />
                             </label>
                             <label>achternaam
-                                <input type="text" name="achternaam-gemachtigde" placeholder="" />
+                                <input type="text" name="achternaam-gemachtigde" placeholder=" " />
                             </label>
                         </div>
                         <label>Naam instelling (bijvoorbeeld een notariskantoor)
-                            <input type="text" name="naam-instelling-gemachtigde" placeholder="" required />
+                            <input type="text" name="naam-instelling-gemachtigde" placeholder=" " required />
                         </label>
                         <fieldset>
                             <legend>Adres</legend>
                             <div class="adress">
                                 <label>Straat
-                                    <input type="text" name="straat-gemachtigde" placeholder="" required>
+                                    <input type="text" name="straat-gemachtigde" placeholder=" " required>
                                 </label>
                                 <label>Huisnummer
-                                    <input type="text" name="huisnummer-gemachtigde" placeholder="" required>
+                                    <input type="text" name="huisnummer-gemachtigde" placeholder=" " required>
                                 </label>
                                 <label>Toevoeging huisnummer
-                                    <input type="text" name="toevoeging-huisnummer-gemachtigde" placeholder="">
+                                    <input type="text" name="toevoeging-huisnummer-gemachtigde" placeholder=" ">
                                 </label>
                                 <label>Postcode
                                     <!-- TODO pattern -->
-                                    <input type="text" name="postode-gemachtigde" placeholder="" required>
+                                    <input type="text" name="postode-gemachtigde" placeholder=" " required>
                                 </label>
                                 <label>Plaats
-                                    <input type="text" name="plaats-gemachtigde" placeholder="" required>
+                                    <input type="text" name="plaats-gemachtigde" placeholder=" " required>
                                 </label>
                             </div>
                             <div class="autoFillInLandcodeNL">
@@ -285,16 +285,16 @@
                                     <input checked type="checkbox" name="adres-in-nl-gemachtigde">
                                 </label>
                                 <label data-error-message="Een landcode moet 3 of 4 cijfers bevatten">Landcode<span>. NL: ..., In onderdeel C van de <a href="#" target="_blank">toelichting</a> vindt u een lijst met landcodes.</span>
-                                    <input type="text" name="landcode-gemachtigde" inputmode="tel" pattern="[0-9]{3,4}" title="Een landcode moet 3 of 4 cijfers bevatten" placeholder="" required>
+                                    <input type="text" name="landcode-gemachtigde" inputmode="tel" pattern="[0-9]{3,4}" title="Een landcode moet 3 of 4 cijfers bevatten" placeholder=" " required>
                                 </label>
                             </div>
                             <label>Telefoonnummer
                                 <!-- TODO pattern, title, errormessage -->
-                                <input type="tel" name="tel-nummer-gemachtigde" placeholder="">
+                                <input type="tel" name="tel-nummer-gemachtigde" placeholder=" ">
                             </label>
                             <label>E-mailadres
                                 <!-- TODO pattern, title, errormessage -->
-                                <input type="email" name="email-gemachtigde" placeholder="">
+                                <input type="email" name="email-gemachtigde" placeholder=" ">
                             </label>
                         </fieldset>
                     </fieldset>
@@ -341,7 +341,7 @@
                             <label>Geef aan voor hoeveel verkrijgers u
                                 aangifte doet. Bent u zelf ook verkrijger? Tel uzelf dan ook mee.
                                 <!-- TODO  -->
-                                <input type="number" name="hoeveel-verkrijgers" inputmode="numeric" placeholder="">
+                                <input type="number" name="hoeveel-verkrijgers" inputmode="numeric" placeholder=" ">
                             </label>
                         </div>
                     </fieldset>
@@ -364,17 +364,17 @@
                                 <div class="verkijger-velden-geen-aangifte">
                                     <p>Verkrijger 1</p>
                                     <label data-error-message="Het BSN nummer moet 8 of 9 nummers bevatten">Burgerservicenummer verkrijger
-                                        <input type="text" name="burgerservicenummer-verkrijger-1" inputmode="numeric" pattern="[0-9]{8,9}" title="Het BSN nummer moet 8 of 9 nummers bevatten" placeholder="" />
+                                        <input type="text" name="burgerservicenummer-verkrijger-1" inputmode="numeric" pattern="[0-9]{8,9}" title="Het BSN nummer moet 8 of 9 nummers bevatten" placeholder=" " />
                                     </label>
                                     <div class="name">
                                         <label>Voorletter(s)
-                                            <input type="text" name="voorletter-verkrijger-1" placeholder="" required />
+                                            <input type="text" name="voorletter-verkrijger-1" placeholder=" " required />
                                         </label>
                                         <label>tussen-voegsel(s)
-                                            <input type="text" name="tussen-voegsel-verkrijger-1" placeholder="" />
+                                            <input type="text" name="tussen-voegsel-verkrijger-1" placeholder=" " />
                                         </label>
                                         <label>achternaam
-                                            <input type="text" name="achternaam-verkrijger-1" placeholder="" />
+                                            <input type="text" name="achternaam-verkrijger-1" placeholder=" " />
                                         </label>
                                     </div>
                                     <fieldset>
@@ -413,11 +413,11 @@
                     <fieldset>
                         <legend><span>3c</span> Naar wie wilt u dat wij de aanslag erfbelasting sturen?</legend>
                         <label>
-                            <input type="radio" name="erfbelasting-sturen" placeholder="" value="deel-naar-iedere-verkrijger">
+                            <input type="radio" name="erfbelasting-sturen" placeholder=" " value="deel-naar-iedere-verkrijger">
                             Stuur naar iedere verkrijger van (een deel van) de erfenis een eigen belastingaanslag.
                         </label>
                         <label>
-                            <input type="radio" name="erfbelasting-sturen" placeholder="" value="naar-de-executeur-of-erfgenaam">
+                            <input type="radio" name="erfbelasting-sturen" placeholder=" " value="naar-de-executeur-of-erfgenaam">
                             Stuur de belastingaanslag(en) naar de executeur of naar de erfgenaam die ook namens andere personen en/of instellingen
                             die iets krijgen uit de nalatenschap (verkrijgers) aangifte heeft gedaan; dit mag ook de gemachtigde zijn.
                             Wij sturen de aanslag(en) naar het adres dat u bij vraag 2 hebt ingevuld.
@@ -426,11 +426,11 @@
                     <fieldset>
                         <legend><span>3d</span> Bent u executeur of gemachtigde?</legend>   
                         <label>
-                            <input type="radio" name="executeur-gemachtigde" placeholder="" value="Nee">
+                            <input type="radio" name="executeur-gemachtigde" placeholder=" " value="Nee">
                             Nee <span>Ga verder naar vraag 4.</span>
                         </label>
                         <label data-ga-verder-met="vervolg-3d">
-                            <input type="radio" name="executeur-gemachtigde" placeholder="" value="Ja">
+                            <input type="radio" name="executeur-gemachtigde" placeholder=" " value="Ja">
                             Ja
                         </label>
                     </fieldset>
@@ -447,23 +447,23 @@
                             – Bent u erfgenaam en doet u alleen voor uzelf aangifte? Dan ondertekent u het aangifteformulier zelf bij vraag 4g.</p> 
                         <!-- autocomplete? -->
                         <label data-error-message="Het BSN nummer moet 8 of 9 nummers bevatten">Burgerservicenummer/RSIN
-                            <input type="text" name="burgerservicenummer-gemachtigde" inputmode="numeric" pattern="[0-9]{8,9}" title="Het BSN nummer moet 8 of 9 nummers bevatten" placeholder="" />
+                            <input type="text" name="burgerservicenummer-gemachtigde" inputmode="numeric" pattern="[0-9]{8,9}" title="Het BSN nummer moet 8 of 9 nummers bevatten" placeholder=" " />
                         </label>
                         <label data-error-message="Het protocolnummer nummer moet 9 nummers bevatten">Protocolnummer (als de executeur ook notaris is)
-                            <input type="text" name="nummer-gemachtigde" inputmode="numeric" pattern="[0-9]{9}" title="Vul hier het protocol nummer in van de notaris" placeholder=""  />
+                            <input type="text" name="nummer-gemachtigde" inputmode="numeric" pattern="[0-9]{9}" title="Vul hier het protocol nummer in van de notaris" placeholder=" "  />
                         </label>
                         <label data-error-message="Het beconnummer nummer moet 6 nummers bevatten">Beconnummer adviseur
-                            <input type="text" name="beconnummer-adviseur" inputmode="numeric" pattern="[0-6]{6}" title="Vul hier het beconnummer in van de adviseur" placeholder=""  />
+                            <input type="text" name="beconnummer-adviseur" inputmode="numeric" pattern="[0-6]{6}" title="Vul hier het beconnummer in van de adviseur" placeholder=" "  />
                         </label>
                         <div class="name">
                             <label>Voorletter(s)
-                                <input type="text" name="voorletter-executeur-gemachtigde" placeholder="" required />
+                                <input type="text" name="voorletter-executeur-gemachtigde" placeholder=" " required />
                             </label>
                             <label>tussen-voegsel(s)
-                                <input type="text" name="tussen-voegsel-executeur-gemachtigde" placeholder="" />
+                                <input type="text" name="tussen-voegsel-executeur-gemachtigde" placeholder=" " />
                             </label>
                             <label>achternaam
-                                <input type="text" name="achternaam-executeur-gemachtigde" placeholder="" />
+                                <input type="text" name="achternaam-executeur-gemachtigde" placeholder=" " />
                             </label>
                         </div>
                         <label>Naam instelling (bijvoorbeeld
@@ -472,26 +472,26 @@
                         </label>
                         <div class="adress">
                             <label>Straat
-                                <input type="text" placeholder="" name="straat-executeur-gemachtigde" required>
+                                <input type="text" placeholder=" " name="straat-executeur-gemachtigde" required>
                             </label>
                             <label>Huisnummer
-                                <input type="text" placeholder="" name="huisnummer-executeur-gemachtigde" required>
+                                <input type="text" placeholder=" " name="huisnummer-executeur-gemachtigde" required>
                             </label>
                             <label>Toevoeging huisnummer
-                                <input type="text" placeholder="" name="toevoeging-huisnummer-executeur-gemachtigde">
+                                <input type="text" placeholder=" " name="toevoeging-huisnummer-executeur-gemachtigde">
                             </label>
                             <label>Postcode
-                                <input type="text" placeholder="" name="postcode-executeur-gemachtigde" required>
+                                <input type="text" placeholder=" " name="postcode-executeur-gemachtigde" required>
                             </label>
                             <label>Plaats
-                                <input type="text" placeholder="" name="plaats-executeur-gemachtigde" required>
+                                <input type="text" placeholder=" " name="plaats-executeur-gemachtigde" required>
                             </label>
                         </div>
                         <label>Datum
-                            <input type="date" name="datum-executeur-gemachtigde" placeholder="">
+                            <input type="date" name="datum-executeur-gemachtigde" placeholder=" ">
                         </label>
                         <label>Uw handtekening
-                            <input type="file" name="handtekening-executeur-gemachtigde" placeholder="">
+                            <input type="file" name="handtekening-executeur-gemachtigde" placeholder=" ">
                         </label>
                     </fieldset>
                     <div class="terugEnVolgende">
@@ -513,22 +513,22 @@
                             <summary>Gegevens persoon</summary>
                             <div>
                                 <label data-error-message="Het BSN nummer moet 8 of 9 nummers bevatten">Burgerservicenummer persoon
-                                    <input type="text" name="burgerservicenummer-peroon-1" inputmode="numeric" pattern="[0-9]{8,9}" title="Het BSN nummer moet 8 of 9 nummers bevatten" placeholder="" />
+                                    <input type="text" name="burgerservicenummer-peroon-1" inputmode="numeric" pattern="[0-9]{8,9}" title="Het BSN nummer moet 8 of 9 nummers bevatten" placeholder=" " />
                                 </label>
                                 <div class="name">
                                     <label>Voorletter(s)
-                                        <input type="text" name="voorletter-peroon-1" placeholder="" />
+                                        <input type="text" name="voorletter-peroon-1" placeholder=" " />
                                     </label>
                                     <label>tussen-voegsel(s)
-                                        <input type="text" name="tussen-voegsel-persoon-1" placeholder="" />
+                                        <input type="text" name="tussen-voegsel-persoon-1" placeholder=" " />
                                     </label>
                                     <label>achternaam
-                                        <input type="text" name="achternaam-persoon-1" placeholder="" />
+                                        <input type="text" name="achternaam-persoon-1" placeholder=" " />
                                     </label>
                                 </div>
                                 <label>
                                     Geboortedatum
-                                    <input type="date" name="geboortedatum-persoon-1" placeholder="">
+                                    <input type="date" name="geboortedatum-persoon-1" placeholder=" ">
                                 </label>
                             </div>
                         </details>
@@ -536,11 +536,11 @@
                             <summary>Gegevens instelling</summary>
                             <div>
                                 <label data-error-message="Het RSIN nummer moet 9 nummers bevatten">RSIN instelling
-                                    <input class="rsin-instelling-1" type="text" name="rsin-instelling-1" inputmode="numeric" pattern="[0-9]{9}" title="Vul hier het RSIN nummer in van de instelling" placeholder="" />
+                                    <input class="rsin-instelling-1" type="text" name="rsin-instelling-1" inputmode="numeric" pattern="[0-9]{9}" title="Vul hier het RSIN nummer in van de instelling" placeholder=" " />
                                 </label>
                                 <label>
                                     Naam instelling
-                                    <input type="text" name="naam-instelling-1" placeholder="">
+                                    <input type="text" name="naam-instelling-1" placeholder=" ">
                                 </label>
                             </div>
                         </details>
@@ -549,19 +549,19 @@
                         <legend><span>4b</span> Adresgegevens</legend>
                         <div class="adress">
                             <label>Straat
-                                <input type="text" placeholder="" required name="adresgegevens-persoon-1">
+                                <input type="text" placeholder=" " required name="adresgegevens-persoon-1">
                             </label>
                             <label>Huisnummer
-                                <input type="text" placeholder="" required name="huisnummer-persoon-1">
+                                <input type="text" placeholder=" " required name="huisnummer-persoon-1">
                             </label>
                             <label>Toevoeging huisnummer
-                                <input type="text" placeholder="" name="toevoeging-huisnummer-persoon-1">
+                                <input type="text" placeholder=" " name="toevoeging-huisnummer-persoon-1">
                             </label>
                             <label>Postcode
-                                <input type="text" placeholder="" required name="postcode-persoon-1">
+                                <input type="text" placeholder=" " required name="postcode-persoon-1">
                             </label>
                             <label>Plaats
-                                <input type="text" placeholder="" required name="plaats-persoon-1">
+                                <input type="text" placeholder=" " required name="plaats-persoon-1">
                             </label>
                         </div>
                         <div class="autoFillInLandcodeNL">
@@ -570,7 +570,7 @@
                                 <input  type="checkbox" name="adres-in-nl-persoon-1">
                             </label>
                             <label data-error-message="Een landcode moet 3 of 4 cijfers bevatten">Landcode<span>. NL: ..., In onderdeel C van de <a href="#" target="_blank">toelichting</a> vindt u een lijst met landcodes.</span>
-                                <input type="text" name="landcode-persoon-1" inputmode="tel" pattern="[0-9]{3,4}" title="Een landcode moet 3 of 4 cijfers bevatten" placeholder="" required>
+                                <input type="text" name="landcode-persoon-1" inputmode="tel" pattern="[0-9]{3,4}" title="Een landcode moet 3 of 4 cijfers bevatten" placeholder=" " required>
                             </label>
                         </div>
                     </fieldset>
@@ -655,7 +655,7 @@
                             een onbebouwd stuk grond of een onroerende zaak in het buitenland, vult u de
                             waarde in het economisch verkeer in. Let op! Vul ook vraag 5c in.
                             <div>
-                                € <input type="number" name="WOZ-waarde-of-economisch-verkeer" required placeholder="">
+                                € <input type="number" name="WOZ-waarde-of-economisch-verkeer" required placeholder=" ">
                             </div>
                         </label>
                     </fieldset>   

@@ -34,9 +34,53 @@ function displayFollowUpQuestion() {
             const parentOfLabel = labelofInput.parentElement;
             const dataset = labelofInput.dataset.gaVerderMet;
             const theShowInput = labelofInput.querySelector(`input`);
-            const otherInput = parentOfLabel.querySelector(
+            const otherInputs = parentOfLabel.querySelectorAll(
                 `label:not([data-ga-verder-met="${dataset}"]) input`
             );
+            let getTheVervolgToHide;
+            // Geen click op, wel opslaan data-ga-verder-met en als er 1 voorkomt die niet voorkomt in de main input, niet laten zien.
+            // The other input to close the vervolg
+            otherInputs.forEach((otherInput) => {
+                // otherInput.addEventListener("click", () => {
+                let inputString = [];
+                if (labelofInput.dataset.gaVerderMet.includes(",")) {
+                    inputString = labelofInput.dataset.gaVerderMet
+                        .split(",")
+                        .map((inputString) => inputString.trim());
+                } else {
+                    inputString.push(labelofInput.dataset.gaVerderMet.trim());
+                }
+                // inputString.forEach((string) => {
+                //     console.log(string, "other input");
+                //     // const element = document.querySelector(`.${string}`);
+                //     // element.style.display = "none";
+
+                //     const otherVervolgElements =
+                //         element.querySelectorAll(".vervolg");
+                //     otherVervolgElements.forEach((otherElement) => {
+                //         otherElement.style.display = "none";
+                //     });
+                //     // function
+                //     const allInputsInElement =
+                //         element.querySelectorAll("input");
+
+                //     allInputsInElement.forEach((input) => {
+                //         input.removeAttribute("required", "");
+                //         if (
+                //             input.type === "radio" ||
+                //             input.type === "checkbox"
+                //         ) {
+                //             input.checked = false;
+                //         } else {
+                //             input.value = "";
+                //         }
+                //         // fillDupliInputs(input);
+                //         // removeLocalStorage(input);
+                //     });
+                //     // end of function
+                //     // });
+                // });
+            });
             // The other input to open the vervolg
             theShowInput.addEventListener("click", () => {
                 let inputString = [];
@@ -48,6 +92,7 @@ function displayFollowUpQuestion() {
                     inputString.push(labelofInput.dataset.gaVerderMet.trim());
                 }
                 inputString.forEach((string) => {
+                    console.log(string, "main input");
                     const element = document.querySelector(`.${string}`);
                     element.style.display = "block";
                     const allInputsInElement =
@@ -58,48 +103,15 @@ function displayFollowUpQuestion() {
                     });
                 });
             });
-            // The other input to close the vervolg
-            otherInput.addEventListener("click", () => {
-                let inputString = [];
-                if (labelofInput.dataset.gaVerderMet.includes(",")) {
-                    inputString = labelofInput.dataset.gaVerderMet
-                        .split(",")
-                        .map((inputString) => inputString.trim());
-                } else {
-                    inputString.push(labelofInput.dataset.gaVerderMet.trim());
-                }
-                inputString.forEach((string) => {
-                    const element = document.querySelector(`.${string}`);
-                    element.style.display = "none";
-
-                    const otherVervolgElements =
-                        element.querySelectorAll(".vervolg");
-                    otherVervolgElements.forEach((otherElement) => {
-                        otherElement.style.display = "none";
-                    });
-                    // function
-                    const allInputsInElement =
-                        element.querySelectorAll("input");
-
-                    allInputsInElement.forEach((input) => {
-                        input.removeAttribute("required", "");
-                        if (
-                            input.type === "radio" ||
-                            input.type === "checkbox"
-                        ) {
-                            input.checked = false;
-                        } else {
-                            input.value = "";
-                        }
-                        fillDupliInputs(input);
-                        removeLocalStorage(input);
-                    });
-                    // end of function
-                });
-            });
         }
     });
 }
+
+
+
+
+
+
 
 // Scriptje om en vraag over te slaan 
 // function vragenOverslaanFunction() {

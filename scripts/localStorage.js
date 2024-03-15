@@ -3,9 +3,9 @@ const allInputs = document.querySelectorAll("input");
 allInputs.forEach((input) => {
     input.addEventListener("change", () => {
         localStorage.setItem(`${input.name}`, input.value);
-        const value = localStorage.getItem(`${input.name}`);
-        const element = localStorage.getItem(`${input.name}-element`);
-        console.log(value, element);
+        // const value = localStorage.getItem(`${input.name}`);
+        // const element = localStorage.getItem(`${input.name}-element`);
+        // console.log(value, element);
     });
 
     const computedStyle = window.getComputedStyle(input);

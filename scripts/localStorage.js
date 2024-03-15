@@ -3,7 +3,6 @@ const allInputs = document.querySelectorAll("input");
 allInputs.forEach((input) => {
     input.addEventListener("change", () => {
         localStorage.setItem(`${input.name}`, input.value);
-        // localStorage.setItem(`${input.name}-element`, input.name);
         const value = localStorage.getItem(`${input.name}`);
         const element = localStorage.getItem(`${input.name}-element`);
         console.log(value, element);
@@ -12,7 +11,6 @@ allInputs.forEach((input) => {
     const computedStyle = window.getComputedStyle(input);
     if (computedStyle.display !== "none") {
         if (input.type === "radio" || input.type === "checkbox") {
-            // const name = localStorage.getItem(`${input.name}-element`);
             const name = input.name;
             const value = localStorage.getItem(`${input.name}`);
             if (value) {

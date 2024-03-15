@@ -31,6 +31,8 @@ if (!supportsSelectorHas) {
     // vragenOverslaanFunction();
 }
 
+// TODO door de lijst met alle inputs, als de dataset er is doe dan wat, en on change
+// bouwstenen  op en top maken, 
 // scriptje om dingen te showen op bepaalde clicks als progressive enhancement voor als :has() niet werkt
 function displayFollowUpQuestion() {
     // Dont show the spans

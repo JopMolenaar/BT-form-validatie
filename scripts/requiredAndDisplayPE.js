@@ -5,6 +5,7 @@ radios.forEach((radio) => {
     radio.addEventListener("click", () => {
         inputsWithVervolg.forEach((inputString) => {
             const element = document.querySelector(`.${inputString}`);
+            console.log(element);
             const computedStyle = window.getComputedStyle(element);
             if (computedStyle.display === "none") {
                 const allInputs = element.querySelectorAll("input");

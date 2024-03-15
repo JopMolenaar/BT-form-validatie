@@ -54,6 +54,7 @@ function displayFollowUpQuestion() {
                         element.querySelectorAll("input");
                     allInputsInElement.forEach((input) => {
                         input.setAttribute("required", "");
+                        addLocalStorageRequired(input);
                     });
                 });
             });
@@ -91,7 +92,7 @@ function displayFollowUpQuestion() {
                             input.value = "";
                         }
                         fillDupliInputs(input);
-                        // removeLocalStorage(input);
+                        removeLocalStorage(input);
                     });
                     // end of function
                 });

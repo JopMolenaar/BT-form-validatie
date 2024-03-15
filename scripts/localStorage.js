@@ -22,21 +22,27 @@ allInputs.forEach((input) => {
                         inputToCheck.checked = true;
                     }
                 });
-
-                console.log(name, inputsToCheck);
-                console.log(inputsToCheck);
-                inputsToCheck.checked = true;
             }
         } else {
             const innerHTML = localStorage.getItem(`${input.name}`);
             if (innerHTML) {
                 input.innerHTML = innerHTML;
                 input.value = innerHTML;
+                input.setAttribute("required", "");
             }
+        }
+        const required = localStorage.getItem(`${input.name}-required`);
+        if (required) {
+            console.log(input.name);
+            input.setAttribute("required", "");
         }
     }
 });
 
 function removeLocalStorage(input) {
     localStorage.removeItem(`${input.name}`);
+    localStorage.removeItem(`${input.name}-required`);
+}
+function addLocalStorageRequired(input) {
+    localStorage.setItem(`${input.name}-required`, true);
 }

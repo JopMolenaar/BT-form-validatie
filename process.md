@@ -91,14 +91,15 @@ Die vrijdag had ik mijn eerste voortgangsgesprek en de docent was erg enthousias
 ### Week 3
 
 Deze week ging ik verder aan de bouwstenen
+veel bugs opgelost
 ik heb op browsers getest
+accepts op de file inputs gezet
 features met js gemaakt zoals localstorage, extra verkrijgers toevoegen, het laten werken van de hide en show zonder lijst, wat een uitdaging was met 3a. want daar werkt het niet iets anders, namelijk met dubbelingen en hoe ik erover heen loopte liet het weer verdwijnen. En toen ik het had laten werken voor 3a, werkte het niet voor normale inputs. ben er zeker 8+ uur mee bezig geweest.
 validation en js fallbacks verbeterd + besloten om het alvast an te zetten want dat werkt beter samen.
 feedback gekregen 
-
-
-<!-- /* feedback van jeremy: probeer het gene wat alles kapot kan maken op het zelfde niveau kwa 
+veel meer content toegevoegd, heel vraag 3 en een deel van 4.
+feedback van jeremy: probeer het gene wat alles kapot kan maken op het zelfde niveau kwa 
 moeilijkheid of lastiger the definieren, zo kan het minder snel kapot.
+Ook zei hij in het algemeen dat je telkens moet nadenken als frontend dev over alles wat je doet. 
+Niet zomaar dingen doen omdat je dat altijd doet.
 
-Ook zei hij dat je telkens moet nadenken als frontend dev over alles wat je doet. 
-Niet zomaar dingen doen omdat je dat altijd doet. */ -->

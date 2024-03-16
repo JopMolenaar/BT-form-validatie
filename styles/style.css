@@ -29,7 +29,7 @@ label:has(input:not([type="radio"])){
 html:has(section:target) .startFormLink{
     display: none;
 }
-
+/* 
 html:has(label[data-ga-verder-met="vervolg-1b"] input:checked) .vervolg-1b, 
 html:has(label[data-ga-verder-met="vervolg-1b-2"] input:checked) .vervolg-1b-2,
 html:has(label[data-ga-verder-met="vervolg-1c"] input:checked) .vervolg-1c, 
@@ -46,7 +46,7 @@ html:has(label[data-ga-verder-met="vervolg-4c-2"] input:checked) .vervolg-4c-2
 {
     display: block;
     animation: fade-in 1.5s linear;
-}
+} */
 @keyframes fade-in {
     0% {
         opacity: 0;

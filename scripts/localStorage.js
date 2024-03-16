@@ -3,6 +3,9 @@ const allInputs = document.querySelectorAll("input");
 allInputs.forEach((input) => {
     input.addEventListener("change", () => {
         localStorage.setItem(`${input.name}`, input.value);
+        localStorage.setItem(`${input.name}-classList`, input.classList[0]);
+        // console.log(input.classList[0]);
+        // console.log(input.name);
     });
 
     if (input.type === "radio" || input.type === "checkbox") {
@@ -35,11 +38,26 @@ allInputs.forEach((input) => {
             });
         }
     } else {
+        const name = input.name;
         const innerHTML = localStorage.getItem(`${input.name}`);
+        const classList = localStorage.getItem(`${input.name}-classList`);
         if (innerHTML) {
-            input.innerHTML = innerHTML;
-            input.value = innerHTML;
-            input.setAttribute("required", "");
+            const inputsToFill = document.querySelectorAll(
+                `input[name="${name}"]`
+            );
+            inputsToFill.forEach((input) => {
+                if (classList) {
+                    if (input.classList[0] === classList) {
+                        input.innerHTML = innerHTML;
+                        input.value = innerHTML;
+                        input.setAttribute("required", "");
+                    }
+                } else {
+                    input.innerHTML = innerHTML;
+                    input.value = innerHTML;
+                    input.setAttribute("required", "");
+                }
+            });
         }
     }
     const required = localStorage.getItem(`${input.name}-required`);

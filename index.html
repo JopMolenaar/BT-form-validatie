@@ -118,8 +118,8 @@
                                     <input type="radio" name="notariële-akte" value="Nee" />
                                     Nee
                                 </label>
-                                <label class="vervolg vervolg-1b-2">Voeg hier een kopie van de akte toe
-                                    <input type="file"  accept="image/*,.pdf" name="kopie-akte">
+                                <label class="vervolg vervolg-1b-2">Voeg hier een kopie van de akte toe (pdf)
+                                    <input type="file"  accept=".pdf" name="kopie-akte">
                                 </label>
                             </fieldset>
                             <fieldset>
@@ -491,8 +491,7 @@
                             <input type="date" name="datum-executeur-gemachtigde" placeholder=" ">
                         </label>
                         <label>Uw handtekening
-                            <!-- TODO input type capture? -->
-                            <input type="file" name="handtekening-executeur-gemachtigde" placeholder=" ">
+                            <input type="file" accept="image/*,.pdf" name="handtekening-executeur-gemachtigde" placeholder=" ">
                         </label>
                     </fieldset>
                     <div class="terugEnVolgende">

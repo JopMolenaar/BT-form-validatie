@@ -6,7 +6,6 @@
 const elements = document.querySelectorAll(`input`);
 elements.forEach((element) => {
     element.addEventListener("blur", () => {
-        // TODO If its valid
         fillDupliInputs(element);
         disableInputs(element);
     });
@@ -14,7 +13,6 @@ elements.forEach((element) => {
 // });
 
 // TODO misschien de nummers uit deze velden opslaan en als autocomplete meegeven ipv al invullen?
-
 function fillDupliInputs(element) {
     const classNameElement = element.classList;
     const dupliElements = document.querySelectorAll(`.${classNameElement[0]}`);

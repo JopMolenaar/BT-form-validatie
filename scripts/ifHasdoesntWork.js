@@ -9,13 +9,11 @@ console.log(
     !supportsSelectorHas
 ); // boolean -> true if supported
 
-// if (!supportsSelectorHas) {
-    displayFollowUpQuestion();
-    colorLinkNav();
-    displayErrorMessage();
-    runFunctionWhenTargeted();
-    // vragenOverslaanFunction();
-// }
+displayFollowUpQuestion();
+colorLinkNav();
+displayErrorMessage();
+runFunctionWhenTargeted();
+// vragenOverslaanFunction();
 
 // TODO explanations en kan misschien korter?
 function displayFollowUpQuestion() {
@@ -39,31 +37,17 @@ function displayFollowUpQuestion() {
 
                 // The other input to open the vervolg
                 theShowInput.addEventListener("click", () => {
-                    console.log("click");
                     let getTheVervolgToHide = [];
-                    const otherInputs = parentOfLabel.querySelectorAll(
-                        `label:not([data-ga-verder-met="${dataset}"]) input`
-                    );
+                    const otherInputs = parentOfLabel.querySelectorAll(`label:not([data-ga-verder-met="${dataset}"]) input`);
 
                     otherInputs.forEach((otherInput) => {
                         const labelofOtherInput = otherInput.parentElement;
                         let inputString = [];
                         if (labelofOtherInput.dataset.gaVerderMet) {
-                            if (
-                                labelofOtherInput.dataset.gaVerderMet.includes(
-                                    ","
-                                )
-                            ) {
-                                inputString =
-                                    labelofOtherInput.dataset.gaVerderMet
-                                        .split(",")
-                                        .map((inputString) =>
-                                            inputString.trim()
-                                        );
+                            if (labelofOtherInput.dataset.gaVerderMet.includes(",")) {
+                                inputString = labelofOtherInput.dataset.gaVerderMet.split(",").map((inputString) => inputString.trim());
                             } else {
-                                inputString.push(
-                                    labelofOtherInput.dataset.gaVerderMet.trim()
-                                );
+                                inputString.push(labelofOtherInput.dataset.gaVerderMet.trim());
                             }
                             inputString.forEach((string) => {
                                 getTheVervolgToHide.push(string);
@@ -73,41 +57,27 @@ function displayFollowUpQuestion() {
 
                     let inputString = [];
                     if (labelofInput.dataset.gaVerderMet.includes(",")) {
-                        inputString = labelofInput.dataset.gaVerderMet
-                            .split(",")
-                            .map((inputString) => inputString.trim());
+                        inputString = labelofInput.dataset.gaVerderMet.split(",").map((inputString) => inputString.trim());
                     } else {
-                        inputString.push(
-                            labelofInput.dataset.gaVerderMet.trim()
-                        );
+                        inputString.push(labelofInput.dataset.gaVerderMet.trim());
                     }
-                    console.log(getTheVervolgToHide);
                     getTheVervolgToHide.forEach((vervolgToHide) => {
                         if (inputString.includes(vervolgToHide)) {
-                            const element = document.querySelector(
-                                `.${vervolgToHide}`
-                            );
+                            const element = document.querySelector(`.${vervolgToHide}`);
                             element.style.display = "block";
-                            const allInputsInElement =
-                                element.querySelectorAll("input");
+                            const allInputsInElement = element.querySelectorAll("input");
                             allInputsInElement.forEach((input) => {
                                 input.setAttribute("required", "");
                                 addLocalStorageRequired(input);
                             });
                         } else {
-                            const element = document.querySelector(
-                                `.${vervolgToHide}`
-                            );
+                            const element = document.querySelector(`.${vervolgToHide}`);
                             element.style.display = "none";
-                            const allInputsInElement =
-                                element.querySelectorAll("input");
+                            const allInputsInElement = element.querySelectorAll("input");
 
                             allInputsInElement.forEach((input) => {
                                 input.removeAttribute("required", "");
-                                if (
-                                    input.type === "radio" ||
-                                    input.type === "checkbox"
-                                ) {
+                                if (input.type === "radio" || input.type === "checkbox") {
                                     input.checked = false;
                                 } else {
                                     input.value = "";
@@ -127,26 +97,19 @@ function displayFollowUpQuestion() {
                 const parentOfLabel = labelofInput.parentElement;
                 const dataset = labelofInput.dataset.gaVerderMet;
                 const theShowInput = labelofInput.querySelector(`input`);
-                const otherInput = parentOfLabel.querySelector(
-                    `label:not([data-ga-verder-met="${dataset}"]) input`
-                );
+                const otherInput = parentOfLabel.querySelector(`label:not([data-ga-verder-met="${dataset}"]) input`);
                 // The other input to open the vervolg
                 theShowInput.addEventListener("click", () => {
                     let inputString = [];
                     if (labelofInput.dataset.gaVerderMet.includes(",")) {
-                        inputString = labelofInput.dataset.gaVerderMet
-                            .split(",")
-                            .map((inputString) => inputString.trim());
+                        inputString = labelofInput.dataset.gaVerderMet.split(",").map((inputString) => inputString.trim());
                     } else {
-                        inputString.push(
-                            labelofInput.dataset.gaVerderMet.trim()
-                        );
+                        inputString.push(labelofInput.dataset.gaVerderMet.trim());
                     }
                     inputString.forEach((string) => {
                         const element = document.querySelector(`.${string}`);
                         element.style.display = "block";
-                        const allInputsInElement =
-                            element.querySelectorAll("input");
+                        const allInputsInElement = element.querySelectorAll("input");
                         allInputsInElement.forEach((input) => {
                             input.setAttribute("required", "");
                         });
@@ -156,33 +119,24 @@ function displayFollowUpQuestion() {
                 otherInput.addEventListener("click", () => {
                     let inputString = [];
                     if (labelofInput.dataset.gaVerderMet.includes(",")) {
-                        inputString = labelofInput.dataset.gaVerderMet
-                            .split(",")
-                            .map((inputString) => inputString.trim());
+                        inputString = labelofInput.dataset.gaVerderMet.split(",").map((inputString) => inputString.trim());
                     } else {
-                        inputString.push(
-                            labelofInput.dataset.gaVerderMet.trim()
-                        );
+                        inputString.push(labelofInput.dataset.gaVerderMet.trim());
                     }
                     inputString.forEach((string) => {
                         const element = document.querySelector(`.${string}`);
                         element.style.display = "none";
 
-                        const otherVervolgElements =
-                            element.querySelectorAll(".vervolg");
+                        const otherVervolgElements = element.querySelectorAll(".vervolg");
                         otherVervolgElements.forEach((otherElement) => {
                             otherElement.style.display = "none";
                         });
                         // function
-                        const allInputsInElement =
-                            element.querySelectorAll("input");
+                        const allInputsInElement = element.querySelectorAll("input");
 
                         allInputsInElement.forEach((input) => {
                             input.removeAttribute("required", "");
-                            if (
-                                input.type === "radio" ||
-                                input.type === "checkbox"
-                            ) {
+                            if (input.type === "radio" || input.type === "checkbox") {
                                 input.checked = false;
                             } else {
                                 input.value = "";
@@ -198,7 +152,103 @@ function displayFollowUpQuestion() {
     });
 }
 
-// Scriptje om en vraag over te slaan 
+// check if section with the fieldsets are valid
+function checkIfSectionsAreValid(link) {
+    let currentUrl = link.href;
+    let hashIndex = currentUrl.indexOf("#");
+    let hashAndNext = currentUrl.substring(hashIndex);
+    const everySection = document.querySelectorAll("main form section");
+    everySection.forEach((section) => {
+        if ("#" + section.id === hashAndNext) {
+            const inputError = section.querySelector("fieldset label input:user-invalid:not(:focus)");
+            const validInputs = section.querySelectorAll("fieldset label input:required:valid");
+            const allInputs = section.querySelectorAll("fieldset input:required");
+            const linkMatchedSection = document.querySelector(`main nav a[href='#${section.id}']`);
+            if (inputError && inputError.value !== "") {
+                linkMatchedSection.setAttribute("class", "");
+                linkMatchedSection.classList.add("error-color-link");
+            } else if (validInputs.length >= allInputs.length && validInputs.value !== "") {
+                linkMatchedSection.setAttribute("class", "");
+                linkMatchedSection.classList.add("valid-color-link");
+            } else {
+                linkMatchedSection.setAttribute("class", "");
+                linkMatchedSection.classList.add("default-color-link");
+            }
+        }
+    });
+}
+
+// Display the error message from the label if input is user-invalid
+function displayErrorMessage() {
+    const everySection = document.querySelectorAll("main form section");
+    everySection.forEach((section) => {
+        const everyInput = section.querySelectorAll("fieldset label input");
+        everyInput.forEach((input) => {
+            input.addEventListener("blur", () => {
+                const label = input.parentElement;
+                const invalidInput = label.querySelector("input:user-invalid:not(:focus)");
+                if (invalidInput && invalidInput.value !== "") {
+                    label.classList.add("showErrorMessage");
+                } else {
+                    label.classList.remove("showErrorMessage");
+                }
+            });
+        });
+    });
+}
+
+// scriptje om error message te showen als progressive enhancement voor als :has() niet werkt
+// scriptje om de links een kleur te geven als een fieldset invalid is of valid is of een error heeft
+function colorLinkNav(sectionId) {
+    if (sectionId === undefined) {
+        sectionId = window.location.hash;
+    }
+    const everySection = document.querySelectorAll("main form section");
+    everySection.forEach((section) => {
+        const linkMatchedSection = document.querySelector(`main nav a[href='#${section.id}']`);
+        if (sectionId === "#" + section.id && sectionId !== "") {
+            document.querySelector(".startFormLink").style.display = "none";
+            linkMatchedSection.setAttribute("class", "");
+            linkMatchedSection.classList.add("active-color-link");
+            const theOtherLinks = document.querySelectorAll(`main nav a:not([href='#${section.id}'])`);
+            theOtherLinks.forEach((link) => {
+                // check if section with the fieldsets are valid
+                checkIfSectionsAreValid(link);
+            });
+        }
+    });
+}
+
+// Run the functions above when a section is target
+function runFunctionWhenTargeted() {
+    const directionButtons = document.querySelectorAll("main form > section > div > a");
+    directionButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+            let hashAndNext = getTheHash(button);
+            colorLinkNav(hashAndNext);
+        });
+    });
+    const directionNavLinks = document.querySelectorAll("main nav a");
+    directionNavLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+            let hashAndNext = getTheHash(link);
+            colorLinkNav(hashAndNext);
+        });
+    });
+    const startButton = document.querySelector(".startFormLink a");
+    startButton.addEventListener("click", () => {
+        let hashAndNext = getTheHash(startButton);
+        colorLinkNav(hashAndNext);
+    });
+}
+function getTheHash(link) {
+    let currentUrl = link.href;
+    let hashIndex = currentUrl.indexOf("#");
+    let hashAndNext = currentUrl.substring(hashIndex);
+    return hashAndNext;
+}
+
+// Scriptje om en vraag over te slaan
 // function vragenOverslaanFunction() {
 //     vragenOverslaan.forEach((vraagString) => {
 //         const element = document.querySelector(`.${vraagString}`);
@@ -220,106 +270,7 @@ function displayFollowUpQuestion() {
 //     });
 // }
 
-// scriptje om error message te showen als progressive enhancement voor als :has() niet werkt
-// scriptje om de links een kleur te geven als een fieldset invalid is of valid is of een error heeft
-function colorLinkNav(sectionId) {
-    if (sectionId === undefined) {
-        sectionId = window.location.hash;
-    }
-    const everySection = document.querySelectorAll("main form section");
-    everySection.forEach((section) => {
-        const linkMatchedSection = document.querySelector(
-            `main nav a[href='#${section.id}']`
-        );
-        if (sectionId === "#" + section.id) {
-            linkMatchedSection.style.background = "blue";
-            const theOtherLinks = document.querySelectorAll(
-                `main nav a:not([href='#${section.id}'])`
-            );
-            theOtherLinks.forEach((link) => {
-                // check if section with the fieldsets are valid
-                checkIfSectionsAreValid(link);
-            });
-        }
-    });
-}
-
-// check if section with the fieldsets are valid
-function checkIfSectionsAreValid(link) {
-    let currentUrl = link.href;
-    let hashIndex = currentUrl.indexOf("#");
-    let hashAndNext = currentUrl.substring(hashIndex);
-    const everySection = document.querySelectorAll("main form section");
-    everySection.forEach((section) => {
-        if ("#" + section.id === hashAndNext) {
-            const inputError = section.querySelector(
-                "fieldset label input:user-invalid:not(:focus)"
-            );
-            const validInputs = section.querySelectorAll(
-                "fieldset label input:required:valid"
-            );
-            const allInputs = section.querySelectorAll(
-                "fieldset input:required"
-            );
-            const linkMatchedSection = document.querySelector(
-                `main nav a[href='#${section.id}']`
-            );
-            if (inputError && inputError.value !== "") {
-                linkMatchedSection.style.background = "rgb(255, 123, 0)";
-                // TODO Classes?
-            } else if (
-                validInputs.length >= allInputs.length &&
-                validInputs.value !== ""
-            ) {
-                linkMatchedSection.style.background = "green";
-            } else {
-                linkMatchedSection.style.background = "#8fcae7";
-            }
-        }
-    });
-}
-
-// Display the error message from the label if input is user-invalid
-function displayErrorMessage() {
-    const everySection = document.querySelectorAll("main form section");
-    everySection.forEach((section) => {
-        const everyInput = section.querySelectorAll("fieldset label input");
-        everyInput.forEach((input) => {
-            input.addEventListener("blur", () => {
-                const label = input.parentElement;
-                const invalidInput = label.querySelector(
-                    "input:user-invalid:not(:focus)"
-                );
-                if (invalidInput && invalidInput.value !== "") {
-                    label.classList.add("showErrorMessage");
-                } else {
-                    label.classList.remove("showErrorMessage");
-                }
-            });
-        });
-    });
-}
-
-// Run the functions above when a section is target
-function runFunctionWhenTargeted() {
-    const directionButtons = document.querySelectorAll(
-        "main form > section > div > a"
-    );
-    directionButtons.forEach((button) => {
-        button.addEventListener("click", () => {
-            let currentUrl = button.href;
-            let hashIndex = currentUrl.indexOf("#");
-            let hashAndNext = currentUrl.substring(hashIndex);
-            colorLinkNav(hashAndNext);
-        });
-    });
-    const directionNavLinks = document.querySelectorAll("main nav a");
-    directionNavLinks.forEach((link) => {
-        link.addEventListener("click", () => {
-            let currentUrl = link.href;
-            let hashIndex = currentUrl.indexOf("#");
-            let hashAndNext = currentUrl.substring(hashIndex);
-            colorLinkNav(hashAndNext);
-        });
-    });
+function giveLabelsClass(input) {
+    const parent = input.parentElement;
+    parent.classList.add("labelWithInput");
 }

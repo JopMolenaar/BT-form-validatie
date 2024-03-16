@@ -3,7 +3,9 @@ const allInputs = document.querySelectorAll("input");
 allInputs.forEach((input) => {
     input.addEventListener("change", () => {
         localStorage.setItem(`${input.name}`, input.value);
-        localStorage.setItem(`${input.name}-classList`, input.classList[0]);
+        if (input.classList[0]) {
+            localStorage.setItem(`${input.name}-classList`, input.classList[0]);
+        }
     });
 
     if (input.type === "radio" || input.type === "checkbox") {
@@ -31,20 +33,21 @@ allInputs.forEach((input) => {
     } else {
         giveLabelsClass(input); // :has() fallback for styling
         const name = input.name;
-        const innerHTML = localStorage.getItem(`${input.name}`);
+        const value = localStorage.getItem(`${input.name}`);
         const classList = localStorage.getItem(`${input.name}-classList`);
-        if (innerHTML) {
+        if (value) {
             const inputsToFill = document.querySelectorAll(`input[name="${name}"]`);
             inputsToFill.forEach((input) => {
+                // console.log(input);
                 if (classList) {
+                    console.log("classlist: ", input.name);
                     if (input.classList[0] === classList) {
-                        input.innerHTML = innerHTML;
-                        input.value = innerHTML;
+                        input.value = value;
                         input.setAttribute("required", "");
                     }
                 } else {
-                    input.innerHTML = innerHTML;
-                    input.value = innerHTML;
+                    console.log("no classlist: ", input.name);
+                    input.value = value;
                     input.setAttribute("required", "");
                 }
             });
@@ -64,3 +67,5 @@ function removeLocalStorage(input) {
 function addLocalStorageRequired(input) {
     localStorage.setItem(`${input.name}-required`, true);
 }
+
+// localStorage.clear();

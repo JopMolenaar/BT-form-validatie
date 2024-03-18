@@ -47,7 +47,7 @@ This project was to digitalize a paper tax inheritance form of the dutch tax ser
 - [ ] localstorage validation
 - [ ] date's min
 - [ ] postcode en huisnummer validation
-- [ ] alles functies in js naar engels translaten 
+<!-- - [ ] alles functies in js naar engels translaten  -->
 - [ ] styling form
 <!-- - [ ] handtekening oplossing -->
 
@@ -55,7 +55,7 @@ This project was to digitalize a paper tax inheritance form of the dutch tax ser
 - [ ] tabs gegevens verkrijgers maken
 - [ ] inputs met geld en IBAN nummers maken
 - [ ] toelichting details + styling
-- [ ] js opschonen
+- [x] js opschonen
 - [ ] ...
 
 ## License

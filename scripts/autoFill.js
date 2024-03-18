@@ -51,6 +51,7 @@ function disableInputs(element) {
     }
 }
 
+// TODO functie klopt niet
 /**
  * Get all the landcode sections and check if the landcode needs to visible or not.
  */

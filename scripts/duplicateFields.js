@@ -1,6 +1,8 @@
 const duplicateSections = ["verkijger-velden-geen-aangifte"];
 // TODO zonder lijst doen
 
+
+// Duplicate verkrijger fields if needed
 function duplicateFields() {
     duplicateSections.forEach((sectionString) => {
         const section = document.querySelector(`.${sectionString}`);

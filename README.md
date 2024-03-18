@@ -1,4 +1,4 @@
-# BT-form-validatie (❗⚠️❗Dit is een school project❗⚠️❗)
+# BT-form-validatie (❗❗Dit is een school project❗❗)
 
 ## Description
 

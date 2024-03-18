@@ -240,6 +240,11 @@ function runFunctionWhenTargeted() {
         let hashAndNext = getTheHash(startButton);
         colorLinkNav(hashAndNext);
     });
+    const logo = document.querySelector("header div a");
+    logo.addEventListener("click", () => {
+        const start = document.querySelector("main div:nth-of-type(1)");
+        start.style.display = "flex";
+    });
 }
 function getTheHash(link) {
     let currentUrl = link.href;

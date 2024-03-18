@@ -1,5 +1,8 @@
+/**
+ * Add an event listener to all inputs to save the value in the local storage when the input changes.
+ * Place the already stored value in the input when the pages refreshes.
+ */
 const allInputs = document.querySelectorAll("input");
-
 allInputs.forEach((input) => {
     input.addEventListener("change", () => {
         localStorage.setItem(`${input.name}`, input.value);
@@ -57,10 +60,18 @@ allInputs.forEach((input) => {
     // TODO validate the input
 });
 
+/**
+ * Remove the local storage from the linked input
+ * @param {Element} input - The input element
+ */
 function removeLocalStorage(input) {
     localStorage.removeItem(`${input.name}`);
     localStorage.removeItem(`${input.name}-required`);
 }
+/**
+ * Add the required local storage key with value to the linked input
+ * @param {Element} input - The input element
+ */
 function addLocalStorageRequired(input) {
     localStorage.setItem(`${input.name}-required`, true);
 }

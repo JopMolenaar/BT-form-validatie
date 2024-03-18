@@ -116,6 +116,7 @@ section:not(:target){
     display: none;
 }
 section:target {
+    scroll-margin: 12.1em;
     display: grid;
 }
 

@@ -4,6 +4,7 @@ const inputDisabledFuture = [
     "input[name=datum-testament]",
     "input[name=datum-partnerschapsvoorwaarden]",
 ];
+// TODO geen lijstje
 inputDisabledFuture.forEach((input) => {
     const dynInput = document.querySelector(input);
     let today = new Date();

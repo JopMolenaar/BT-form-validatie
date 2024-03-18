@@ -2,39 +2,40 @@ const rootStyles = getComputedStyle(document.documentElement);
 const supportsSelectorHas =
     rootStyles.getPropertyValue("--supports-selector-has").trim() == "1";
 
-// const vragenOverslaan = ["vraag-3b"];
-
-console.log(
-    "falback js function when :has() isn't supported runs = ",
-    !supportsSelectorHas
-); // boolean -> true if supported
+console.log("falback js function when :has() isn't supported runs = ", !supportsSelectorHas); // boolean -> true if supported
 
 displayFollowUpQuestion();
 colorLinkNav();
 displayErrorMessage();
 runFunctionWhenTargeted();
-// vragenOverslaanFunction();
 
-// TODO explanations en kan misschien korter?
+/**
+ * Display the follow up question. If this function works, it removes all the spans with instruction with where to go next.
+ * After that it will get all the inputs en will look if the fieldset has an advanced class or not.
+ * If not: it checks if the the label has an data attribute with an follow up question.
+ * It also gets the other input to hide the other question .
+ *
+ * If yes: it gets the dataset of the label with all the next-ups that need to be showed and compares it to the other datasets.
+ * If there is an next-up missing, it means that that one is not needed to be showed.
+ */
 function displayFollowUpQuestion() {
     // Dont show the spans
     const allSpans = document.querySelectorAll("label > span");
     allSpans.forEach((span) => {
         span.style.display = "none";
     });
-
     // For every inputString with a vervolg
     const inputs = document.querySelectorAll("input");
     inputs.forEach((input) => {
         const labelofInput = input.parentElement;
         const fieldset = labelofInput.parentElement;
+        // multiple choices with possible multiple vervolgs on one choice. Not only yes and no.
+        // Note that every option needs to have a dataset with the vervolg.
         if (fieldset.classList.contains("displayVervolgsAdvanced")) {
             if (labelofInput.dataset.gaVerderMet) {
                 const parentOfLabel = labelofInput.parentElement;
                 const dataset = labelofInput.dataset.gaVerderMet;
                 const theShowInput = labelofInput.querySelector(`input`);
-                // Geen click op, wel opslaan data-ga-verder-met en als er 1 voorkomt die niet voorkomt in de main input, niet laten zien.
-
                 // The other input to open the vervolg
                 theShowInput.addEventListener("click", () => {
                     let getTheVervolgToHide = [];
@@ -149,30 +150,32 @@ function displayFollowUpQuestion() {
                 });
             }
         }
+        // TODO laatste stukje in aparte function en mss wel meer
     });
 }
 
-// check if section with the fieldsets are valid
+// TODO fire all on refresh
+/**
+ * Check if the sections if the linked link has valid or invalid inputs and give a color to that link.
+ * @param {Element} link - Is the element that has a link of a certain section that needs to be validated
+ */
 function checkIfSectionsAreValid(link) {
-    let currentUrl = link.href;
-    let hashIndex = currentUrl.indexOf("#");
-    let hashAndNext = currentUrl.substring(hashIndex);
+    let hashAndNext = getTheHash(link);
     const everySection = document.querySelectorAll("main form section");
     everySection.forEach((section) => {
         if ("#" + section.id === hashAndNext) {
             const inputError = section.querySelector("fieldset label input:user-invalid:not(:focus)");
             const validInputs = section.querySelectorAll("fieldset label input:required:valid");
             const allInputs = section.querySelectorAll("fieldset input:required");
-            const linkMatchedSection = document.querySelector(`main nav a[href='#${section.id}']`);
             if (inputError && inputError.value !== "") {
-                linkMatchedSection.setAttribute("class", "");
-                linkMatchedSection.classList.add("error-color-link");
+                link.setAttribute("class", "");
+                link.classList.add("error-color-link");
             } else if (validInputs.length >= allInputs.length && validInputs.value !== "") {
-                linkMatchedSection.setAttribute("class", "");
-                linkMatchedSection.classList.add("valid-color-link");
+                link.setAttribute("class", "");
+                link.classList.add("valid-color-link");
             } else {
-                linkMatchedSection.setAttribute("class", "");
-                linkMatchedSection.classList.add("default-color-link");
+                link.setAttribute("class", "");
+                link.classList.add("default-color-link");
             }
         }
     });
@@ -197,8 +200,10 @@ function displayErrorMessage() {
     });
 }
 
-// scriptje om error message te showen als progressive enhancement voor als :has() niet werkt
-// scriptje om de links een kleur te geven als een fieldset invalid is of valid is of een error heeft
+/**
+ * Give the active color on the link that has the href to the incoming id (string). After that, validate the other links. 
+ * @param {String} sectionId - A string that has the id of a section
+ */
 function colorLinkNav(sectionId) {
     if (sectionId === undefined) {
         sectionId = window.location.hash;

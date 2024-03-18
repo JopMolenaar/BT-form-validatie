@@ -38,15 +38,12 @@ allInputs.forEach((input) => {
         if (value) {
             const inputsToFill = document.querySelectorAll(`input[name="${name}"]`);
             inputsToFill.forEach((input) => {
-                // console.log(input);
                 if (classList) {
-                    console.log("classlist: ", input.name);
                     if (input.classList[0] === classList) {
                         input.value = value;
                         input.setAttribute("required", "");
                     }
                 } else {
-                    console.log("no classlist: ", input.name);
                     input.value = value;
                     input.setAttribute("required", "");
                 }

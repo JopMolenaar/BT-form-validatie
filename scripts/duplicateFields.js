@@ -1,4 +1,5 @@
 const duplicateSections = ["verkijger-velden-geen-aangifte"];
+// TODO zonder lijst doen
 
 function duplicateFields() {
     duplicateSections.forEach((sectionString) => {

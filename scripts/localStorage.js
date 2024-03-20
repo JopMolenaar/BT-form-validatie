@@ -68,6 +68,7 @@ allInputs.forEach((input) => {
             });
             validateInputField(input);
             colorLinkNav();
+            disableInputs(input);
         }
     }
     const required = localStorage.getItem(`${input.name}-required`);
@@ -80,9 +81,10 @@ allInputs.forEach((input) => {
 function validateInputField(input) {
     const label = input.parentElement;
     const validInput = label.querySelector("input:valid");
+    const notValidInput = label.querySelector("input:invalid:not(:placeholder-shown)");
     if (validInput) {
         label.classList.add("validInput");
-    } else {
+    } else if (notValidInput) {
         label.classList.add("showErrorMessage");
     }
 }

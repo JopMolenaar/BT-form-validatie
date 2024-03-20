@@ -34,18 +34,22 @@ function fillDupliInputs(element) {
  * @param {Element} element - The element in a possible "disable-the-rest" div.
  */
 function disableInputs(element) {
-    const parent = element.parentElement;
-    const parentFromParent = parent.parentElement;
+    const label = element.parentElement;
+    const div = label.parentElement;
     const classInput = element.classList[0];
-    if (parentFromParent.classList[1] === "disable-the-rest" && element.disabled === false) {
-        const disabledInputs = parentFromParent.querySelectorAll(`input:not(.${classInput})`);
+    if (div.classList[1] === "disable-the-rest" && element.disabled === false) {
+        const disabledInputs = div.querySelectorAll(`input:not(.${classInput})`);
         disabledInputs.forEach((input) => {
             if (element.value !== "") {
                 input.disabled = true;
                 input.value = "";
                 input.innerHTML = "";
+                const labelInput = input.parentElement;
+                labelInput.setAttribute("class", "labelWithInput");
+                input.removeAttribute("required", "");
             } else {
                 input.disabled = false;
+                input.setAttribute("required", "");
             }
         });
     }

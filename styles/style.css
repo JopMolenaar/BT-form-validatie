@@ -198,8 +198,9 @@ html:has(label[data-ga-verder-met="vervolg-4c-2"] input:checked) .vervolg-4c-2
         width: fit-content;
         text-decoration: none;
         padding: 0.3rem;
-        background-color: var(--color-dark-blue);
-        color: white;
+        border: solid black 2px;
+        background-color: color-mix(in srgb, var(--color-fade-blue), white 30%);
+        color: rgb(0, 0, 0);
         border-radius: 5px;
     }
     main form section legend, main form section p {

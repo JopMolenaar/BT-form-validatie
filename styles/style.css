@@ -91,6 +91,12 @@ html:has(label[data-ga-verder-met="vervolg-4c-2"] input:checked) .vervolg-4c-2
     .moneyInput div input {
         text-align: right;
     }
+    label[data-error-message]{
+        width: 100%;
+    }
+    label[data-error-message] input {
+        width: min-content;
+    }
 
     /* ster ervoor? */
     /* label:has(input[required])::before{

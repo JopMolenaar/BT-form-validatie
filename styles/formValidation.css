@@ -135,4 +135,3 @@ html:has(.autoFillInLandcodeNL input[type=checkbox]:checked) .autoFillInLandcode
         color: var(--color-error);
     }
 }
-  

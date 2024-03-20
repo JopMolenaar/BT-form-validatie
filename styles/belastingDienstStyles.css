@@ -50,8 +50,35 @@
         height: 1em;
         aspect-ratio: 1;
     }
+    main form {
+        display: grid;
+    }
     main form section {
         background-color: #ddeff8;
         padding: 1em;
+    }
+
+    main form > button {
+        margin-top: 0.2rem;
+        font-size: 1.3em;
+        width: fit-content;
+        background-color: color-mix(in srgb, var(--color-dark-blue), white 20%);
+        color: white;
+        transition: 300ms;
+        align-self: end;
+        border-radius: 3px;        
+        grid-area: 2/1;
+    }
+
+    main form > button:not(:disabled):hover {
+        scale: 1.05;
+    }
+    main form > button:disabled {
+        opacity: 0.3;
+        background-color: gray;
+    }
+    main form > button:nth-of-type(2), main form > button:nth-of-type(3){
+        align-self: end;
+        margin-left: auto;
     }
 }

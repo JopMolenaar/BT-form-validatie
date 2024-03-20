@@ -41,22 +41,25 @@ This project was to digitalize a paper tax inheritance form of the dutch tax ser
 - [x] alle inputs namen required checken
 - [x] placeholder shown fallback
 <!-- - [ ] capitalize eerste letters naam -->
-- [ ] bsn valideren
+
 <!-- - [ ] div met zelfde class naam in div in fieldset, om generieke css has te maken -->
 - [x] localstorage function
-- [ ] localstorage validation
 - [ ] date's min
 - [ ] postcode en huisnummer validation
 <!-- - [ ] alles functies in js naar engels translaten  -->
 - [ ] styling form
 <!-- - [ ] handtekening oplossing -->
+- [ ] tabs gegevens verkrijgers maken
+- [x] js opschonen
+- [ ] inputs met geld en IBAN nummers maken
 
 ### Belangrijk
-- [ ] tabs gegevens verkrijgers maken
-- [ ] inputs met geld en IBAN nummers maken
-- [ ] toelichting details + styling
-- [x] js opschonen
-- [ ] ...
+- [ ] styling
+- [ ] localstorage validation
+- [ ] bsn valideren
+- [ ] meer patterns maken????
+
+
 
 ## License
 

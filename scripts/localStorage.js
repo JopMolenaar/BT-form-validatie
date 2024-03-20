@@ -33,12 +33,14 @@ allInputs.forEach((input) => {
                 }
             });
         }
+        fireFillInLandcode();
     } else {
         giveLabelsClass(input); // :has() fallback for styling
         const name = input.name;
         const value = localStorage.getItem(`${input.name}`);
         const classList = localStorage.getItem(`${input.name}-classList`);
         if (value) {
+            checkDetailsOpen(input); // Open details when an input in it, is filled in.
             const inputsToFill = document.querySelectorAll(`input[name="${name}"]`);
             inputsToFill.forEach((input) => {
                 if (classList) {
@@ -51,14 +53,17 @@ allInputs.forEach((input) => {
                     input.setAttribute("required", "");
                 }
             });
+            validateInputField(input);
         }
     }
     const required = localStorage.getItem(`${input.name}-required`);
     if (required) {
         input.setAttribute("required", "");
     }
-    // TODO validate the input
 });
+
+// validate the input
+function validateInputField(input) {}
 
 /**
  * Remove the local storage from the linked input
@@ -76,4 +81,16 @@ function addLocalStorageRequired(input) {
     localStorage.setItem(`${input.name}-required`, true);
 }
 
-// localStorage.clear();
+localStorage.clear();
+
+function checkDetailsOpen(inputFromLocalStorage) {
+    const details = document.querySelectorAll("details");
+    details.forEach((detail) => {
+        const inputs = detail.querySelectorAll("input");
+        inputs.forEach((input) => {
+            if (inputFromLocalStorage === input) {
+                detail.setAttribute("open", "");
+            }
+        });
+    });
+}

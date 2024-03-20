@@ -5,7 +5,6 @@ const supportsSelectorHas =
 console.log("falback js function when :has() isn't supported runs = ", !supportsSelectorHas); // boolean -> true if supported
 
 displayFollowUpQuestion();
-colorLinkNav();
 displayErrorMessage();
 runFunctionWhenTargeted();
 
@@ -65,12 +64,14 @@ function displayFollowUpQuestion() {
                     getTheVervolgToHide.forEach((vervolgToHide) => {
                         if (inputString.includes(vervolgToHide)) {
                             const element = document.querySelector(`.${vervolgToHide}`);
-                            element.style.display = "block";
-                            const allInputsInElement = element.querySelectorAll("input");
-                            allInputsInElement.forEach((input) => {
-                                input.setAttribute("required", "");
-                                addLocalStorageRequired(input);
-                            });
+                            if (element.style.display === "none") {
+                                element.style.display = "block";
+                                const allInputsInElement = element.querySelectorAll("input");
+                                allInputsInElement.forEach((input) => {
+                                    input.setAttribute("required", "");
+                                    addLocalStorageRequired(input);
+                                });
+                            }
                         } else {
                             const element = document.querySelector(`.${vervolgToHide}`);
                             element.style.display = "none";

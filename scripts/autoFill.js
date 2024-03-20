@@ -51,22 +51,24 @@ function disableInputs(element) {
     }
 }
 
-// TODO functie klopt niet
 /**
  * Get all the landcode sections and check if the landcode needs to visible or not.
  */
-const landcodeSections = document.querySelectorAll(".autoFillInLandcodeNL");
-landcodeSections.forEach((landcodeSection) => {
-    const landcodeCheckBoxInput = landcodeSection.querySelector("label:nth-of-type(1) input");
-    const landcodeCheckBox = landcodeCheckBoxInput.parentElement;
-    const landcodeInput = landcodeSection.querySelector("label:nth-of-type(2) input");
-    const landcodeLabel = landcodeInput.parentElement;
-    fillInLandcode(landcodeCheckBoxInput, landcodeInput, landcodeLabel);
-    landcodeCheckBox.style.display = "inline";
-    landcodeCheckBoxInput.addEventListener("click", () => {
+function fireFillInLandcode() {
+    const landcodeSections = document.querySelectorAll(".autoFillInLandcodeNL");
+    landcodeSections.forEach((landcodeSection) => {
+        const landcodeCheckBoxInput = landcodeSection.querySelector("label:nth-of-type(1) input");
+        const landcodeCheckBox = landcodeCheckBoxInput.parentElement;
+        const landcodeInput = landcodeSection.querySelector("label:nth-of-type(2) input");
+        const landcodeLabel = landcodeInput.parentElement;
         fillInLandcode(landcodeCheckBoxInput, landcodeInput, landcodeLabel);
+        landcodeCheckBox.style.display = "inline";
+        landcodeCheckBoxInput.addEventListener("click", () => {
+            fillInLandcode(landcodeCheckBoxInput, landcodeInput, landcodeLabel);
+        });
     });
-});
+}
+fireFillInLandcode();
 
 /**
  * Display the input field of the landcode or not

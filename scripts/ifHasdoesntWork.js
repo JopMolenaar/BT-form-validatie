@@ -7,7 +7,6 @@ console.log("falback js function when :has() isn't supported runs = ", !supports
 displayFollowUpQuestion();
 displayErrorMessage();
 runFunctionWhenTargeted();
-
 /**
  * Display the follow up question. If this function works, it removes all the spans with instruction with where to go next.
  * After that it will get all the inputs en will look if the fieldset has an advanced class or not.
@@ -166,9 +165,10 @@ function checkIfSectionsAreValid(link) {
     everySection.forEach((section) => {
         if ("#" + section.id === hashAndNext) {
             const inputError = section.querySelector("fieldset label input:user-invalid:not(:focus)");
+            const labelsWithErrorMessage = section.querySelector(".showErrorMessage");
             const validInputs = section.querySelectorAll("fieldset label input:required:valid");
             const allInputs = section.querySelectorAll("fieldset input:required");
-            if (inputError && inputError.value !== "") {
+            if ((inputError && inputError.value !== "") || labelsWithErrorMessage) {
                 link.setAttribute("class", "");
                 link.classList.add("error-color-link");
             } else if (validInputs.length >= allInputs.length && validInputs.value !== "") {
@@ -202,7 +202,7 @@ function displayErrorMessage() {
 }
 
 /**
- * Give the active color on the link that has the href to the incoming id (string). After that, validate the other links. 
+ * Give the active color on the link that has the href to the incoming id (string). After that, validate the other links.
  * @param {String} sectionId - A string that has the id of a section
  */
 function colorLinkNav(sectionId) {
@@ -212,7 +212,7 @@ function colorLinkNav(sectionId) {
     const everySection = document.querySelectorAll("main form section");
     everySection.forEach((section) => {
         const linkMatchedSection = document.querySelector(`main nav a[href='#${section.id}']`);
-        if (sectionId === "#" + section.id && sectionId !== "") {
+        if (sectionId === "#" + section.id) {
             document.querySelector(".startFormLink").style.display = "none";
             linkMatchedSection.setAttribute("class", "");
             linkMatchedSection.classList.add("active-color-link");
@@ -251,6 +251,8 @@ function runFunctionWhenTargeted() {
         const start = document.querySelector("main div:nth-of-type(1)");
         start.style.display = "flex";
     });
+    // const hashAndNext = getCurrentSection();
+    // colorLinkNav(hashAndNext);
 }
 function getTheHash(link) {
     let currentUrl = link.href;
@@ -258,6 +260,14 @@ function getTheHash(link) {
     let hashAndNext = currentUrl.substring(hashIndex);
     return hashAndNext;
 }
+
+// function getCurrentSection() {
+//     let currentUrl = window.location.href;
+//     let hashIndex = currentUrl.indexOf("#");
+//     let hashAndNext = currentUrl.substring(hashIndex);
+//     return hashAndNext;
+// }
+
 
 // Scriptje om en vraag over te slaan
 // function vragenOverslaanFunction() {

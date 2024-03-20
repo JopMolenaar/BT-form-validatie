@@ -55,7 +55,7 @@ This project was to digitalize a paper tax inheritance form of the dutch tax ser
 
 ### Belangrijk
 - [ ] styling
-- [ ] localstorage validation
+- [x] localstorage validation
 - [ ] bsn valideren
 - [ ] meer patterns maken????
 

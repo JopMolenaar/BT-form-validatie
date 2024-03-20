@@ -5,13 +5,16 @@
 const allInputs = document.querySelectorAll("input");
 allInputs.forEach((input) => {
     input.addEventListener("change", () => {
-        localStorage.setItem(`${input.name}`, input.value);
+        if (input.type !== "checkbox") {
+            localStorage.setItem(`${input.name}`, input.value);
+        } else {
+            localStorage.setItem(`${input.name}`, input.checked);
+        }
         if (input.classList[0]) {
             localStorage.setItem(`${input.name}-classList`, input.classList[0]);
         }
     });
-
-    if (input.type === "radio" || input.type === "checkbox") {
+    if (input.type === "radio") {
         const name = input.name;
         const value = localStorage.getItem(`${input.name}`);
         if (value) {
@@ -34,6 +37,16 @@ allInputs.forEach((input) => {
             });
         }
         fireFillInLandcode();
+    } else if (input.type === "checkbox") {
+        const name = input.name;
+        const value = localStorage.getItem(`${input.name}`);
+        if (value === "true") {
+            const inputToCheck = document.querySelector(`input[name="${name}"]`);
+            inputToCheck.checked = true;
+        } else {
+            const inputToCheck = document.querySelector(`input[name="${name}"]`);
+            inputToCheck.checked = false;
+        }
     } else {
         giveLabelsClass(input); // :has() fallback for styling
         const name = input.name;
@@ -54,6 +67,7 @@ allInputs.forEach((input) => {
                 }
             });
             validateInputField(input);
+            colorLinkNav();
         }
     }
     const required = localStorage.getItem(`${input.name}-required`);
@@ -63,7 +77,15 @@ allInputs.forEach((input) => {
 });
 
 // validate the input
-function validateInputField(input) {}
+function validateInputField(input) {
+    const label = input.parentElement;
+    const validInput = label.querySelector("input:valid");
+    if (validInput) {
+        label.classList.add("validInput");
+    } else {
+        label.classList.add("showErrorMessage");
+    }
+}
 
 /**
  * Remove the local storage from the linked input
@@ -81,7 +103,7 @@ function addLocalStorageRequired(input) {
     localStorage.setItem(`${input.name}-required`, true);
 }
 
-localStorage.clear();
+// localStorage.clear();
 
 function checkDetailsOpen(inputFromLocalStorage) {
     const details = document.querySelectorAll("details");

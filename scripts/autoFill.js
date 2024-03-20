@@ -91,3 +91,54 @@ function fillInLandcode(landcodeCheckBoxInput, landcodeInput, landcodeLabel) {
         landcodeLabel.style.display = "grid";
     }
 }
+
+/**
+ * Set the details that has an input from the local storage open
+ * @param {Element} inputFromLocalStorage - Input that has a local storage
+ */
+function checkDetailsOpen(inputFromLocalStorage) {
+    const details = document.querySelectorAll("details");
+    details.forEach((detail) => {
+        const inputs = detail.querySelectorAll("input");
+        inputs.forEach((input) => {
+            if (inputFromLocalStorage === input) {
+                detail.setAttribute("open", "");
+                setReqOnDetails(detail);
+            }
+        });
+    });
+}
+
+/**
+ * Check when reloading the page if a detail is open or not, en set required on the inputs or not
+ */
+const details = document.querySelectorAll("details");
+details.forEach((detail) => {
+    detail.addEventListener("click", () => {
+        // checkIfDetailsOpen(detail)
+        const getAllInputs = detail.querySelectorAll("input");
+        getAllInputs.forEach((input) => {
+            if (!detail.open) {
+                input.setAttribute("required", "");
+            } else {
+                input.removeAttribute("required", "");
+            }
+        });
+    });
+    setReqOnDetails(detail);
+});
+
+/**
+ * set required on the inputs that are open, and remove them when the details is closed. 
+ * @param {Element} detail - detail element
+ */
+function setReqOnDetails(detail) {
+    const getAllInputs = detail.querySelectorAll("input");
+    getAllInputs.forEach((input) => {
+        if (detail.open) {
+            input.setAttribute("required", "");
+        } else {
+            input.removeAttribute("required", "");
+        }
+    });
+}

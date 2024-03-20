@@ -107,15 +107,3 @@ function addLocalStorageRequired(input) {
 }
 
 // localStorage.clear();
-
-function checkDetailsOpen(inputFromLocalStorage) {
-    const details = document.querySelectorAll("details");
-    details.forEach((detail) => {
-        const inputs = detail.querySelectorAll("input");
-        inputs.forEach((input) => {
-            if (inputFromLocalStorage === input) {
-                detail.setAttribute("open", "");
-            }
-        });
-    });
-}

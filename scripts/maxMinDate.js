@@ -3,6 +3,7 @@ const inputDisabledFuture = [
     "input[name=overlijdensdatum-overledene]",
     "input[name=datum-testament]",
     "input[name=datum-partnerschapsvoorwaarden]",
+    "input[name=geboortedatum-persoon-1]",
 ];
 // TODO geen lijstje
 // TODO min date

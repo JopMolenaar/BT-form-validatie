@@ -47,11 +47,11 @@ function checkBsnAndShowError(bsnNumberInput) {
         const showErrorMessage = isPossibleBsn(bsnNumberInput.value);
         const label = bsnNumberInput.parentElement;
         if (showErrorMessage) {
-            console.log(showErrorMessage, "is a bsn");
             label.classList.remove("showErrorMessage");
         } else {
-            console.log(showErrorMessage, "not a bsn");
             label.classList.add("showErrorMessage");
         }
     }
 }
+
+// testnummer: 636574283

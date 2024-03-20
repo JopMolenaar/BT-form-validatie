@@ -1,5 +1,5 @@
 /* :user-invalid, :user-valid, label input:valid:not(:focus):before { content: attr(data-error-message)} "before werkt niet op input op firefox dus moet op de label"*/
-@layer base, normalVal, hasSpecific, jsClasses;
+@layer base, baseExtra, normalVal, hasSpecific, jsClasses;
 :root {
     --color-not-valid: #8fcae7;
     --color-error: rgb(255, 123, 0);
@@ -88,9 +88,19 @@ form:invalid {
     }
 }
 
+.autoFillInLandcodeNL {
+    display: flex;
+}
+
 /* Landcode */
 .autoFillInLandcodeNL label:nth-of-type(1) {
     display: none;
+    max-width: 13em;
+}
+.autoFillInLandcodeNL label:nth-of-type(1) input {
+    order: -1;
+    scale: 1.4;
+    margin-right: 1em;
 }
 html:has(.autoFillInLandcodeNL input[type=checkbox]:checked) .autoFillInLandcodeNL label:nth-of-type(2) {
     display: none;

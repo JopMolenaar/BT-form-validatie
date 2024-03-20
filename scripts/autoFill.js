@@ -88,7 +88,7 @@ function fireFillInLandcode() {
         const landcodeInput = landcodeSection.querySelector("label:nth-of-type(2) input");
         const landcodeLabel = landcodeInput.parentElement;
         fillInLandcode(landcodeCheckBoxInput, landcodeInput, landcodeLabel);
-        landcodeCheckBox.style.display = "inline";
+        landcodeCheckBox.style.display = "flex";
         landcodeCheckBoxInput.addEventListener("click", () => {
             fillInLandcode(landcodeCheckBoxInput, landcodeInput, landcodeLabel);
         });
@@ -103,14 +103,21 @@ fireFillInLandcode();
  * @param {Element} landcodeLabel - The label of that input
  */
 function fillInLandcode(landcodeCheckBoxInput, landcodeInput, landcodeLabel) {
+    const div = landcodeLabel.parentElement;
+    const adressFieldset = div.parentElement;
+    const postcodeInput = adressFieldset.querySelector(`input[data-postode="true"]`);
     if (landcodeCheckBoxInput.checked) {
         landcodeInput.required = false;
         landcodeInput.value = ""; // need to be in generic function
         landcodeLabel.style.display = "none";
+        postcodeInput.setAttribute("pattern", "[0-9]{4}[a-zA-Z]{2}");
+        validateInputField(postcodeInput);
     } else {
         landcodeInput.required = true;
         landcodeInput.value = ""; // need to be in generic function
         landcodeLabel.style.display = "grid";
+        postcodeInput.removeAttribute("pattern", "");
+        postcodeInput.parentElement.setAttribute("class", "labelWithInput");
     }
 }
 

@@ -35,7 +35,6 @@
                 <!-- TODO popovers met info -->
                 <section id="eersteSection">
                     <h2>Vul hier de gegevens in van de overledene.</h2>
-                    <button class="infoButton" type="button">i</button>
                     <fieldset data-vraag="1a">
                         <legend><span>1a </span>Vul hier de gegevens in van de overledene.</legend>
                         <div class="name">
@@ -218,7 +217,6 @@
                 </section>
                 <section id="tweedeSection">
                     <h2>Gegevens gemachtigde</h2>
-                    <button class="infoButton" type="button">i</button>
                     <p>Vul de gegevens van de gemachtigde in. De gemachtigde is degene die namens 1 of meerdere personen en/of instellingen aangifte doet.
                         Het invullen van een telefoonnummer of e-mailadres is niet verplicht, maar wel handig. Dan kunnen wij u makkelijker vragen stellen of uitleg geven.
                     </p>
@@ -265,27 +263,26 @@
                                     <input type="text" name="straat-gemachtigde" placeholder=" " required>
                                 </label>
                                 <label>Huisnummer
-                                    <input type="text" name="huisnummer-gemachtigde" placeholder=" " required>
+                                    <input type="number" name="huisnummer-gemachtigde" placeholder=" " required>
                                 </label>
                                 <label>Toevoeging huisnummer
-                                    <input type="text" name="toevoeging-huisnummer-gemachtigde" placeholder=" ">
+                                    <input type="text"  name="toevoeging-huisnummer-gemachtigde" placeholder=" ">
                                 </label>
-                                <label>Postcode
-                                    <!-- TODO pattern -->
-                                    <input type="text" name="postode-gemachtigde" placeholder=" " required>
+                                <label data-error-message="De postode moet 4 nummers en 2 tekens bevatten">Postcode
+                                    <input data-postode="true" type="text" name="postode-gemachtigde" title="De postode moet 4 nummers en 2 tekens bevatten" placeholder=" " required>
                                 </label>
                                 <label>Plaats
                                     <input type="text" name="plaats-gemachtigde" placeholder=" " required>
                                 </label>
-                            </div>
-                            <div class="autoFillInLandcodeNL">
-                                <label>
-                                    Dit adres bevind zich in Nederland
-                                    <input type="checkbox" name="adres-in-nl-gemachtigde">
-                                </label>
-                                <label data-error-message="Een landcode moet 3 of 4 cijfers bevatten">Landcode<span class="noneWithJs">. NL: ..., In onderdeel C van de <a href="#" target="_blank">toelichting</a> vindt u een lijst met landcodes.</span>
-                                    <input type="text" name="landcode-gemachtigde" inputmode="tel" pattern="[0-9]{3,4}" title="Een landcode moet 3 of 4 cijfers bevatten" placeholder=" " required>
-                                </label>
+                                <div class="autoFillInLandcodeNL">
+                                    <label>
+                                        Dit adres bevind zich in Nederland
+                                        <input type="checkbox" name="adres-in-nl-gemachtigde">
+                                    </label>
+                                    <label data-error-message="Een landcode moet 3 of 4 cijfers bevatten">Landcode<span class="noneWithJs">. Nederland: 31, In onderdeel C van de <a href="#" target="_blank">toelichting</a> vindt u een lijst met landcodes.</span>
+                                        <input type="text" name="landcode-gemachtigde" inputmode="tel" pattern="[0-9]{3,4}" title="Een landcode moet 3 of 4 cijfers bevatten" placeholder=" " required>
+                                    </label>
+                                </div>
                             </div>
                             <label>Telefoonnummer
                                 <!-- TODO pattern, title, errormessage -->
@@ -304,7 +301,6 @@
                 </section>
                 <section id="derdeSection">
                     <h2>Voor wie doet u aangifte?</h2>
-                    <button class="infoButton" type="button">i</button>
                     <fieldset class="displayVervolgsAdvanced">
                         <legend><span>3a</span> Voor wie doet u aangifte?</legend>
                         <p>Heeft de overledene in het testament een executeur aangewezen om de erfenis af te handelen?
@@ -403,9 +399,9 @@
                             </div>
                             <div data-duplicate="verkijger-velden-geen-aangifte">
                                 <button class="add" type="button">+<span>Voeg een verkrijger toe werkt op het moment niet.</span></button>
-                                <button class="delete" type="button">-<span>Voeg een verkrijger toe werkt op het moment niet.</span></button>
+                                <button class="delete" type="button">-<span>Verwijder een verkrijger werkt op het moment niet.</span></button>
                             </div>
-                            <a href="#">Open lijst met verkrijger velden</a>
+                            <a href="#">Open lijst met meer verkrijger velden</a>
                         </div>
                     </fieldset>
                     <fieldset>
@@ -424,7 +420,7 @@
                     <fieldset>
                         <legend><span>3d</span> Bent u executeur of gemachtigde?</legend>   
                         <label>
-                            <input type="radio" name="executeur-gemachtigde" placeholder=" " value="Nee">
+                            <input type="radio" name="executeur-gemachtigde" placeholder=" " value="Nee" required>
                             Nee <span>Ga verder naar vraag 4.</span>
                         </label>
                         <label data-ga-verder-met="vervolg-3d">
@@ -435,14 +431,24 @@
                     <fieldset class="vervolg-3d vervolg">
                         <!-- TODO gegevens gemachtigde is dubbel? -->
                         <legend><span>3e</span> Gegevens van de executeur of gemachtigde</legend>
-                        <p>Onderteken deze aangifte als volgt:
-                            – Bent u executeur? Dan moet u aangifte doen voor alle personen en/of instellingen die iets krijgen uit de nalatenschap (verkrijgers).
-                            U ondertekent als enige dit aangifteformulier.
-                            – Bent u gemachtigde? Dan ondertekent u dit aangifteformulier voor de personen door wie u gemachtigd bent.
-                            Zij hoeven het aangifteformulier niet zelf te ondertekenen.
-                            – Bent u erfgenaam en doet u samen met andere erfgenamen aangifte? Dan moeten de erfgenamen het aangifteformulier zelf
-                            ondertekenen bij vraag 4g.
-                            – Bent u erfgenaam en doet u alleen voor uzelf aangifte? Dan ondertekent u het aangifteformulier zelf bij vraag 4g.</p> 
+                        <p>Onderteken deze aangifte als volgt:</p> 
+                        <ul>
+                            <li>
+                                Bent u executeur? Dan moet u aangifte doen voor alle personen en/of instellingen die iets krijgen uit de nalatenschap (verkrijgers).
+                                U ondertekent als enige dit aangifteformulier.
+                            </li>
+                            <li>
+                                Bent u gemachtigde? Dan ondertekent u dit aangifteformulier voor de personen door wie u gemachtigd bent.
+                                Zij hoeven het aangifteformulier niet zelf te ondertekenen.
+                            </li>
+                            <li>
+                                Bent u erfgenaam en doet u samen met andere erfgenamen aangifte? Dan moeten de erfgenamen het aangifteformulier zelf
+                                ondertekenen bij vraag 4g.
+                            </li>
+                            <li>
+                                Bent u erfgenaam en doet u alleen voor uzelf aangifte? Dan ondertekent u het aangifteformulier zelf bij vraag 4g.
+                            </li>
+                        </ul>
                         <!-- autocomplete? -->
                         <label data-error-message="Het BSN nummer moet 8 of 9 nummers bevatten">Burgerservicenummer/RSIN
                             <input data-bsn="true" type="text" name="burgerservicenummer-gemachtigde" inputmode="numeric" pattern="[0-9]{8,9}" title="Het BSN nummer moet 8 of 9 nummers bevatten" placeholder=" " />
@@ -479,7 +485,7 @@
                                 <input type="text" placeholder=" " name="toevoeging-huisnummer-executeur-gemachtigde">
                             </label>
                             <label>Postcode
-                                <input type="text" placeholder=" " name="postcode-executeur-gemachtigde" >
+                                <input type="text" pattern="\d{4}[a-zA-Z]{2}" placeholder=" " name="postcode-executeur-gemachtigde" >
                             </label>
                             <label>Plaats
                                 <input type="text" placeholder=" " name="plaats-executeur-gemachtigde" >
@@ -499,7 +505,6 @@
                 </section>
                 <section id="vierdeSection">
                     <h2>Gegevens verkrijgers</h2>
-                    <button class="infoButton" type="button">i</button>
                     <p>Vul de gegevens van de gemachtigde in. De gemachtigde is degene die namens 1 of meerdere personen en/of instellingen aangifte doet.
                         Het invullen van een telefoonnummer of e-mailadres is niet verplicht, maar wel handig. Dan kunnen wij u makkelijker vragen stellen of uitleg geven.
                     </p>
@@ -555,20 +560,20 @@
                                 <input type="text" placeholder=" " name="toevoeging-huisnummer-persoon-1">
                             </label>
                             <label>Postcode
-                                <input type="text" placeholder=" " required name="postcode-persoon-1">
+                                <input type="text" data-postode="true" placeholder=" " required name="postcode-persoon-1">
                             </label>
                             <label>Plaats
                                 <input type="text" placeholder=" " required name="plaats-persoon-1">
                             </label>
-                        </div>
-                        <div class="autoFillInLandcodeNL">
-                            <label>
-                                Dit adres bevind zich in Nederland
-                                <input type="checkbox" name="adres-in-nl-persoon-1">
-                            </label>
-                            <label data-error-message="Een landcode moet 3 of 4 cijfers bevatten">Landcode<span class="noneWithJs">. NL: ..., In onderdeel C van de <a href="#" target="_blank">toelichting</a> vindt u een lijst met landcodes.</span>
-                                <input type="text" name="landcode-persoon-1" inputmode="tel" pattern="[0-9]{3,4}" title="Een landcode moet 3 of 4 cijfers bevatten" placeholder=" " required>
-                            </label>
+                            <div class="autoFillInLandcodeNL">
+                                <label>
+                                    Dit adres bevind zich in Nederland
+                                    <input type="checkbox" name="adres-in-nl-persoon-1">
+                                </label>
+                                <label data-error-message="Een landcode moet 3 of 4 cijfers bevatten">Landcode<span class="noneWithJs">. Nederland: 31, In onderdeel C van de <a href="#" target="_blank">toelichting</a> vindt u een lijst met landcodes.</span>
+                                    <input type="text" name="landcode-persoon-1" inputmode="tel" pattern="[0-9]{3,4}" title="Een landcode moet 3 of 4 cijfers bevatten" placeholder=" " required>
+                                </label>
+                            </div>
                         </div>
                     </fieldset>
                     <fieldset>
@@ -617,7 +622,6 @@
                 </section>
                 <section id="vijfdeSection">
                     <h2>Samenstelling van de erfenis</h2>
-                    <button class="infoButton" type="button">i</button>
                     <p>Bij deze vragen geeft u de waarde aan van alle bezittingen en
                         schulden die de overledene had op de overlijdensdatum, zoals een
                         woning, een bankrekening, een aandelenpakket of een hypotheek.

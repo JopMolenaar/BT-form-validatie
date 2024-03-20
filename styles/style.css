@@ -84,6 +84,10 @@ label {
     margin-bottom: 0.5rem;
 }
 
+.moneyInput input {
+    text-align: right;
+}
+
 /* ster ervoor? */
 /* label:has(input[required])::before{
     content: "*";
@@ -98,6 +102,7 @@ input[type="radio"] {
     aspect-ratio: 1;
     margin: 0;
 }
+
 
 
 section > fieldset {

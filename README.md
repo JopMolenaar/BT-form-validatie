@@ -34,32 +34,26 @@ This project was to digitalize a paper tax inheritance form of the dutch tax ser
 
 ## Whishlist
 
-- [x] 1/3 input fields moet required zijn, als 1 is ingevuld moet het valid zijn 
+<!-- - [x] 1/3 input fields moet required zijn, als 1 is ingevuld moet het valid zijn 
 - [x] protocol nummer invullen met js als het is ingevuld 
 - [x] date's max
 - [x] js falbacks if :has() is not working
 - [x] alle inputs namen required checken
 - [x] placeholder shown fallback
-<!-- - [ ] capitalize eerste letters naam -->
-
-<!-- - [ ] div met zelfde class naam in div in fieldset, om generieke css has te maken -->
 - [x] localstorage function
-- [ ] date's min
-- [ ] postcode en huisnummer validation
-<!-- - [ ] alles functies in js naar engels translaten  -->
-- [ ] styling form
-<!-- - [ ] handtekening oplossing -->
-- [ ] tabs gegevens verkrijgers maken
+- [x] postcode validation
+- [x] styling form
 - [x] js opschonen
-- [ ] inputs met geld en IBAN nummers maken
-
-### Belangrijk
-- [ ] styling
 - [x] localstorage validation
-- [ ] bsn valideren
-- [ ] meer patterns maken????
+- [x] bsn valideren -->
 
-
+- [ ] Meer patterns maken
+- [ ] Capitalize eerste letters naam
+- [ ] Date's min
+- [ ] Tabs gegevens verkrijgers maken
+- [ ] Inputs met geld en IBAN nummers maken
+- [ ] Styling verbeteren (nav boven de form, input fiels, layout, buttons)
+- [ ] `*` in de `:before` van de label om required fields aan te geven
 
 ## License
 

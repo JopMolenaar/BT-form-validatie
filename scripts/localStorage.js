@@ -40,7 +40,7 @@ allInputs.forEach((input) => {
     } else if (input.type === "checkbox") {
         const name = input.name;
         const value = localStorage.getItem(`${input.name}`);
-        if (value === "true") {
+        if (value === "true" || value === true) {
             const inputToCheck = document.querySelector(`input[name="${name}"]`);
             inputToCheck.checked = true;
         } else {

@@ -1,5 +1,5 @@
 /* :user-invalid, :user-valid, label input:valid:not(:focus):before { content: attr(data-error-message)} "before werkt niet op input op firefox dus moet op de label"*/
-@layer base, hasSpecific, jsClasses;
+@layer base, normalVal, hasSpecific, jsClasses;
 :root {
     --color-not-valid: #8fcae7;
     --color-error: rgb(255, 123, 0);
@@ -35,7 +35,15 @@
 
 
     /* als een label invalid is, geen focus heeft, en niet leeg is: geef dan de error message uit de data attribute */
-    label:has(input:user-invalid:not(:focus):not(:placeholder-shown))::after, 
+    label:has(input:user-invalid:not(:focus):not(:placeholder-shown))::after{
+        content: attr(data-error-message);
+        width: fit-content;
+        grid-row: 2/3;
+        color: var(--color-error);
+    }
+}
+
+@layer jsClasses {
     .showErrorMessage::after {
         content: attr(data-error-message);
         width: fit-content;
@@ -45,9 +53,7 @@
     .showErrorMessage input:not(:placeholder-shown){
         border: var(--color-error) solid 2px;
     }
-}
 
-@layer jsClasses {
     .active-color-link {
         background-color: var(--color-dark-blue);
         scale: 1.3;
@@ -63,17 +69,15 @@
     }
 }
 
-
-/* if the input is valid or not, and not empty, show a feedback border */
-input:user-valid:not(:placeholder-shown), .validInput input {
-    border: var(--color-valid) solid 2px;
+@layer normalVal{
+    /* if the input is valid or not, and not empty, show a feedback border */
+    input:user-valid:not(:placeholder-shown), .validInput input {
+        border: var(--color-valid) solid 2px;
+    }
+    input:user-invalid:not(:placeholder-shown) {
+        border: var(--color-error) solid 2px;
+    }
 }
-input:user-invalid:not(:placeholder-shown) {
-    border: var(--color-error) solid 2px;
-}
-
-
-
 
 form:invalid {
     & button[value="Verstuur"] {

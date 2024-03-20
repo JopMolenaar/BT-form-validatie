@@ -1,7 +1,7 @@
 // Function for validating BSN numbers
 // This does not mean it is an existing BSN, only that it is a possible BSN
 
-const isPossibleBsn = (bsn) => {
+function isPossibleBsn(bsn) {
     // Make an array from BSN chars
     const bsnChars = bsn.split("");
 
@@ -32,5 +32,26 @@ const isPossibleBsn = (bsn) => {
     } else {
         return false;
     }
-};
+}
 // Source for validation: https://nl.wikipedia.org/wiki/Burgerservicenummer#11-proef
+
+const allBsnNumbers = document.querySelectorAll(`input[data-bsn="true"]`);
+allBsnNumbers.forEach((bsnNumberInput) => {
+    bsnNumberInput.addEventListener("blur", () => {
+        checkBsnAndShowError(bsnNumberInput);
+    });
+});
+
+function checkBsnAndShowError(bsnNumberInput) {
+    if (bsnNumberInput.dataset.bsn) {
+        const showErrorMessage = isPossibleBsn(bsnNumberInput.value);
+        const label = bsnNumberInput.parentElement;
+        if (showErrorMessage) {
+            console.log(showErrorMessage, "is a bsn");
+            label.classList.remove("showErrorMessage");
+        } else {
+            console.log(showErrorMessage, "not a bsn");
+            label.classList.add("showErrorMessage");
+        }
+    }
+}

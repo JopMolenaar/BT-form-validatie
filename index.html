@@ -50,8 +50,8 @@
                             </label>
                         </div>
                         <!-- TODO placeholder spaties voor safari -->
-                        <label data-error-message="Het BSN nummer moet 8 of 9 nummers bevatten">Burgerservicenummer overledene
-                            <input type="text" name="burgerservicenummer-overledene" inputmode="numeric" pattern="[0-9]{8,9}" title="Het BSN nummer moet 8 of 9 nummers bevatten" placeholder=" " required />
+                        <label data-error-message="Dit is een ongeldig BSN nummer">Burgerservicenummer overledene
+                            <input data-bsn="true" type="text" name="burgerservicenummer-overledene" inputmode="numeric" pattern="[0-9]{8,9}" title="Het BSN nummer moet 8 of 9 nummers bevatten" placeholder=" " required />
                         </label>
                         <label>Overlijdensdatum
                             <input type="date" name="overlijdensdatum-overledene" placeholder=" " required />
@@ -232,7 +232,7 @@
                         <div class="duplicate-input disable-the-rest">
                             <label data-error-message="Het BSN/RSIN nummer moet 8 of 9 nummers bevatten">Burgerservicenummer/
                                 RSIN gemachtigde
-                                <input class="bsn-rsin-gemachtigde" type="text" name="nummer-gemachtigde" inputmode="numeric" pattern="[0-9]{8,9}" title="Vul hier het BSN nummer of RSIN nummer in van de gemachtigde" placeholder=" " required />
+                                <input data-bsn="true" class="bsn-rsin-gemachtigde" type="text" name="nummer-gemachtigde" inputmode="numeric" pattern="[0-9]{8,9}" title="Vul hier het BSN nummer of RSIN nummer in van de gemachtigde" placeholder=" " required />
                             </label>
                             <label data-error-message="Het beconnummer nummer moet 6 nummers bevatten">Beconnummer adviseur
                                 <input class="beconnummer-gemachtigde" type="text" name="nummer-gemachtigde" inputmode="numeric" pattern="[0-6]{6}" title="Vul hier het beconnummer in van de adviseur" placeholder=" "  />
@@ -362,7 +362,7 @@
                                 <div class="verkijger-velden-geen-aangifte">
                                     <p>Verkrijger 1</p>
                                     <label data-error-message="Het BSN nummer moet 8 of 9 nummers bevatten">Burgerservicenummer verkrijger
-                                        <input type="text" name="burgerservicenummer-verkrijger-1" inputmode="numeric" pattern="[0-9]{8,9}" title="Het BSN nummer moet 8 of 9 nummers bevatten" placeholder=" " />
+                                        <input data-bsn="true" type="text" name="burgerservicenummer-verkrijger-1" inputmode="numeric" pattern="[0-9]{8,9}" title="Het BSN nummer moet 8 of 9 nummers bevatten" placeholder=" " />
                                     </label>
                                     <div class="name">
                                         <label>Voorletter(s)
@@ -445,7 +445,7 @@
                             – Bent u erfgenaam en doet u alleen voor uzelf aangifte? Dan ondertekent u het aangifteformulier zelf bij vraag 4g.</p> 
                         <!-- autocomplete? -->
                         <label data-error-message="Het BSN nummer moet 8 of 9 nummers bevatten">Burgerservicenummer/RSIN
-                            <input type="text" name="burgerservicenummer-gemachtigde" inputmode="numeric" pattern="[0-9]{8,9}" title="Het BSN nummer moet 8 of 9 nummers bevatten" placeholder=" " />
+                            <input data-bsn="true" type="text" name="burgerservicenummer-gemachtigde" inputmode="numeric" pattern="[0-9]{8,9}" title="Het BSN nummer moet 8 of 9 nummers bevatten" placeholder=" " />
                         </label>
                         <label data-error-message="Het protocolnummer nummer moet 9 nummers bevatten">Protocolnummer (als de executeur ook notaris is)
                             <input type="text" name="nummer-gemachtigde" inputmode="numeric" pattern="[0-9]{9}" title="Vul hier het protocol nummer in van de notaris" placeholder=" "  />
@@ -510,7 +510,7 @@
                             <summary>Gegevens persoon</summary>
                             <div>
                                 <label data-error-message="Het BSN nummer moet 8 of 9 nummers bevatten">Burgerservicenummer persoon
-                                    <input type="text" name="burgerservicenummer-peroon-1" inputmode="numeric" pattern="[0-9]{8,9}" title="Het BSN nummer moet 8 of 9 nummers bevatten" placeholder=" " />
+                                    <input type="text" data-bsn="true" name="burgerservicenummer-peroon-1" inputmode="numeric" pattern="[0-9]{8,9}" title="Het BSN nummer moet 8 of 9 nummers bevatten" placeholder=" " />
                                 </label>
                                 <div class="name">
                                     <label>Voorletter(s)

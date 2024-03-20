@@ -69,6 +69,7 @@ allInputs.forEach((input) => {
             validateInputField(input);
             colorLinkNav();
             disableInputs(input);
+            checkBsnAndShowError(input); 
         }
     }
     const required = localStorage.getItem(`${input.name}-required`);

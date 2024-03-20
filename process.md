@@ -103,3 +103,4 @@ moeilijkheid of lastiger the definieren, zo kan het minder snel kapot.
 Ook zei hij in het algemeen dat je telkens moet nadenken als frontend dev over alles wat je doet. 
 Niet zomaar dingen doen omdat je dat altijd doet.
 
+### Week 4

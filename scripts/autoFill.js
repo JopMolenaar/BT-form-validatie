@@ -56,6 +56,28 @@ function disableInputs(element) {
 }
 
 /**
+ * Sets a required on the inputs where not all input need to be filled in
+ */
+function setReqOnDisableTheRestInput() {
+    const divs = document.querySelectorAll("div");
+    divs.forEach((div) => {
+        if (div.classList) {
+            const classListDiv = div.classList;
+            classListDiv.forEach((classList) => {
+                if (classList === "disable-the-rest") {
+                    console.log(classListDiv);
+                    const inputs = div.querySelectorAll("input");
+                    inputs.forEach((input) => {
+                        disableInputs(input);
+                    });
+                }
+            });
+        }
+    });
+}
+setReqOnDisableTheRestInput();
+
+/**
  * Get all the landcode sections and check if the landcode needs to visible or not.
  */
 function fireFillInLandcode() {

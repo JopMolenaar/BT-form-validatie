@@ -90,38 +90,22 @@ Die vrijdag had ik mijn eerste voortgangsgesprek en de docent was erg enthousias
 
 ### Week 3
 
-Deze week ging ik verder aan de bouwstenen
-veel bugs opgelost
- <!--TODO hier mee verder  -->
-
-- Bij vraag 3a 
-dit was een grote bug in mijn code nadat ik de functie had herschreven na mijn feedback moment. Er waren 5 radio buttons die niet altijd 2 vervolg secties laten zien. Bij een moest hij alleen het eerste vervolg laten zien en bij de derde alleen de tweede. Dit had ik opgelost door een attribute erop te zetten van data-ga-verder-met en data-ga-ook-verder-met. Maar PPK zei dat dat handiger kon en dat was door het te splitten met een comma in 1 dataset. Hiervoor moest ik wel mijn al werkende functie omschrijven wat veel tijd en andere logica koste dan het opeklappen van de radio buttons. Ook had ik later problemen met de validatie, het openklappen van de juiste secties aan de hand van de al geselecteerde opties die uit de local storage kwamen en nog wat meer. Dit heb ik toen allemaal moeten oplossen wat natuurlijk wel is gelukt. 
+Deze week ging ik verder aan de bouwstenen en heb ik veel bugs opgelost waaronder: vraag 3a.
+Dit was een grote bug in mijn code nadat ik de functie had herschreven na mijn feedback moment. Er waren 5 radio buttons die niet altijd 2 vervolg secties laten zien. Bij een moest hij alleen het eerste vervolg laten zien en bij de derde alleen de tweede. Dit had ik opgelost door een attribute erop te zetten van data-ga-verder-met en data-ga-ook-verder-met. Maar PPK zei dat dat handiger kon en dat was door het te splitten met een comma in 1 dataset. Hiervoor moest ik wel mijn al werkende functie omschrijven wat veel tijd en andere logica koste dan het opeklappen van de radio buttons. Ook had ik later problemen met de validatie, het openklappen van de juiste secties aan de hand van de al geselecteerde opties die uit de local storage kwamen en nog wat meer. Dit heb ik toen allemaal moeten oplossen wat natuurlijk wel is gelukt. 
 
 Ook heb ik mijn website op de IOS en MAC safari browser getest en daar bleek dat placeholder-shown het niet deed. Als ik dus een input field weer leeg maakte, zou het geen error of iets van validatie moeten laten zien. Dit deed het op Chrome, maar dus niet op Safari, terwijl placeholder-shown wel wordt ondersteunt. Ik ging op onder zoek uit en dacht bij mijzelf waarom het het niet zo werken en toen bedacht ik mij dat er mogelijk een spatie zou in moeten staan. Ik had namelijk `placeholder=""` op de input gezet, maar het is best logisch dat als je niks in een placeolder zet, hij ook niet te zien is. En ja hoor, `placeholder-shown` op Safari doet het wel als je `placeholder=" "` met dus een spatie op de input zet. Dit was wel grappig om te zien dat deze browsers dit dus allebei verschillend begrijpen en interpreteren. 
 
-Ik heb deze weken al meerdere nieuwe input elementen en attributen geleerd zoals pattern en inputmode. Maar tijdens het feedback gesprek had iemand `accept` op zijn input met een `type="file"` gezet. ...
- <!--TODO hier mee verder  -->
+Ik heb deze weken al meerdere nieuwe input elementen en attributen geleerd zoals pattern en inputmode. Maar tijdens het feedback gesprek had iemand `accept` op zijn input met een `type="file"` gezet. Dit ben ik toen ingedoken en heb het toegepast op mijn handtekening input. Door `accept="image/*,.pdf"` op mijn input te hebben gezet kunnen mensen alle soorten images en pdf's uploaden. En door `image/*` kan je op sommige apparaten de camera openen en een foto maken van je handtekening. 
 
-
-features met js gemaakt zoals localstorage, extra verkrijgers toevoegen, het laten werken van de hide en show zonder lijst, wat een uitdaging was met 3a. want daar werkt het niet iets anders, namelijk met dubbelingen en hoe ik erover heen loopte liet het weer verdwijnen. En toen ik het had laten werken voor 3a, werkte het niet voor normale inputs. ben er zeker 8+ uur mee bezig geweest.
-validation en js fallbacks verbeterd + besloten om het alvast an te zetten want dat werkt beter samen.
-feedback gekregen 
-veel meer content toegevoegd, heel vraag 3 en een deel van 4.
-feedback van jeremy: probeer het gene wat alles kapot kan maken op het zelfde niveau kwa 
-moeilijkheid of lastiger the definieren, zo kan het minder snel kapot.
-Ook zei hij in het algemeen dat je telkens moet nadenken als frontend dev over alles wat je doet. 
-Niet zomaar dingen doen omdat je dat altijd doet.
- <!--TODO hier mee verder  -->
-
-- volledig has coveren
-- @supports not for specificity probleem
- <!--TODO hier mee verder  -->
-
+Ook heb ik deze week features met javascript gemaakt zoals localstorage, extra verkrijgers toevoegen, validation en javascript fallbacks verbeterd. Ook heb
+ik besloten om de javascript alvast aan te zetten en niet te kijken of has het wel of niet doet want dat werkt beter samen met de andere javascript functies.
+Ook heb ik veel meer content toegevoegd, heel vraag 3 en een deel van 4. En heb ik feedback gekregen van Jeremy. Hij zei: probeer het gene wat alles kapot kan maken op het zelfde niveau kwa moeilijkheid of lastiger the definieren, zo kan het minder snel kapot. Hij doelde hier vooral op `section:target {display: block;}` en `section {display: none;}`. als target het niet doet voor een of andere reden doet alleen de display none selector. Dis is wel een groot probleem want dan ziet de gebruiker niks. Door het zo: `section:not(:target) {display: none;}` op te schrijven, is het minder moeilijk om kapot te maken. 
+Ook zei hij in het algemeen dat je telkens moet nadenken als frontend dev over alles wat je doet. Niet zomaar dingen doen omdat je dat altijd doet.
+Ook had ik een specificity probleem met placeholder-shown. Na wat research heb ik `@supports not` gebruikt voor placeholder-shown i.p.v alleen `@supports`
 
 ### Week 4
 
-- @layer toegepast omdat de js classes de has niet overwriten terwijl dat wel de bedoeling as want js was uiteindelijk specifieker. 
- <!--TODO hier mee verder  -->
-
 Deze week was ik vooral bezig met het oplossen van bugs. Ik was namelijk alle laastste bouwstenen aan het maken en het te proberen implementeren in de code waardoor alles goed werkt met elkaar. Dit ging gepaard met veel testen. En door al dat testen zag ik dat sommige dingen niet werkte zoals ze moesten werken en door veel `console.log` te plaatsen en de pagina te inspecteren kwam ik erachter waarom. 
+Ook had ik weer ander specificity probleem omdat de javascript classes de `:has()` niet overschreef terwijl dat wel de bedoeling was want javascript was uiteindelijk specifieker. Dit kon ik op lossen met @layer.
+
 Als ik op deze weken terug kijk heb ik veel geleerd over browsers, browser compatibility, forms en form validation. Ik heb geprobeerd mijn functies zo te schrijven dat je ze makkelijk kan hergebruiken op meerdere plekken verder in het formulier maar tijdens dat ik aan het coderen was kwam ik vaak uitzonderingen tegen die net weer eventjes anders werkte. Het zou dus zo kunnen zijn dat sommige functies slimmer, korter en efficienter kunnen worden geschreven, maar dat is een taak voor in de toekomst. 

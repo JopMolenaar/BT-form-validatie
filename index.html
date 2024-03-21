@@ -228,7 +228,7 @@
                         <!-- Anders laat je de andere 2 zien -->
                         <!-- TODO kan dit dezelfde naam hebben? -->
                         <div class="duplicate-input disable-the-rest">
-                            <label data-error-message="Het BSN/RSIN nummer moet 8 of 9 nummers bevatten">Burgerservicenummer/
+                            <label data-error-message="Dit is een ongeldig BSN/RSIN nummer">Burgerservicenummer/
                                 RSIN gemachtigde
                                 <input data-bsn="true" class="bsn-rsin-gemachtigde" type="text" name="nummer-gemachtigde" inputmode="numeric" pattern="[0-9]{8,9}" title="Vul hier het BSN nummer of RSIN nummer in van de gemachtigde" placeholder=" " />
                             </label>
@@ -357,7 +357,7 @@
                             <div>
                                 <div class="verkijger-velden-geen-aangifte">
                                     <p>Verkrijger 1</p>
-                                    <label data-error-message="Het BSN nummer moet 8 of 9 nummers bevatten">Burgerservicenummer verkrijger
+                                    <label data-error-message="Dit is een ongeldig BSN nummer">Burgerservicenummer verkrijger
                                         <input data-bsn="true" type="text" name="burgerservicenummer-verkrijger-1" inputmode="numeric" pattern="[0-9]{8,9}" title="Het BSN nummer moet 8 of 9 nummers bevatten" placeholder=" " />
                                     </label>
                                     <div class="name">
@@ -450,8 +450,8 @@
                             </li>
                         </ul>
                         <!-- autocomplete? -->
-                        <label data-error-message="Het BSN nummer moet 8 of 9 nummers bevatten">Burgerservicenummer/RSIN
-                            <input data-bsn="true" type="text" name="burgerservicenummer-gemachtigde" inputmode="numeric" pattern="[0-9]{8,9}" title="Het BSN nummer moet 8 of 9 nummers bevatten" placeholder=" " />
+                        <label data-error-message="Dit is een ongeldig BSN/RSIN nummer">Burgerservicenummer/RSIN
+                            <input data-bsn="true" type="text" name="burgerservicenummer-gemachtigde" inputmode="numeric" pattern="[0-9]{8,9}" title="Het BSN of RSIN nummer moet 8 of 9 nummers bevatten" placeholder=" " />
                         </label>
                         <label data-error-message="Het protocolnummer nummer moet 9 nummers bevatten">Protocolnummer (als de executeur ook notaris is)
                             <input type="text" name="nummer-gemachtigde" inputmode="numeric" pattern="[0-9]{9}" title="Vul hier het protocol nummer in van de notaris" placeholder=" "  />
@@ -514,7 +514,7 @@
                         <details open>
                             <summary>Gegevens persoon</summary>
                             <div>
-                                <label data-error-message="Het BSN nummer moet 8 of 9 nummers bevatten">Burgerservicenummer persoon
+                                <label data-error-message="Dit is een ongeldig BSN nummer">Burgerservicenummer persoon
                                     <input type="text" data-bsn="true" name="burgerservicenummer-peroon-1" inputmode="numeric" pattern="[0-9]{8,9}" title="Het BSN nummer moet 8 of 9 nummers bevatten" placeholder=" " />
                                 </label>
                                 <div class="name">
@@ -672,10 +672,10 @@
         </main>
         <footer></footer>
         <script src="scripts/ifHasdoesntWork.js"></script>
-        <script src="scripts/maxMinDate.js"></script>
+        <script src="scripts/maxMinDate.js" defer></script>
         <script src="scripts/autoFill.js"></script>
         <script src="scripts/bsnValidation.js"></script>
-        <script src="scripts/localStorage.js"></script>
-        <script src="scripts/duplicateFields.js"></script>
+        <script src="scripts/localStorage.js" defer></script>
+        <script src="scripts/duplicateFields.js" defer></script>
     </body>
 </html>

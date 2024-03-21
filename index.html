@@ -53,7 +53,7 @@
                             <input data-bsn="true" type="text" name="burgerservicenummer-overledene" inputmode="numeric" pattern="[0-9]{8,9}" title="Het BSN nummer moet 8 of 9 nummers bevatten" placeholder=" " required />
                         </label>
                         <label>Overlijdensdatum
-                            <input type="date" name="overlijdensdatum-overledene" placeholder=" " required />
+                            <input type="date" name="overlijdensdatum-overledene" required />
                         </label>
                     </fieldset>
                     <fieldset data-vraag="1b">
@@ -68,14 +68,14 @@
                                 <p>Vul deze vraag in als de overledene op de datum van
                                     overlijden getrouwd was of een geregistreerd partner had.
                                     U hoeft vraag 1b niet in te vullen als:
-                                    <ul>
-                                        <li>de overledene een notarieel samenlevingscontract had
-                                            met diens partner</li>
-                                        <li>de overledene samen met een partner of huisgenoot op
-                                            hetzelfde adres stond ingeschreven in de Basisregistratie
-                                            Personen (BRP) van de gemeente</li>
-                                    </ul>
                                 </p>
+                                <ul>
+                                    <li>de overledene een notarieel samenlevingscontract had
+                                        met diens partner</li>
+                                    <li>de overledene samen met een partner of huisgenoot op
+                                        hetzelfde adres stond ingeschreven in de Basisregistratie
+                                        Personen (BRP) van de gemeente</li>
+                                </ul>
                                 <h4>Finaal verrekenbeding</h4>
                                 <p>
                                     Was de overledene getrouwd op huwelijkse voorwaarden?
@@ -207,7 +207,7 @@
                             </label>
                             <label>
                                 Datum van het testament of van de laatste wijziging
-                                <input type="date" name="datum-testament"placeholder=" "/>
+                                <input type="date" name="datum-testament" />
                             </label>
                         </fieldset>
                     </fieldset>
@@ -408,11 +408,11 @@
                     <fieldset>
                         <legend><span>3c</span> Naar wie wilt u dat wij de aanslag erfbelasting sturen?</legend>
                         <label>
-                            <input type="radio" name="erfbelasting-sturen" placeholder=" " value="deel-naar-iedere-verkrijger">
+                            <input type="radio" name="erfbelasting-sturen" value="deel-naar-iedere-verkrijger">
                             Stuur naar iedere verkrijger van (een deel van) de erfenis een eigen belastingaanslag.
                         </label>
                         <label>
-                            <input type="radio" name="erfbelasting-sturen" placeholder=" " value="naar-de-executeur-of-erfgenaam">
+                            <input type="radio" name="erfbelasting-sturen"  value="naar-de-executeur-of-erfgenaam">
                             Stuur de belastingaanslag(en) naar de executeur of naar de erfgenaam die ook namens andere personen en/of instellingen
                             die iets krijgen uit de nalatenschap (verkrijgers) aangifte heeft gedaan; dit mag ook de gemachtigde zijn.
                             Wij sturen de aanslag(en) naar het adres dat u bij vraag 2 hebt ingevuld.
@@ -421,11 +421,11 @@
                     <fieldset>
                         <legend><span>3d</span> Bent u executeur of gemachtigde?</legend>   
                         <label>
-                            <input type="radio" name="executeur-gemachtigde" placeholder=" " value="Nee" required>
+                            <input type="radio" name="executeur-gemachtigde"  value="Nee" required>
                             Nee <span>Ga verder naar vraag 4.</span>
                         </label>
                         <label data-ga-verder-met="vervolg-3d">
-                            <input type="radio" name="executeur-gemachtigde" placeholder=" " value="Ja">
+                            <input type="radio" name="executeur-gemachtigde" value="Ja">
                             Ja
                         </label>
                     </fieldset>
@@ -493,10 +493,10 @@
                             </label>
                         </div>
                         <label>Datum
-                            <input type="date" name="datum-executeur-gemachtigde" placeholder=" ">
+                            <input type="date" name="datum-executeur-gemachtigde" >
                         </label>
                         <label>Uw handtekening
-                            <input type="file" accept="image/*,.pdf" name="handtekening-executeur-gemachtigde" placeholder=" ">
+                            <input type="file" accept="image/*,.pdf" name="handtekening-executeur-gemachtigde" >
                         </label>
                     </fieldset>
                     <div class="terugEnVolgende">
@@ -531,7 +531,7 @@
                                 </div>
                                 <label>
                                     Geboortedatum
-                                    <input type="date" name="geboortedatum-persoon-1" placeholder=" ">
+                                    <input type="date" name="geboortedatum-persoon-1" >
                                 </label>
                             </div>
                         </details>
@@ -655,9 +655,9 @@
                             Voor woningen vult u de WOZ-waarde in. Voor bijvoorbeeld bedrijfspanden,
                             een onbebouwd stuk grond of een onroerende zaak in het buitenland, vult u de
                             waarde in het economisch verkeer in. Let op! Vul ook vraag 5c in.
-                            <div>
+                            <!-- <span> -->
                                 € <input type="number" name="WOZ-waarde-of-economisch-verkeer" required placeholder=" ">
-                            </div>
+                            <!-- </span> -->
                         </label>
                     </fieldset>   
                     <div class="terugEnVolgende">
